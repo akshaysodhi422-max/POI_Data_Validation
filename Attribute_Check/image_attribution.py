@@ -1,26 +1,32 @@
 """
-image_attribution.py
+add_image_credits.py
 --------------------
-Given a list of JSON objects with an image URL, enriches each object
-with attribution/credit metadata.
+Enriches a cleaned POI JSON file with image attribution data.
+For each object, looks up the image_url and adds an `image_credits`
+property containing the source platform and the person to credit.
 
-Supported sources:
-  - Wikimedia Commons  (via MediaWiki API — no key needed)
-  - Flickr             (requires FLICKR_API_KEY env var)
-  - Unsplash           (requires UNSPLASH_ACCESS_KEY env var)
-  - Generic fallback   (EXIF + HTTP headers best-effort)
+Supported sources (auto-detected from URL):
+  - Wikimedia Commons  (no API key needed)
+  - Flickr             (set FLICKR_API_KEY env var)
+  - Unsplash           (set UNSPLASH_ACCESS_KEY env var)
+  - Generic fallback   (EXIF/XMP metadata best-effort)
 
 Usage:
-    python image_attribution.py input.json output.json
+    # First run — process entire file:
+    python add_image_credits.py input.json output.json
 
-    # or pipe directly:
-    echo '[{"url": "https://upload.wikimedia.org/..."}]' | python image_attribution.py - -
+    # Retry only failed entries in an already-processed file:
+    python add_image_credits.py credited_data.json credited_data.json --retry-failed
+
+    # With API keys:
+    FLICKR_API_KEY=xxx python add_image_credits.py cleaned_data.json credited_data.json
 """
 
 import sys
 import json
 import os
 import re
+import time
 import urllib.request
 import urllib.parse
 import urllib.error
@@ -29,47 +35,44 @@ from typing import Optional
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-FLICKR_API_KEY   = os.getenv("FLICKR_API_KEY", "")
+FLICKR_API_KEY      = os.getenv("FLICKR_API_KEY", "")
 UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY", "")
 
 HEADERS = {"User-Agent": "ImageAttributionScript/1.0 (attribution lookup tool)"}
 
+MAX_RETRIES  = 6          # attempts per entry (1 original + 4 retries)
+RETRY_DELAY  = 3.0        # base delay in seconds (doubles each retry)
+REQUEST_GAP  = 1       # polite gap between successful requests
 
 # ---------------------------------------------------------------------------
-# Helpers
+# HTTP helpers
 # ---------------------------------------------------------------------------
 
 def http_get(url: str, extra_headers: dict = None) -> Optional[dict]:
-    """Fetch JSON from a URL. Returns parsed dict or None on failure."""
+    """Fetch JSON with exponential backoff retry on failure."""
     req = urllib.request.Request(url, headers={**HEADERS, **(extra_headers or {})})
-    try:
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except Exception as e:
-        return None
+    delay = RETRY_DELAY
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except Exception as e:
+            if attempt < MAX_RETRIES:
+                print(f"      ↻ attempt {attempt} failed ({e}), retrying in {delay:.0f}s…", file=sys.stderr)
+                time.sleep(delay)
+                delay *= 2
+            else:
+                print(f"      ✗ all {MAX_RETRIES} attempts failed for: {url[:80]}", file=sys.stderr)
+    return None
 
 
 def http_get_bytes(url: str) -> Optional[bytes]:
-    """Fetch raw bytes (for EXIF reading)."""
     req = urllib.request.Request(url, headers=HEADERS)
     try:
         with urllib.request.urlopen(req, timeout=10) as resp:
-            return resp.read(65536)  # read first 64 KB — enough for EXIF
+            return resp.read(65536)
     except Exception:
         return None
-
-
-def empty_attribution() -> dict:
-    return {
-        "attribution_source": None,
-        "author": None,
-        "author_url": None,
-        "license": None,
-        "license_url": None,
-        "title": None,
-        "source_page": None,
-        "attribution_note": None,
-    }
 
 
 # ---------------------------------------------------------------------------
@@ -81,47 +84,33 @@ def is_wikimedia(url: str) -> bool:
 
 
 def extract_wiki_filename(url: str) -> Optional[str]:
-    """
-    Extract the bare filename from a Wikimedia URL.
-    Handles thumb URLs like:
-      .../thumb/a/a3/Foo.jpg/1280px-Foo.jpg  -> Foo.jpg
-      .../commons/a/a3/Foo.jpg               -> Foo.jpg
-    """
-    # thumb pattern: /thumb/xx/xx/FILENAME/NNNpx-FILENAME
     thumb = re.search(r"/thumb/[0-9a-f]/[0-9a-f]{2}/([^/]+)/", url)
     if thumb:
         return urllib.parse.unquote(thumb.group(1))
-
-    # plain pattern: /commons/x/xx/FILENAME
     plain = re.search(r"/[0-9a-f]/[0-9a-f]{2}/([^/?#]+)$", url)
     if plain:
         return urllib.parse.unquote(plain.group(1))
-
+    # Special:FilePath pattern
+    fp = re.search(r"Special:FilePath/([^?&#]+)", url, re.IGNORECASE)
+    if fp:
+        return urllib.parse.unquote(fp.group(1))
     return None
 
 
 def lookup_wikimedia(url: str) -> dict:
-    attr = empty_attribution()
-    attr["attribution_source"] = "Wikimedia Commons"
-
     filename = extract_wiki_filename(url)
     if not filename:
-        attr["attribution_note"] = "Could not extract filename from URL"
-        return attr
+        return {"source": "Wikimedia Commons", "credit": None, "note": "Could not extract filename from URL"}
 
     api_url = (
         "https://commons.wikimedia.org/w/api.php"
-        "?action=query"
-        "&prop=imageinfo"
-        "&iiprop=extmetadata|url"
+        "?action=query&prop=imageinfo&iiprop=extmetadata|url"
         "&format=json"
         f"&titles=File:{urllib.parse.quote(filename)}"
     )
-
     data = http_get(api_url)
     if not data:
-        attr["attribution_note"] = "Wikimedia API request failed"
-        return attr
+        return {"source": "Wikimedia Commons", "credit": None, "note": "API request failed"}
 
     pages = data.get("query", {}).get("pages", {})
     page  = next(iter(pages.values()), {})
@@ -131,26 +120,17 @@ def lookup_wikimedia(url: str) -> dict:
     def gv(key):
         return meta.get(key, {}).get("value")
 
-    # Artist field often contains HTML — strip tags
     artist_raw = gv("Artist") or ""
     artist = re.sub(r"<[^>]+>", "", artist_raw).strip() or None
-
     license_short = gv("LicenseShortName")
-    license_url   = gv("LicenseUrl")
-    title         = gv("ObjectName") or filename
 
-    attr.update({
-        "author":      artist,
-        "license":     license_short,
-        "license_url": license_url,
-        "title":       title,
+    return {
+        "source": "Wikimedia Commons",
+        "credit": artist,
+        "license": license_short,
         "source_page": f"https://commons.wikimedia.org/wiki/File:{urllib.parse.quote(filename)}",
-    })
-
-    if not artist:
-        attr["attribution_note"] = "Author metadata not found in API response"
-
-    return attr
+        "note": None if artist else "Author not found in metadata",
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -158,30 +138,28 @@ def lookup_wikimedia(url: str) -> dict:
 # ---------------------------------------------------------------------------
 
 FLICKR_LICENSE_MAP = {
-    "0": ("All Rights Reserved",        None),
-    "1": ("CC BY-NC-SA 2.0",            "https://creativecommons.org/licenses/by-nc-sa/2.0/"),
-    "2": ("CC BY-NC 2.0",               "https://creativecommons.org/licenses/by-nc/2.0/"),
-    "3": ("CC BY-NC-ND 2.0",            "https://creativecommons.org/licenses/by-nc-nd/2.0/"),
-    "4": ("CC BY 2.0",                  "https://creativecommons.org/licenses/by/2.0/"),
-    "5": ("CC BY-SA 2.0",               "https://creativecommons.org/licenses/by-sa/2.0/"),
-    "6": ("CC BY-ND 2.0",               "https://creativecommons.org/licenses/by-nd/2.0/"),
-    "7": ("No known copyright",         "https://www.flickr.com/commons/usage/"),
-    "8": ("United States Government",   None),
-    "9": ("CC0",                        "https://creativecommons.org/publicdomain/zero/1.0/"),
-    "10":("Public Domain Mark",         "https://creativecommons.org/publicdomain/mark/1.0/"),
+    "0":  "All Rights Reserved",
+    "1":  "CC BY-NC-SA 2.0",
+    "2":  "CC BY-NC 2.0",
+    "3":  "CC BY-NC-ND 2.0",
+    "4":  "CC BY 2.0",
+    "5":  "CC BY-SA 2.0",
+    "6":  "CC BY-ND 2.0",
+    "7":  "No known copyright",
+    "8":  "United States Government Work",
+    "9":  "CC0",
+    "10": "Public Domain Mark",
 }
 
 
 def is_flickr(url: str) -> bool:
-    return "flickr.com" in url or "staticflickr.com" in url or "live.staticflickr.com" in url
+    return "flickr.com" in url or "staticflickr.com" in url
 
 
 def extract_flickr_photo_id(url: str) -> Optional[str]:
-    # Static URL: https://live.staticflickr.com/SERVERID/PHOTOID_xxxx.jpg
     static = re.search(r"staticflickr\.com/\d+/(\d+)_", url)
     if static:
         return static.group(1)
-    # Page URL: https://www.flickr.com/photos/user/PHOTOID/
     page = re.search(r"flickr\.com/photos/[^/]+/(\d+)", url)
     if page:
         return page.group(1)
@@ -189,48 +167,34 @@ def extract_flickr_photo_id(url: str) -> Optional[str]:
 
 
 def lookup_flickr(url: str) -> dict:
-    attr = empty_attribution()
-    attr["attribution_source"] = "Flickr"
-
     if not FLICKR_API_KEY:
-        attr["attribution_note"] = "FLICKR_API_KEY not set — cannot look up metadata"
-        return attr
+        return {"source": "Flickr", "credit": None, "note": "FLICKR_API_KEY not set"}
 
     photo_id = extract_flickr_photo_id(url)
     if not photo_id:
-        attr["attribution_note"] = "Could not extract Flickr photo ID from URL"
-        return attr
+        return {"source": "Flickr", "credit": None, "note": "Could not extract photo ID from URL"}
 
     api_url = (
         f"https://api.flickr.com/services/rest/"
-        f"?method=flickr.photos.getInfo"
-        f"&api_key={FLICKR_API_KEY}"
-        f"&photo_id={photo_id}"
-        f"&format=json&nojsoncallback=1"
+        f"?method=flickr.photos.getInfo&api_key={FLICKR_API_KEY}"
+        f"&photo_id={photo_id}&format=json&nojsoncallback=1"
     )
-
     data = http_get(api_url)
     if not data or data.get("stat") != "ok":
-        attr["attribution_note"] = "Flickr API request failed or photo not found"
-        return attr
+        return {"source": "Flickr", "credit": None, "note": "API request failed or photo not found"}
 
     photo  = data["photo"]
     owner  = photo.get("owner", {})
     author = owner.get("realname") or owner.get("username")
-    author_url = f"https://www.flickr.com/photos/{owner.get('nsid', '')}"
-    title  = photo.get("title", {}).get("_content")
     lic_id = str(photo.get("license", "0"))
-    lic_name, lic_url = FLICKR_LICENSE_MAP.get(lic_id, ("Unknown", None))
 
-    attr.update({
-        "author":      author,
-        "author_url":  author_url,
-        "license":     lic_name,
-        "license_url": lic_url,
-        "title":       title,
+    return {
+        "source": "Flickr",
+        "credit": author,
+        "license": FLICKR_LICENSE_MAP.get(lic_id, "Unknown"),
         "source_page": f"https://www.flickr.com/photos/{owner.get('nsid', '')}/{photo_id}",
-    })
-    return attr
+        "note": None,
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -242,11 +206,9 @@ def is_unsplash(url: str) -> bool:
 
 
 def extract_unsplash_photo_id(url: str) -> Optional[str]:
-    # https://images.unsplash.com/photo-PHOTOID?...
     m = re.search(r"photo-([A-Za-z0-9_-]+)", url)
     if m:
         return m.group(1)
-    # https://unsplash.com/photos/PHOTOID
     m = re.search(r"unsplash\.com/photos/([A-Za-z0-9_-]+)", url)
     if m:
         return m.group(1)
@@ -254,87 +216,70 @@ def extract_unsplash_photo_id(url: str) -> Optional[str]:
 
 
 def lookup_unsplash(url: str) -> dict:
-    attr = empty_attribution()
-    attr["attribution_source"] = "Unsplash"
-
     if not UNSPLASH_ACCESS_KEY:
-        attr["attribution_note"] = "UNSPLASH_ACCESS_KEY not set — cannot look up metadata"
-        return attr
+        return {"source": "Unsplash", "credit": None, "note": "UNSPLASH_ACCESS_KEY not set"}
 
     photo_id = extract_unsplash_photo_id(url)
     if not photo_id:
-        attr["attribution_note"] = "Could not extract Unsplash photo ID from URL"
-        return attr
+        return {"source": "Unsplash", "credit": None, "note": "Could not extract photo ID from URL"}
 
-    api_url = f"https://api.unsplash.com/photos/{photo_id}"
-    data = http_get(api_url, extra_headers={"Authorization": f"Client-ID {UNSPLASH_ACCESS_KEY}"})
-
+    data = http_get(
+        f"https://api.unsplash.com/photos/{photo_id}",
+        extra_headers={"Authorization": f"Client-ID {UNSPLASH_ACCESS_KEY}"}
+    )
     if not data:
-        attr["attribution_note"] = "Unsplash API request failed or photo not found"
-        return attr
+        return {"source": "Unsplash", "credit": None, "note": "API request failed"}
 
     user = data.get("user", {})
-    author = user.get("name")
-    author_url = user.get("links", {}).get("html")
-    description = data.get("description") or data.get("alt_description")
-
-    attr.update({
-        "author":      author,
-        "author_url":  author_url,
-        "license":     "Unsplash License",
-        "license_url": "https://unsplash.com/license",
-        "title":       description,
+    return {
+        "source": "Unsplash",
+        "credit": user.get("name"),
+        "license": "Unsplash License",
         "source_page": data.get("links", {}).get("html"),
-    })
-    return attr
+        "note": None,
+    }
 
 
 # ---------------------------------------------------------------------------
-# Generic fallback — try EXIF
+# Generic fallback (EXIF/XMP scan)
 # ---------------------------------------------------------------------------
 
 def lookup_generic(url: str) -> dict:
-    attr = empty_attribution()
-    attr["attribution_source"] = "Unknown"
-    attr["source_page"] = url
-
     raw = http_get_bytes(url)
     if not raw:
-        attr["attribution_note"] = "Could not fetch image data"
-        return attr
+        return {"source": "Unknown", "credit": None, "note": "Could not fetch image data"}
 
-    # Minimal EXIF/XMP scan — look for common credit fields in raw bytes
     text = raw.decode("latin-1", errors="replace")
 
     def find_xmp(tag: str) -> Optional[str]:
-        pattern = rf"<(?:dc:|xmpRights:|photoshop:)?{tag}[^>]*>([^<]{{1,200}})<"
-        m = re.search(pattern, text, re.IGNORECASE)
+        m = re.search(rf"<(?:dc:|xmpRights:|photoshop:)?{tag}[^>]*>([^<]{{1,200}})<", text, re.IGNORECASE)
         return m.group(1).strip() if m else None
 
     creator = find_xmp("creator") or find_xmp("Artist")
     rights  = find_xmp("rights") or find_xmp("Copyright")
-    title   = find_xmp("title")
 
-    if creator or rights or title:
-        attr.update({
-            "author":  creator,
+    if creator or rights:
+        return {
+            "source": "Embedded metadata",
+            "credit": creator,
             "license": rights,
-            "title":   title,
-            "attribution_note": "Extracted from embedded EXIF/XMP metadata",
-        })
-    else:
-        attr["attribution_note"] = (
-            "No attribution found. Check the source page manually: " + url
-        )
+            "source_page": url,
+            "note": "Extracted from EXIF/XMP",
+        }
 
-    return attr
+    return {
+        "source": "Unknown",
+        "credit": None,
+        "source_page": url,
+        "note": "No attribution found — check source manually",
+    }
 
 
 # ---------------------------------------------------------------------------
 # Router
 # ---------------------------------------------------------------------------
 
-def lookup_attribution(url: str) -> dict:
+def get_image_credits(url: str) -> dict:
     url = url.strip()
     if is_wikimedia(url):
         return lookup_wikimedia(url)
@@ -350,53 +295,81 @@ def lookup_attribution(url: str) -> dict:
 # Main
 # ---------------------------------------------------------------------------
 
-def process(items: list, url_key: str = "url") -> list:
-    results = []
-    for i, item in enumerate(items):
-        url = item.get(url_key) or item.get("image") or item.get("img") or item.get("image_url")
-        if not url:
-            print(f"[{i+1}] Skipping — no URL field found in: {list(item.keys())}", file=sys.stderr)
-            results.append({**item, **empty_attribution(), "attribution_note": "No URL field found"})
-            continue
+def needs_retry(item: dict) -> bool:
+    """Return True if this entry previously failed and should be retried."""
+    credits = item.get("image_credits")
+    if not isinstance(credits, dict):
+        return False
+    return credits.get("note") == "API request failed"
 
-        print(f"[{i+1}] Looking up: {url[:80]}...", file=sys.stderr)
-        attribution = lookup_attribution(url)
-        results.append({**item, **attribution})
 
-    return results
+def build_credits(raw: dict) -> dict:
+    """Normalise raw attribution dict into the final image_credits shape."""
+    result = {
+        "source":      raw.get("source"),
+        "credit":      raw.get("credit"),
+        "license":     raw.get("license"),
+        "source_page": raw.get("source_page"),
+    }
+    if raw.get("note"):
+        result["note"] = raw["note"]
+    return result
 
 
 def main():
-    # --- argument handling ---
-    args = sys.argv[1:]
-    input_path  = args[0] if len(args) > 0 else "-"
-    output_path = args[1] if len(args) > 1 else "-"
+    args        = sys.argv[1:]
+    input_path  = args[0] if len(args) > 0 else "cleaned_data.json"
+    output_path = args[1] if len(args) > 1 else "credited_data.json"
+    retry_mode  = "--retry-failed" in args
 
-    # Read input
-    if input_path == "-":
-        raw = sys.stdin.read()
-    else:
-        with open(input_path, "r", encoding="utf-8") as f:
-            raw = f.read()
-
-    try:
-        data = json.loads(raw)
-    except json.JSONDecodeError as e:
-        print(f"Error: Invalid JSON input — {e}", file=sys.stderr)
-        sys.exit(1)
+    with open(input_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
 
     if not isinstance(data, list):
-        data = [data]  # wrap single object
+        print("Error: JSON must be an array of objects.", file=sys.stderr)
+        sys.exit(1)
 
-    results = process(data)
+    total       = len(data)
+    results     = []
+    retried     = 0
+    newly_fixed = 0
 
-    # Write output
-    output = json.dumps(results, indent=2, ensure_ascii=False)
-    if output_path == "-":
-        print(output)
+    for i, item in enumerate(data):
+        title = item.get("title", f"item {i+1}")
+        url   = item.get("image_url", "").strip()
+
+        # --- Retry mode: skip entries that don't need retrying ---
+        if retry_mode and not needs_retry(item):
+            results.append(item)
+            continue
+
+        if not url:
+            print(f"[{i+1}/{total}] SKIP (no image_url): {title}", file=sys.stderr)
+            results.append({**item, "image_credits": None})
+            continue
+
+        if retry_mode:
+            retried += 1
+            print(f"[{i+1}/{total}] RETRY: {title[:50]}", file=sys.stderr)
+        else:
+            print(f"[{i+1}/{total}] Looking up: {title[:50]}", file=sys.stderr)
+
+        raw     = get_image_credits(url)
+        credits = build_credits(raw)
+
+        if retry_mode and credits.get("note") != "API request failed":
+            newly_fixed += 1
+
+        results.append({**item, "image_credits": credits})
+        time.sleep(REQUEST_GAP)
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+
+    if retry_mode:
+        still_failing = retried - newly_fixed
+        print(f"\nRetry complete — {newly_fixed}/{retried} fixed, {still_failing} still failing.", file=sys.stderr)
     else:
-        with open(output_path, "w", encoding="utf-8") as f:
-            f.write(output)
         print(f"\nDone — wrote {len(results)} record(s) to {output_path}", file=sys.stderr)
 
 
