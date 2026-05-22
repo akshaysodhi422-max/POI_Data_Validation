@@ -147,7 +147,7 @@
     "lon": 24.100636,
     "image_credits": {
       "source": "Wikimedia Commons",
-      "credit": "No machine-readable author provided. Frode Inge Helland assumed (based on copyright claims). ???",
+      "credit": "No machine-readable author provided. Frode Inge Helland assumed (based on copyright claims).",
       "license": "CC BY 2.5",
       "source_page": "https://commons.wikimedia.org/wiki/File:2006%2009%2014-17%20RigaFortress054.jpg"
     }
@@ -789,14 +789,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/%D0%A1%D1%80%D0%B5%D0%B4%D0%B8%D0%B7%D0%B5%D0%BC%D0%BD%D0%BE%D0%B5%20%D0%BC%D0%BE%D1%80%D0%B5%20%D1%83%20%D0%B1%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D0%B2%20%D0%9B%D0%B8%D0%B2%D0%B8%D0%B8.jpg",
     "image_file": "%D0%A1%D1%80%D0%B5%D0%B4%D0%B8%D0%B7%D0%B5%D0%BC%D0%BD%D0%BE%D0%B5_%D0%BC%D0%BE%D1%80%D0%B5_%D1%83_%D0%B1%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D0%B2_%D0%9B%D0%B8%D0%B2%D0%B8%D0%B8.jpg",
     "wikidata_id": "Q738028",
-    "lat": 34,
-    "lon": 24.4,
+    "lat": 33.970698,
+    "lon": 19.182129,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Корниенко Виктор",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:%D0%A1%D1%80%D0%B5%D0%B4%D0%B8%D0%B7%D0%B5%D0%BC%D0%BD%D0%BE%D0%B5%20%D0%BC%D0%BE%D1%80%D0%B5%20%D1%83%20%D0%B1%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D0%B2%20%D0%9B%D0%B8%D0%B2%D0%B8%D0%B8.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -874,14 +875,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Garyounis%20university2.JPG",
     "image_file": "Garyounis_university2.JPG",
     "wikidata_id": "Q3134657",
-    "lat": 32.1167,
-    "lon": 20.0667,
+    "lat": 32.057918,
+    "lon": 20.050564,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Maher A. A. Abdussalam",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Garyounis%20university2.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -1265,14 +1267,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Lyduvenaibridge1.JPG",
     "image_file": "Lyduvenaibridge1.JPG",
     "wikidata_id": "Q6707743",
-    "lat": 55.506111,
-    "lon": 23.085556,
+    "lat": 55.506259,
+    "lon": 23.087318,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Rimantas Lazdynas",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Lyduvenaibridge1.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -2100,14 +2103,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Chongoni%20rock%20art.jpg",
     "image_file": "Chongoni_rock_art.jpg",
     "wikidata_id": "Q832262",
-    "lat": -14.293333,
-    "lon": 34.279167,
+    "lat": -14.378649,
+    "lon": 34.174175,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "「Malawi」",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Chongoni%20rock%20art.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -2117,14 +2121,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Chongoni_Rock-Art_Area-110134.jpg/1280px-Chongoni_Rock-Art_Area-110134.jpg",
     "image_file": "site_476.jpg",
     "wikidata_id": "UNESCO_476",
-    "lat": -14.218521,
-    "lon": 34.207074,
+    "lat": -14.378442,
+    "lon": 34.174347,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Lazare Eloundou Assomo",
       "license": "CC BY-SA 3.0 igo",
       "source_page": "https://commons.wikimedia.org/wiki/File:Chongoni_Rock-Art_Area-110134.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -2458,14 +2463,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/FRIM_Canopy_Walk.JPG",
     "image_file": "site_1734.jpg",
     "wikidata_id": "UNESCO_1734",
-    "lat": 3.22925,
-    "lon": 101.627278,
+    "lat": 3.164855,
+    "lon": 101.553497,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Melancholia i",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:FRIM_Canopy_Walk.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -3036,14 +3042,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Villingili%20%28Mal%C3%A9%29.jpg",
     "image_file": "Villingili_%28Mal%C3%A9%29.jpg",
     "wikidata_id": "Q176749",
-    "lat": 4.17336,
-    "lon": 73.48502,
+    "lat": 0.755417,
+    "lon": 73.435621,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Shahee Ilyas",
       "license": "CC BY 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Villingili%20%28Mal%C3%A9%29.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -3104,14 +3111,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/The_Great_Clay_Mosque_in_Djenne%2C_Mali.jpg/1920px-The_Great_Clay_Mosque_in_Djenne%2C_Mali.jpg",
     "image_file": "site_116.jpg",
     "wikidata_id": "UNESCO_116",
-    "lat": 13.890255,
-    "lon": -4.540443,
+    "lat": 13.905159,
+    "lon": -4.554949,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Dr. Ondřej Havelka (cestovatel)",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:The_Great_Clay_Mosque_in_Djenne%2C_Mali.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -3410,14 +3418,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Jabat.JPG",
     "image_file": "Jabat.JPG",
     "wikidata_id": "Q697805",
-    "lat": 7.75,
-    "lon": 168.966667,
+    "lat": 7.751476,
+    "lon": 168.976593,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "NASA Johnson Space Center - Earth Sciences and Image Analysis",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Jabat.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -3683,14 +3692,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Rodrigues%20CalcareniticShore.jpg",
     "image_file": "Rodrigues_CalcareniticShore.jpg",
     "wikidata_id": "Q208668",
-    "lat": -19.72,
-    "lon": 63.42,
+    "lat": -19.709061,
+    "lon": 63.442612,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "B.navez",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Rodrigues%20CalcareniticShore.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -4023,14 +4033,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Templo_y_Antiguo_convento_de_San_Juan_Bautista_en_Yecapixtla.JPG/1280px-Templo_y_Antiguo_convento_de_San_Juan_Bautista_en_Yecapixtla.JPG",
     "image_file": "site_702.jpg",
     "wikidata_id": "UNESCO_702",
-    "lat": 18.783931,
-    "lon": -98.76602,
+    "lat": 18.932309,
+    "lon": -98.898368,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Miandigra",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Templo_y_Antiguo_convento_de_San_Juan_Bautista_en_Yecapixtla.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -4261,14 +4272,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Zocalo_cathedral.jpg/1280px-Zocalo_cathedral.jpg",
     "image_file": "site_412.jpg",
     "wikidata_id": "UNESCO_412",
-    "lat": 19.220663,
-    "lon": -98.964393,
+    "lat": 19.263508,
+    "lon": -99.104748,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Adrian Sampson from Bainbridge Island, WA, USA",
       "license": "CC BY 2.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Zocalo_cathedral.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -4448,14 +4460,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Lake%20chapala.png",
     "image_file": "Lake_chapala.png",
     "wikidata_id": "Q318350",
-    "lat": 20.333333,
-    "lon": -103,
+    "lat": 20.22902,
+    "lon": -103.072701,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "NASA",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Lake%20chapala.png"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -4771,14 +4784,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Uxmal%2C_Yucat%C3%A1n%2C_M%C3%A9xico_Oct_2018_-_03.jpg/960px-Uxmal%2C_Yucat%C3%A1n%2C_M%C3%A9xico_Oct_2018_-_03.jpg",
     "image_file": "site_791.jpg",
     "wikidata_id": "UNESCO_791",
-    "lat": 20.172534,
-    "lon": -89.578674,
+    "lat": 20.359675,
+    "lon": -89.770832,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Alejandro Hernández Osuna",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Uxmal%2C_Yucat%C3%A1n%2C_M%C3%A9xico_Oct_2018_-_03.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -5179,14 +5193,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Orhei%20Vechi%2C%20Moldova%20-%20Flickr%20-%20Dave%20Proffer%20%2812%29.jpg",
     "image_file": "Orhei_Vechi%2C_Moldova_-_Flickr_-_Dave_Proffer_%2812%29.jpg",
     "wikidata_id": "Q15838244",
-    "lat": 47.3,
-    "lon": 28.966667,
+    "lat": 47.303214,
+    "lon": 28.798943,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Dave Proffer",
       "license": "CC BY 2.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Orhei%20Vechi%2C%20Moldova%20-%20Flickr%20-%20Dave%20Proffer%20%2812%29.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -5247,14 +5262,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/MD.C.C_-_UTM_main_building_-_nov_2016.jpg/960px-MD.C.C_-_UTM_main_building_-_nov_2016.jpg",
     "image_file": "UTM_Chisinau_-_main_entrance.jpg",
     "wikidata_id": "Q1098106",
-    "lat": 47.03072,
-    "lon": 28.82399,
+    "lat": 47.061535,
+    "lon": 28.868659,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Gikü",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:MD.C.C_-_UTM_main_building_-_nov_2016.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -5485,14 +5501,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Tsatsyn_Denj_Deerstone.jpg/960px-Tsatsyn_Denj_Deerstone.jpg",
     "image_file": "site_1621.jpg",
     "wikidata_id": "UNESCO_1621",
-    "lat": 47.742778,
-    "lon": 101.225833,
+    "lat": 47.641336,
+    "lon": 105.801773,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "James Glazier",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Tsatsyn_Denj_Deerstone.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -5536,14 +5553,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Gorkhi-Terelj%20National%20Park.jpg",
     "image_file": "Gorkhi-Terelj_National_Park.jpg",
     "wikidata_id": "Q1266074",
-    "lat": 48.150203,
-    "lon": 107.576006,
+    "lat": 47.881355,
+    "lon": 107.424316,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Chongkian",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Gorkhi-Terelj%20National%20Park.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -5706,14 +5724,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/OnonRiver.jpg",
     "image_file": "Onon.jpg",
     "wikidata_id": "Q4334956",
-    "lat": 49.246667,
-    "lon": 111.758056,
+    "lat": 49.238224,
+    "lon": 112.130585,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Chinneeb",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:OnonRiver.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -5774,14 +5793,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Ulaangom_Airport_Deglii_Tsagaan.jpg/1920px-Ulaangom_Airport_Deglii_Tsagaan.jpg",
     "image_file": "Ulaangom_Airport_Deglii_Tsagaan.jpg",
     "wikidata_id": "Q1626999",
-    "lat": 49.973333,
-    "lon": 92.079722,
+    "lat": 50.066616,
+    "lon": 91.93604,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "BatboldDorjgurkhem",
       "license": "CC BY 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Ulaangom_Airport_Deglii_Tsagaan.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -5808,14 +5828,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/%D0%9E%D0%B7%D0%B5%D1%80%D0%BE_%D0%94%D1%83%D1%81-%D0%A5%D0%BE%D0%BB%D1%8C_%D0%B2%D0%B5%D1%87%D0%B5%D1%80%D0%BE%D0%BC._%D0%A2%D0%B5%D1%81-%D0%A5%D0%B5%D0%BC%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%BE%D0%B6%D1%83%D1%83%D0%BD.jpg/1920px-%D0%9E%D0%B7%D0%B5%D1%80%D0%BE_%D0%94%D1%83%D1%81-%D0%A5%D0%BE%D0%BB%D1%8C_%D0%B2%D0%B5%D1%87%D0%B5%D1%80%D0%BE%D0%BC._%D0%A2%D0%B5%D1%81-%D0%A5%D0%B5%D0%BC%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%BE%D0%B6%D1%83%D1%83%D0%BD.jpg",
     "image_file": "site_769.jpg",
     "wikidata_id": "UNESCO_769",
-    "lat": 49.766667,
-    "lon": 91.366667,
+    "lat": 50.247205,
+    "lon": 93.815002,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Александр Лещёнок",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:%D0%9E%D0%B7%D0%B5%D1%80%D0%BE_%D0%94%D1%83%D1%81-%D0%A5%D0%BE%D0%BB%D1%8C_%D0%B2%D0%B5%D1%87%D0%B5%D1%80%D0%BE%D0%BC._%D0%A2%D0%B5%D1%81-%D0%A5%D0%B5%D0%BC%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%BE%D0%B6%D1%83%D1%83%D0%BD.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -5906,7 +5927,7 @@
     "enabled": true,
     "title": "Gradski stadion",
     "country": "Montenegro",
-    "summary": "Sileks Stadium (Macedonian: Стадион Силекс-Кратово) is a multi-purpose stadium in Kratovo, North Macedonia.  It is currently used mostly for football matches and is the home stadium of FK Sileks.  The stadium holds 1,800 people.",
+    "summary": "Gradski stadion Nikšić, also known as Stadion kraj Bistrice, is a multi-purpose stadium in Nikšić, Montenegro. It is currently used mostly for football matches and is the home ground of FK Sutjeska and a host of Montenegro national under-21 football team and Montenegro women's national football team matches. The stadium had a total of 5,214 seats before the addition of a new west stand in 2020.",
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Beranski_stadion.jpg",
     "image_file": "Stadion_u_Niksicu_nova_tribina_%2721.jpg",
     "wikidata_id": "Q3120014",
@@ -6437,14 +6458,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Museo%20de%20Marrakech%2006.JPG",
     "image_file": "Museo_de_Marrakech_06.JPG",
     "wikidata_id": "Q3090631",
-    "lat": 31.631214,
-    "lon": -7.986771,
+    "lat": 31.631556,
+    "lon": -7.985966,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Yastay",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Museo%20de%20Marrakech%2006.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -6471,14 +6493,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/%22Breite_Mauern_sch%C3%BCtzen_die_Bev%C3%B6lkerung_von_Essaouira.%22_03.jpg/960px-%22Breite_Mauern_sch%C3%BCtzen_die_Bev%C3%B6lkerung_von_Essaouira.%22_03.jpg",
     "image_file": "site_753.jpg",
     "wikidata_id": "UNESCO_753",
-    "lat": 31.495694,
-    "lon": -9.786667,
+    "lat": 31.513197,
+    "lon": -9.768841,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Holger Uwe Schmitt",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:%22Breite_Mauern_sch%C3%BCtzen_die_Bev%C3%B6lkerung_von_Essaouira.%22_03.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -6505,14 +6528,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/MoroccoMarrakech_KoutoubiaMosqueTop.jpg/1280px-MoroccoMarrakech_KoutoubiaMosqueTop.jpg",
     "image_file": "site_331.jpg",
     "wikidata_id": "UNESCO_331",
-    "lat": 31.613889,
-    "lon": -8.022222,
+    "lat": 31.632081,
+    "lon": -7.98691,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Daniel Csörföly",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:MoroccoMarrakech_KoutoubiaMosqueTop.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -7049,14 +7073,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Ahlongtawkatapha.jpg",
     "image_file": "Ahlongtawkatapha.jpg",
     "wikidata_id": "Q4708857",
-    "lat": 23.6,
-    "lon": 95.533333,
+    "lat": 22.250971,
+    "lon": 94.501648,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Aung Myint Htwe",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Ahlongtawkatapha.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -7083,14 +7108,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Bagan%2C_Myanmar%2C_Thatbyinnyu_Temple.jpg/1280px-Bagan%2C_Myanmar%2C_Thatbyinnyu_Temple.jpg",
     "image_file": "site_1588.jpg",
     "wikidata_id": "UNESCO_1588",
-    "lat": 21.1125,
-    "lon": 94.964167,
+    "lat": 21.131742,
+    "lon": 94.862137,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Vyacheslav Argenberg",
       "license": "CC BY 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Bagan%2C_Myanmar%2C_Thatbyinnyu_Temple.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -7848,14 +7874,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Kangchenjunga%2C%20India.jpg",
     "image_file": "Kangchenjunga%2C_India.jpg",
     "wikidata_id": "Q82019",
-    "lat": 27.7,
-    "lon": 88.133333,
+    "lat": 27.702984,
+    "lon": 88.14743,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "My Discovery",
       "license": "CC BY 2.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Kangchenjunga%2C%20India.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -8953,14 +8980,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Aoraki%20Mount%20Cook.JPG",
     "image_file": "Aoraki_Mount_Cook.JPG",
     "wikidata_id": "Q1950336",
-    "lat": -43.7333,
-    "lon": 170.1,
+    "lat": -43.604759,
+    "lon": 170.240707,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "C.M. Lynch (talk · contribs)",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Aoraki%20Mount%20Cook.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -9157,14 +9185,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Huka%20Falls.jpg",
     "image_file": "Huka_Falls.jpg",
     "wikidata_id": "Q38477",
-    "lat": -38.650917,
-    "lon": 176.089972,
+    "lat": -38.648752,
+    "lon": 176.089913,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Avenue",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Huka%20Falls.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -9446,14 +9475,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Wahianoa_valley.jpg/1280px-Wahianoa_valley.jpg",
     "image_file": "site_421.jpg",
     "wikidata_id": "UNESCO_421",
-    "lat": -39.015421,
-    "lon": 175.731577,
+    "lat": -39.23704,
+    "lon": 175.540237,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Segeo14",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Wahianoa_valley.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -10279,14 +10309,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Kim%20Ir-senovo%20Friendship%20Museum%20v%20parku%20Myohyang%20-%20panoramio.jpg",
     "image_file": "Kim_Ir-senovo_Friendship_Museum_v_parku_Myohyang_-_panoramio.jpg",
     "wikidata_id": "Q708588",
-    "lat": 40.017314,
-    "lon": 126.215133,
+    "lat": 40.006613,
+    "lon": 126.230421,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Martin Cígler",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Kim%20Ir-senovo%20Friendship%20Museum%20v%20parku%20Myohyang%20-%20panoramio.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -11333,14 +11364,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/RockCarvings_in_Alta.jpg/1280px-RockCarvings_in_Alta.jpg",
     "image_file": "site_352.jpg",
     "wikidata_id": "UNESCO_352",
-    "lat": 69.948,
-    "lon": 23.187,
+    "lat": 69.963704,
+    "lon": 23.11326,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Andreas Haldorsen",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:RockCarvings_in_Alta.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -11367,14 +11399,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/R%C3%B8ros_-_Kjerkgata_%28736986804%29.jpg/1280px-R%C3%B8ros_-_Kjerkgata_%28736986804%29.jpg",
     "image_file": "site_55.jpg",
     "wikidata_id": "UNESCO_55",
-    "lat": 62.321944,
-    "lon": 11.833889,
+    "lat": 62.574608,
+    "lon": 11.383553,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Randi Hausken from Bærum, Norway",
       "license": "CC BY-SA 2.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:R%C3%B8ros_-_Kjerkgata_%28736986804%29.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -11605,14 +11638,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/207_Geirangerfjord.jpg/1280px-207_Geirangerfjord.jpg",
     "image_file": "site_1195.jpg",
     "wikidata_id": "UNESCO_1195",
-    "lat": 60.916667,
-    "lon": 7,
+    "lat": 62.10324,
+    "lon": 7.098799,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Mikiwikipikidikipedia at English Wikipedia",
       "license": "CC BY 2.5",
       "source_page": "https://commons.wikimedia.org/wiki/File:207_Geirangerfjord.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -11707,14 +11741,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/FalajDaris.JPG/960px-FalajDaris.JPG",
     "image_file": "site_1207.jpg",
     "wikidata_id": "UNESCO_1207",
-    "lat": 22.733333,
-    "lon": 57.766667,
+    "lat": 22.994269,
+    "lon": 57.539778,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Paolotacchi",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:FalajDaris.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -11792,14 +11827,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Boswellia_sacra_in_Wadi_Dowkah_%28Dhofar%29.JPG/1280px-Boswellia_sacra_in_Wadi_Dowkah_%28Dhofar%29.JPG",
     "image_file": "site_1010.jpg",
     "wikidata_id": "UNESCO_1010",
-    "lat": 17.016667,
-    "lon": 54.05,
+    "lat": 17.009428,
+    "lon": 54.135894,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Mauro Raffaelli",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Boswellia_sacra_in_Wadi_Dowkah_%28Dhofar%29.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -12081,14 +12117,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Meadows%20of%20Chitral%20Gol%20National%20Park%3B%20Tahsin%20Shah%2003.jpg",
     "image_file": "Meadows_of_Chitral_Gol_National_Park%3B_Tahsin_Shah_03.jpg",
     "wikidata_id": "Q1074949",
-    "lat": 35.933333,
-    "lon": 71.666667,
+    "lat": 35.910603,
+    "lon": 71.732483,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Tahsin A Shah",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Meadows%20of%20Chitral%20Gol%20National%20Park%3B%20Tahsin%20Shah%2003.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -12285,14 +12322,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Lal%20Suhanra%20National%20Park.jpg",
     "image_file": "Lal_Suhanra_National_Park.jpg",
     "wikidata_id": "Q1579682",
-    "lat": 29.316667,
-    "lon": 71.916667,
+    "lat": 29.336693,
+    "lon": 72.05246,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Syed Wasti",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Lal%20Suhanra%20National%20Park.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -12302,14 +12340,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Mehrgarh%20ruins.jpg",
     "image_file": "Mehrgarh_ruins.jpg",
     "wikidata_id": "Q242148",
-    "lat": 29.2125,
-    "lon": 67.670833,
+    "lat": 29.400824,
+    "lon": 67.59955,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Ashish_Premier",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Mehrgarh%20ruins.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -12438,14 +12477,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Takht-e-bahi.jpg",
     "image_file": "Takht-e-bahi.jpg",
     "wikidata_id": "Q117623",
-    "lat": 34.320833,
-    "lon": 71.945833,
+    "lat": 34.286013,
+    "lon": 71.946888,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Asif Nawaz",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Takht-e-bahi.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -12455,14 +12495,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Dharmarajika_stupa%2CTaxila.jpg",
     "image_file": "site_139.jpg",
     "wikidata_id": "UNESCO_139",
-    "lat": 33.727769,
-    "lon": 72.880523,
+    "lat": 33.747466,
+    "lon": 72.807426,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Sasha Isachenko",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Dharmarajika_stupa%2CTaxila.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -13050,14 +13091,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/San_Blas-13_%2853928531883%29.jpg/960px-San_Blas-13_%2853928531883%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "image_file": "San_Blas_Islands.jpg",
     "wikidata_id": "Q1670879",
-    "lat": 9.495833,
-    "lon": -78.648889,
+    "lat": 9.585918,
+    "lon": -78.878843,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Otávio Nogueira from Fortaleza, BR",
       "license": "CC BY 2.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:San_Blas-13_%2853928531883%29.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -13288,14 +13330,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Aquidaban_river_in_Cerro_Cora_133735.jpg/960px-Aquidaban_river_in_Cerro_Cora_133735.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "image_file": "Image-CerroCora_DesdeCerroMuralla.jpg",
     "wikidata_id": "Q3646784",
-    "lat": -22.65,
-    "lon": -56.183333,
+    "lat": -22.655601,
+    "lon": -56.017914,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Cmasi",
       "license": "CC0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Aquidaban_river_in_Cerro_Cora_133735.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -13407,14 +13450,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/001125-TaqKasra-Iraq-IMG_7945-2.jpg/1920px-001125-TaqKasra-Iraq-IMG_7945-2.jpg",
     "image_file": "Karte_Seleucia_Ktesiphon-it.png",
     "wikidata_id": "Q1136681",
-    "lat": 33.137222,
-    "lon": 44.517222,
+    "lat": 33.093267,
+    "lon": 44.520721,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Safa.daneshvar",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:001125-TaqKasra-Iraq-IMG_7945-2.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -14581,14 +14625,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Machu_Picchu%2C_2023_%28012%29.jpg/1280px-Machu_Picchu%2C_2023_%28012%29.jpg",
     "image_file": "site_274.jpg",
     "wikidata_id": "UNESCO_274",
-    "lat": -13.184934,
-    "lon": -72.533443,
+    "lat": -13.162734,
+    "lon": -72.544913,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Draceane",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Machu_Picchu%2C_2023_%28012%29.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -14887,14 +14932,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Wallpaper_of_E-ELT_site_testing_%E2%80%94_Cerro_Armazones_Chile.jpg",
     "image_file": "Piura_satelital.png",
     "wikidata_id": "Q939994",
-    "lat": -5.833333,
-    "lon": -80.666667,
+    "lat": -5.487502,
+    "lon": -80.322418,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "ESO/S. Brunier",
       "license": "CC BY 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Wallpaper_of_E-ELT_site_testing_%E2%80%94_Cerro_Armazones_Chile.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -15409,7 +15455,7 @@
   },
   {
     "enabled": true,
-    "title": "Q111483",
+    "title": "El Nido",
     "country": "Philippines",
     "summary": "El Nido (Spanish for 'The Nest'), officially the Municipality of El Nido (Cuyonon: Banwa i'ang El Nido, Tagalog: Bayan ng El Nido), is a municipality in the province of Palawan, Philippines. According to the 2024 census, it has a population of 51,367 people.\r\nA managed resource protected area, it is known for its white-sand beaches, coral reefs, and limestone cliffs, as well as for being the gateway to the Bacuit archipelago.",
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/El%20Nido%20Palawan%202.jpg",
@@ -15534,14 +15580,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Auschwitz_I_%2822_May_2010%29_b.jpg/1280px-Auschwitz_I_%2822_May_2010%29_b.jpg",
     "image_file": "site_31.jpg",
     "wikidata_id": "UNESCO_31",
-    "lat": 50.023889,
-    "lon": 19.205,
+    "lat": 50.026415,
+    "lon": 19.204102,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "File:Auschwitz I (22 May 2010).jpg: xiquinhosilva\nderivative work: Georgfotoart",
       "license": "CC BY 2.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Auschwitz_I_%2822_May_2010%29_b.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -15619,14 +15666,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Zesp%C3%B3%C5%82_Zamku_Krzy%C5%BCackiego_MALBORK_01.jpg",
     "image_file": "site_847.jpg",
     "wikidata_id": "UNESCO_847",
-    "lat": 54.041,
-    "lon": 19.029722,
+    "lat": 54.040013,
+    "lon": 19.027816,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Gregy",
       "license": "CC BY-SA 3.0 pl",
       "source_page": "https://commons.wikimedia.org/wiki/File:Zesp%C3%B3%C5%82_Zamku_Krzy%C5%BCackiego_MALBORK_01.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -15670,14 +15718,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Jezioro%20Dabie%20brzeg%20poludniowy.jpg",
     "image_file": "Jezioro_Dabie_brzeg_poludniowy.jpg",
     "wikidata_id": "Q1158664",
-    "lat": 53.465833,
-    "lon": 14.653056,
+    "lat": 53.460562,
+    "lon": 14.669065,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Kapitel",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Jezioro%20Dabie%20brzeg%20poludniowy.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -15908,14 +15957,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Airport_Lublin_%28cropped%29.jpg/1920px-Airport_Lublin_%28cropped%29.jpg",
     "image_file": "Airport_Lublin_%28cropped%29.jpg",
     "wikidata_id": "Q620446",
-    "lat": 51.231944,
-    "lon": 22.690278,
+    "lat": 51.24005,
+    "lon": 22.712903,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "frolicsomepl",
       "license": "CC0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Airport_Lublin_%28cropped%29.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -16499,7 +16549,7 @@
     "enabled": true,
     "title": "Castle of Saint George",
     "country": "Portugal",
-    "summary": "The Castle of Saint George (Greek: Κάστρο Αγίου Γεωργίου), Castle of Cephalonia (Κάστρο Κεφαλληνίας), or simply Kastro (Κάστρο, lit. 'fortress') was a fortified settlement that was the main town of the island of Cephalonia, Greece, from the Middle Ages until the 18th century. The site is currently located near Peratata.",
+    "summary": "São Jorge Castle (Portuguese: Castelo de São Jorge), sometimes known in English as Saint George's Castle, is a historic castle in the Portuguese capital of Lisbon, located in the freguesia of Santa Maria Maior. Human occupation of the castle hill dates to at least the 8th century BC while the oldest fortifications on the site date from the 2nd century BC.",
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Castelo%20Sao%20Jorge%20Lisboa%201.JPG",
     "image_file": "Castelo_Sao_Jorge_Lisboa_1.JPG",
     "wikidata_id": "Q636780",
@@ -17183,14 +17233,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Rock_Art_Foz_Coa_01.jpg/960px-Rock_Art_Foz_Coa_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "image_file": "site_866.jpg",
     "wikidata_id": "UNESCO_866",
-    "lat": 40.6975,
-    "lon": -6.661111,
+    "lat": 41.015138,
+    "lon": -7.095795,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Henrique Matos",
       "license": "GFDL 1.2",
       "source_page": "https://commons.wikimedia.org/wiki/File:Rock_Art_Foz_Coa_01.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -17642,14 +17693,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Changryongmun_West_Side_-_2008-11-23.JPG/1280px-Changryongmun_West_Side_-_2008-11-23.JPG",
     "image_file": "site_817.jpg",
     "wikidata_id": "UNESCO_817",
-    "lat": 37.27222,
-    "lon": 127.00833,
+    "lat": 37.281873,
+    "lon": 127.013433,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Jpbarrass",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Changryongmun_West_Side_-_2008-11-23.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -18067,14 +18119,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Manastirea_Moldovita%2C_vedere_laterala.jpg/1280px-Manastirea_Moldovita%2C_vedere_laterala.jpg",
     "image_file": "site_598.jpg",
     "wikidata_id": "UNESCO_598",
-    "lat": 47.383333,
-    "lon": 27.5,
+    "lat": 47.657049,
+    "lon": 25.57114,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Alex Moise",
       "license": "CC BY-SA 3.0 ro",
       "source_page": "https://commons.wikimedia.org/wiki/File:Manastirea_Moldovita%2C_vedere_laterala.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -18084,14 +18137,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Szent_Anna_t%C3%B3_3.jpg/1280px-Szent_Anna_t%C3%B3_3.jpg",
     "image_file": "Masivul_Ciomatu_3D_version_1.gif",
     "wikidata_id": "Q874092",
-    "lat": 46.13,
-    "lon": 25.88,
+    "lat": 46.126051,
+    "lon": 25.886943,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "No machine-readable author provided. Csanády assumed (based on copyright claims).",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Szent_Anna_t%C3%B3_3.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -18118,14 +18172,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/RO%20VL%20Defileul%20Oltului%20la%20Cozia.JPG",
     "image_file": "RO_VL_Defileul_Oltului_la_Cozia.JPG",
     "wikidata_id": "Q3077873",
-    "lat": 45.367,
-    "lon": 24.265,
+    "lat": 45.333564,
+    "lon": 24.34742,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Nicu Farcaș",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:RO%20VL%20Defileul%20Oltului%20la%20Cozia.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -18152,14 +18207,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Sanctuarele_de_andezit.JPG/1280px-Sanctuarele_de_andezit.JPG",
     "image_file": "site_906.jpg",
     "wikidata_id": "UNESCO_906",
-    "lat": 45.466667,
-    "lon": 23.216667,
+    "lat": 45.622832,
+    "lon": 23.31037,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Oroles (talk",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Sanctuarele_de_andezit.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -20023,14 +20079,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Moscow._Kolomenskoye._Church_of_the_Ascension_P5183117_2600.jpg/960px-Moscow._Kolomenskoye._Church_of_the_Ascension_P5183117_2600.jpg",
     "image_file": "site_634.jpg",
     "wikidata_id": "UNESCO_634",
-    "lat": 55.65556,
-    "lon": 37.67389,
+    "lat": 55.667347,
+    "lon": 37.670789,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Alexxx1979",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Moscow._Kolomenskoye._Church_of_the_Ascension_P5183117_2600.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -20040,14 +20097,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Pskov_asv07-2018_various76_John_the_Baptist_Cathedral.jpg/1280px-Pskov_asv07-2018_various76_John_the_Baptist_Cathedral.jpg",
     "image_file": "site_1523.jpg",
     "wikidata_id": "UNESCO_1523",
-    "lat": 57.805358,
-    "lon": 28.334053,
+    "lat": 57.822201,
+    "lon": 28.328934,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "A.Savin",
       "license": "FAL",
       "source_page": "https://commons.wikimedia.org/wiki/File:Pskov_asv07-2018_various76_John_the_Baptist_Cathedral.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -20057,14 +20115,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/%D0%94%D0%B5%D1%80%D0%B1%D0%B5%D0%BD%D1%82%D1%81%D0%BA%D0%B0%D1%8F_%D1%86%D0%B8%D1%82%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C._%D0%94%D0%B5%D1%80%D0%B1%D0%B5%D0%BD%D1%82.jpg/1280px-%D0%94%D0%B5%D1%80%D0%B1%D0%B5%D0%BD%D1%82%D1%81%D0%BA%D0%B0%D1%8F_%D1%86%D0%B8%D1%82%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C._%D0%94%D0%B5%D1%80%D0%B1%D0%B5%D0%BD%D1%82.jpg",
     "image_file": "site_1070.jpg",
     "wikidata_id": "UNESCO_1070",
-    "lat": 42.055833,
-    "lon": 48.282778,
+    "lat": 42.052424,
+    "lon": 48.274215,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Олег Мар",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:%D0%94%D0%B5%D1%80%D0%B1%D0%B5%D0%BD%D1%82%D1%81%D0%BA%D0%B0%D1%8F_%D1%86%D0%B8%D1%82%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C._%D0%94%D0%B5%D1%80%D0%B1%D0%B5%D0%BD%D1%82.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -20074,14 +20133,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/%D0%A1%D0%BE%D0%BB%D0%BE%D0%B2%D0%B5%D1%86%D0%BA%D0%B8%D0%B9_%D0%BC%D0%BE%D0%BD%D0%B0%D1%81%D1%82%D1%8B%D1%80%D1%8C.jpg/1280px-%D0%A1%D0%BE%D0%BB%D0%BE%D0%B2%D0%B5%D1%86%D0%BA%D0%B8%D0%B9_%D0%BC%D0%BE%D0%BD%D0%B0%D1%81%D1%82%D1%8B%D1%80%D1%8C.jpg",
     "image_file": "site_632.jpg",
     "wikidata_id": "UNESCO_632",
-    "lat": 64.95,
-    "lon": 35.666667,
+    "lat": 64.962728,
+    "lon": 35.649605,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Алексей Задонский",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:%D0%A1%D0%BE%D0%BB%D0%BE%D0%B2%D0%B5%D1%86%D0%BA%D0%B8%D0%B9_%D0%BC%D0%BE%D0%BD%D0%B0%D1%81%D1%82%D1%8B%D1%80%D1%8C.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -20108,14 +20168,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ferapontovo_drone_cut.jpg/960px-Ferapontovo_drone_cut.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20170816144230",
     "image_file": "site_982.jpg",
     "wikidata_id": "UNESCO_982",
-    "lat": 59.95,
-    "lon": 38.566667,
+    "lat": 59.9566,
+    "lon": 38.56729,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Trasprd",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Ferapontovo_drone_cut.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -20176,14 +20237,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Winter_Palace_Panorama_3.jpg/1920px-Winter_Palace_Panorama_3.jpg",
     "image_file": "site_540.jpg",
     "wikidata_id": "UNESCO_540",
-    "lat": 59.553103,
-    "lon": 30.121142,
+    "lat": 59.950326,
+    "lon": 30.316257,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Florstein (Telegram:WikiPhoto.Space)",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Winter_Palace_Panorama_3.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -20278,14 +20340,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/%D0%91%D0%B5%D0%BB%D1%8B%D0%B5_%D0%BD%D0%BE%D1%87%D0%B8_%D0%BD%D0%B0_%D1%82%D0%B5%D1%80%D1%80%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8_%D0%9B%D0%A1.jpg/1280px-%D0%91%D0%B5%D0%BB%D1%8B%D0%B5_%D0%BD%D0%BE%D1%87%D0%B8_%D0%BD%D0%B0_%D1%82%D0%B5%D1%80%D1%80%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8_%D0%9B%D0%A1.jpg",
     "image_file": "site_1299.jpg",
     "wikidata_id": "UNESCO_1299",
-    "lat": 60.666667,
-    "lon": 127,
+    "lat": 61.112111,
+    "lon": 127.393513,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "VasilyevaED",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B5%D0%BB%D1%8B%D0%B5_%D0%BD%D0%BE%D1%87%D0%B8_%D0%BD%D0%B0_%D1%82%D0%B5%D1%80%D1%80%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8_%D0%9B%D0%A1.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -20924,14 +20987,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/World_Heritage_Site_Pitons_Management_Area.JPG/960px-World_Heritage_Site_Pitons_Management_Area.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "image_file": "site_1161.jpg",
     "wikidata_id": "UNESCO_1161",
-    "lat": 13.807083,
-    "lon": -61.070361,
+    "lat": 13.825579,
+    "lon": -61.053257,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Aneil Lutchman",
       "license": "CC BY-SA 2.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:World_Heritage_Site_Pitons_Management_Area.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -21893,14 +21957,15 @@
     "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Saloum.gif",
     "image_file": "Saloum.gif",
     "wikidata_id": "Q390208",
-    "lat": 13.683333,
-    "lon": -16.683333,
+    "lat": 13.89541,
+    "lon": -16.648407,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "USGS",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Saloum.gif"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -22352,14 +22417,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%D0%9D%D0%B8%D1%88_09.JPG/1280px-%D0%9D%D0%B8%D1%88_09.JPG",
     "image_file": "University_of_Nis.JPG",
     "wikidata_id": "Q1388776",
-    "lat": 43.333333,
-    "lon": 21.85,
+    "lat": 43.322938,
+    "lon": 21.893475,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Manojlovic80",
       "license": "CC BY-SA 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B8%D1%88_09.JPG"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -22403,14 +22469,15 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Veliki_Kazan.jpg/1920px-Veliki_Kazan.jpg",
     "image_file": "Breakthrough_Iron_Gate.JPG",
     "wikidata_id": "Q1258055",
-    "lat": 44.666667,
-    "lon": 22.516667,
+    "lat": 44.553292,
+    "lon": 21.969223,
     "image_credits": {
       "source": "Wikimedia Commons",
       "credit": "Milan Paunović",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Veliki_Kazan.jpg"
-    }
+    },
+    "latlon_edited": true
   },
   {
     "enabled": true,
@@ -23534,23 +23601,6 @@
       "credit": "Me - Bhu z Crecelu",
       "license": "CC BY 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Vlkolinec_house_47.jpg"
-    }
-  },
-  {
-    "enabled": true,
-    "title": "Vodopád Skok",
-    "country": "Slovakia",
-    "summary": "This list of notable waterfalls of the world is sorted by continent, then country, then province, state or territory. A waterfall is included if it is at least 15 m (50 ft) tall, or it is considered significant.\r\nThere is no standard way to measure the height or width of a waterfall. No ranking of waterfalls should be assumed because of the heights or widths provided in the list. Many numbers are estimated and measurements may be imprecise. See additional lists of waterfalls by height, flow rate and type.",
-    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Vodopad%20Skok.jpg",
-    "image_file": "Vodopad_Skok.jpg",
-    "wikidata_id": "Q928348",
-    "lat": 49.152686,
-    "lon": 20.045672,
-    "image_credits": {
-      "source": "Wikimedia Commons",
-      "credit": "Kristo",
-      "license": "CC BY-SA 3.0",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Vodopad%20Skok.jpg"
     }
   },
   {
