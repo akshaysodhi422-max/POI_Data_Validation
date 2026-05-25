@@ -6873,23 +6873,6 @@
   },
   {
     "enabled": true,
-    "title": "Pemba Airport",
-    "country": "Mozambique",
-    "summary": "Pemba Airport (IATA: POL, ICAO: FQPB) is a small international airport in Pemba, Mozambique.",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Pemba-airport.jpg/960px-Pemba-airport.jpg",
-    "image_file": "Pemba-airport.jpg",
-    "wikidata_id": "Q1392430",
-    "lat": -12.986753,
-    "lon": 40.522492,
-    "image_credits": {
-      "source": "Wikimedia Commons",
-      "credit": "Goldsztajn",
-      "license": "CC BY-SA 4.0",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Pemba-airport.jpg"
-    }
-  },
-  {
-    "enabled": true,
     "title": "Quirimbas National Park",
     "country": "Mozambique",
     "summary": "The Quirimbas National Park (QNP)(Hifadhi ya Taifa ya Kirimba, in Swahili) is a protected area in the Cabo Delgado Province of Mozambique, encompassing the southern part of the Quirimbas Islands, as well as a significant mainland area. The mainland region of Taratibua contain various inselbergs.",
