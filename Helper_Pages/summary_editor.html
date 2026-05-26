@@ -1,0 +1,784 @@
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0)
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text-primary)
+  }
+
+  .shell {
+    padding: 1.25rem 0 2rem
+  }
+
+  .upload-panel {
+    border: 1.5px dashed var(--color-border-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+  }
+
+  .upload-panel:hover,
+  .upload-panel.over {
+    background: var(--color-background-secondary);
+    border-color: var(--color-border-primary);
+  }
+
+  .upload-panel i {
+    font-size: 32px;
+    color: var(--color-text-tertiary);
+    display: block;
+    margin-bottom: .75rem
+  }
+
+  .upload-panel .up-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 4px
+  }
+
+  .upload-panel .up-sub {
+    font-size: 13px;
+    color: var(--color-text-tertiary)
+  }
+
+  #file-in {
+    display: none
+  }
+
+  .editor {
+    display: none
+  }
+
+  .editor.active {
+    display: block
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 0 1rem;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    margin-bottom: 1rem;
+  }
+
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    flex-wrap: wrap
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0
+  }
+
+  .search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 140px;
+    max-width: 260px;
+  }
+
+  .search-wrap i {
+    position: absolute;
+    left: 10px;
+    font-size: 15px;
+    color: var(--color-text-tertiary);
+    pointer-events: none;
+  }
+
+  .search-wrap input {
+    padding-left: 32px !important;
+    width: 100%;
+    font-size: 13px;
+  }
+
+  select {
+    font-size: 13px;
+    padding: 0 28px 0 10px;
+    height: 36px;
+    cursor: pointer;
+    color: var(--color-text-primary)
+  }
+
+  .pill-group {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap
+  }
+
+  .pill {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 0.5px solid var(--color-border-secondary);
+    background: transparent;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    transition: background .12s, border-color .12s, color .12s;
+  }
+
+  .pill:hover {
+    background: var(--color-background-secondary)
+  }
+
+  .pill.active {
+    background: var(--color-background-secondary);
+    border-color: var(--color-border-primary);
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .stat-card {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: .75rem 1rem;
+  }
+
+  .stat-card .s-label {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    margin-bottom: 4px
+  }
+
+  .stat-card .s-val {
+    font-size: 20px;
+    font-weight: 500
+  }
+
+  .stat-card .s-val.info {
+    color: var(--color-text-info)
+  }
+
+  .stat-card .s-val.warn {
+    color: var(--color-text-warning)
+  }
+
+  .sort-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: .5rem .75rem;
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    margin-bottom: .875rem;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+  }
+
+  .sort-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: var(--border-radius-md);
+    border: 0.5px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    transition: background .12s, border-color .12s, color .12s;
+  }
+
+  .sort-btn:hover {
+    background: var(--color-background-primary);
+    border-color: var(--color-border-tertiary)
+  }
+
+  .sort-btn.active {
+    background: var(--color-background-primary);
+    border-color: var(--color-border-secondary);
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+
+  .sort-btn i {
+    font-size: 14px
+  }
+
+  .sort-divider {
+    width: 0.5px;
+    height: 16px;
+    background: var(--color-border-secondary)
+  }
+
+  .result-count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--color-text-tertiary)
+  }
+
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+  }
+
+  .item-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: border-color .15s;
+  }
+
+  .item-card:focus-within {
+    border-color: var(--color-border-secondary)
+  }
+
+  .item-card.is-edited {
+    border-color: var(--color-border-info)
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: .875rem 1rem .625rem;
+  }
+
+  .card-meta {
+    flex: 1;
+    min-width: 0
+  }
+
+  .card-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 2px
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+  }
+
+  .card-idx {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    flex-shrink: 0
+  }
+
+  .card-sub {
+    font-size: 12px;
+    color: var(--color-text-secondary)
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .badge-edited {
+    background: var(--color-background-info);
+    color: var(--color-text-info);
+  }
+
+  .badge-short {
+    background: var(--color-background-warning);
+    color: var(--color-text-warning);
+  }
+
+  .badge-long {
+    background: #EAF3DE;
+    color: #27500A;
+  }
+
+  .len-bar-wrap {
+    padding: 0 1rem .75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .len-bar-bg {
+    flex: 1;
+    height: 3px;
+    background: var(--color-border-tertiary);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .len-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--color-border-secondary);
+    transition: width .25s;
+  }
+
+  .len-bar-fill.short-fill {
+    background: #EF9F27
+  }
+
+  .len-bar-fill.ok-fill {
+    background: #1D9E75
+  }
+
+  .len-bar-fill.long-fill {
+    background: #378ADD
+  }
+
+  .len-label {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    white-space: nowrap;
+    min-width: 52px;
+    text-align: right
+  }
+
+  .card-body {
+    padding: 0 1rem .875rem
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 13px;
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: .625rem .75rem;
+    resize: vertical;
+    min-height: 76px;
+    line-height: 1.6;
+    outline: none;
+    transition: border-color .15s;
+  }
+
+  textarea:focus {
+    border-color: var(--color-border-primary);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, .05)
+  }
+
+  .char-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px
+  }
+
+  .char-count {
+    font-size: 11px;
+    color: var(--color-text-tertiary)
+  }
+
+  .char-hint {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    margin-left: auto
+  }
+
+  .empty-state {
+    padding: 3rem;
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-text-tertiary);
+  }
+
+  .empty-state i {
+    font-size: 28px;
+    display: block;
+    margin-bottom: .5rem;
+    color: var(--color-border-secondary)
+  }
+
+  button.primary {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0 18px;
+    height: 36px;
+    border-radius: var(--border-radius-md);
+    background: var(--color-text-primary);
+    color: var(--color-background-primary);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity .15s;
+  }
+
+  button.primary:hover {
+    opacity: .8
+  }
+
+  button.ghost {
+    font-size: 13px;
+    padding: 0 14px;
+    height: 36px;
+    border-radius: var(--border-radius-md);
+    border: 0.5px solid var(--color-border-secondary);
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background .12s;
+  }
+
+  button.ghost:hover {
+    background: var(--color-background-secondary)
+  }
+</style>
+
+<div class="shell">
+  <h2 class="sr-only">Summary editor — load a JSON file, filter and sort entries, edit summaries, then export.</h2>
+
+  <div id="upload-panel" class="upload-panel">
+    <i class="ti ti-file-upload" aria-hidden="true"></i>
+    <div class="up-title">Drop your JSON file here</div>
+    <div class="up-sub">or click to browse · accepts .json array</div>
+    <input type="file" id="file-in" accept=".json">
+  </div>
+
+  <div id="editor" class="editor">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="search-wrap">
+          <i class="ti ti-search" aria-hidden="true"></i>
+          <input type="search" id="search" placeholder="Search title or country…" aria-label="Search">
+        </div>
+        <div class="pill-group" id="filter-pills">
+          <button class="pill active" data-filter="all">All</button>
+          <button class="pill" data-filter="edited">Edited</button>
+          <button class="pill" data-filter="unedited">Unedited</button>
+          <button class="pill" data-filter="short">Short &lt;300</button>
+          <button class="pill" data-filter="ok">Medium</button>
+          <button class="pill" data-filter="long">Long &gt;600</button>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button class="ghost" id="reset-btn"><i class="ti ti-refresh" aria-hidden="true"></i> New file</button>
+        <button class="primary" id="export-btn"><i class="ti ti-download" aria-hidden="true"></i> Export JSON</button>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="s-label">Total entries</div>
+        <div class="s-val" id="st-total">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-label">Edited</div>
+        <div class="s-val info" id="st-edited">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-label">Short (&lt;300)</div>
+        <div class="s-val warn" id="st-short">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-label">Avg length</div>
+        <div class="s-val" id="st-avg">0</div>
+      </div>
+    </div>
+
+    <div class="sort-bar">
+      <span>Sort by</span>
+      <button class="sort-btn active" data-sort="index" id="sb-index">
+        <i class="ti ti-list-numbers" aria-hidden="true"></i> Index
+      </button>
+      <div class="sort-divider"></div>
+      <button class="sort-btn" data-sort="asc" id="sb-asc">
+        <i class="ti ti-sort-ascending-letters" aria-hidden="true"></i> Shortest first
+      </button>
+      <button class="sort-btn" data-sort="desc" id="sb-desc">
+        <i class="ti ti-sort-descending-letters" aria-hidden="true"></i> Longest first
+      </button>
+      <span class="result-count" id="result-count"></span>
+    </div>
+
+    <div class="item-list" id="item-list"></div>
+    <div class="empty-state" id="empty-state" style="display:none">
+      <i class="ti ti-mood-empty" aria-hidden="true"></i>
+      No entries match your filters.
+    </div>
+  </div>
+</div>
+
+<script>
+  let data = [];
+  let origSummaries = [];
+  let sortMode = 'index';
+  let filterMode = 'all';
+  let searchQ = '';
+  const SHORT = 300, LONG = 600;
+
+  const uploadPanel = document.getElementById('upload-panel');
+  const fileIn = document.getElementById('file-in');
+  const editor = document.getElementById('editor');
+  const itemList = document.getElementById('item-list');
+  const emptyState = document.getElementById('empty-state');
+
+  uploadPanel.addEventListener('click', () => fileIn.click());
+  uploadPanel.addEventListener('dragover', e => { e.preventDefault(); uploadPanel.classList.add('over'); });
+  uploadPanel.addEventListener('dragleave', () => uploadPanel.classList.remove('over'));
+  uploadPanel.addEventListener('drop', e => { e.preventDefault(); uploadPanel.classList.remove('over'); if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+  fileIn.addEventListener('change', () => { if (fileIn.files[0]) loadFile(fileIn.files[0]); });
+
+  function loadFile(file) {
+    const r = new FileReader();
+    r.onload = e => {
+      let parsed;
+      try { parsed = JSON.parse(e.target.result); } catch (err) { alert('Invalid JSON: ' + err.message); return; }
+      if (!Array.isArray(parsed)) parsed = [parsed];
+      data = parsed.map((d, i) => ({ ...d, _origIdx: i }));
+      origSummaries = data.map(d => d.summary || '');
+      uploadPanel.style.display = 'none';
+      editor.classList.add('active');
+      updateStats();
+      renderList();
+    };
+    r.readAsText(file);
+  }
+
+  document.getElementById('reset-btn').addEventListener('click', () => {
+    data = []; origSummaries = [];
+    uploadPanel.style.display = '';
+    editor.classList.remove('active');
+    fileIn.value = '';
+    sortMode = 'index'; filterMode = 'all'; searchQ = '';
+    document.getElementById('search').value = '';
+    document.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p.dataset.filter === 'all'));
+    document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b.dataset.sort === 'index'));
+  });
+
+  document.getElementById('search').addEventListener('input', e => { searchQ = e.target.value.toLowerCase().trim(); renderList(); });
+
+  document.getElementById('filter-pills').addEventListener('click', e => {
+    const btn = e.target.closest('.pill');
+    if (!btn) return;
+    filterMode = btn.dataset.filter;
+    document.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p === btn));
+    renderList();
+  });
+
+  document.querySelectorAll('.sort-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sortMode = btn.dataset.sort;
+      document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b === btn));
+      renderList();
+    });
+  });
+
+  function getLen(row) { return (row.summary || '').length; }
+  function isEdited(i) { return (data[i].summary || '') !== origSummaries[i]; }
+  function lenClass(len) { return len < SHORT ? 'short' : len > LONG ? 'long' : 'ok'; }
+
+  function getFiltered() {
+    let indices = data.map((_, i) => i);
+
+    if (searchQ) {
+      indices = indices.filter(i => {
+        const d = data[i];
+        return (d.title || '').toLowerCase().includes(searchQ) || (d.country || '').toLowerCase().includes(searchQ);
+      });
+    }
+
+    if (filterMode === 'edited') indices = indices.filter(i => isEdited(i));
+    else if (filterMode === 'unedited') indices = indices.filter(i => !isEdited(i));
+    else if (filterMode === 'short') indices = indices.filter(i => getLen(data[i]) < SHORT);
+    else if (filterMode === 'ok') indices = indices.filter(i => { const l = getLen(data[i]); return l >= SHORT && l <= LONG; });
+    else if (filterMode === 'long') indices = indices.filter(i => getLen(data[i]) > LONG);
+
+    if (sortMode === 'asc') indices.sort((a, b) => getLen(data[a]) - getLen(data[b]));
+    else if (sortMode === 'desc') indices.sort((a, b) => getLen(data[b]) - getLen(data[a]));
+
+    return indices;
+  }
+
+  function updateStats() {
+    const total = data.length;
+    const edited = data.filter((_, i) => isEdited(i)).length;
+    const short = data.filter(d => getLen(d) < SHORT).length;
+    const avg = total ? Math.round(data.reduce((s, d) => s + getLen(d), 0) / total) : 0;
+    document.getElementById('st-total').textContent = total;
+    document.getElementById('st-edited').textContent = edited;
+    document.getElementById('st-short').textContent = short;
+    document.getElementById('st-avg').textContent = avg;
+  }
+
+  function renderList() {
+    itemList.innerHTML = '';
+    const indices = getFiltered();
+    document.getElementById('result-count').textContent = indices.length + ' of ' + data.length + ' shown';
+
+    if (indices.length === 0) { emptyState.style.display = ''; return; }
+    emptyState.style.display = 'none';
+
+    const maxLen = Math.max(...data.map(d => getLen(d)), 1);
+
+    indices.forEach(i => {
+      const row = data[i];
+      const len = getLen(row);
+      const lc = lenClass(len);
+      const edited = isEdited(i);
+      const pct = Math.min(100, Math.round(len / maxLen * 100));
+
+      const card = document.createElement('div');
+      card.className = 'item-card' + (edited ? ' is-edited' : '');
+      card.dataset.idx = i;
+
+      const top = document.createElement('div');
+      top.className = 'card-top';
+
+      const meta = document.createElement('div');
+      meta.className = 'card-meta';
+      meta.innerHTML = `
+      <div class="card-title-row">
+        <div class="card-title">${esc(row.title || 'Untitled')}</div>
+        <div class="card-idx">#${row._origIdx + 1}</div>
+      </div>
+      <div class="card-sub">${esc(row.country || '')}${row.wikidata_id ? ' &middot; ' + esc(row.wikidata_id) : ''}</div>
+    `;
+
+      const badgeWrap = document.createElement('div');
+      badgeWrap.style.cssText = 'display:flex;gap:5px;flex-shrink:0;align-items:flex-start;flex-wrap:wrap;justify-content:flex-end';
+      if (edited) {
+        const b = document.createElement('span');
+        b.className = 'badge badge-edited';
+        b.textContent = 'edited';
+        badgeWrap.appendChild(b);
+      }
+      if (lc === 'short') {
+        const b = document.createElement('span');
+        b.className = 'badge badge-short';
+        b.textContent = 'short';
+        badgeWrap.appendChild(b);
+      } else if (lc === 'long') {
+        const b = document.createElement('span');
+        b.className = 'badge badge-long';
+        b.textContent = 'long';
+        badgeWrap.appendChild(b);
+      }
+
+      top.appendChild(meta);
+      top.appendChild(badgeWrap);
+
+      const barWrap = document.createElement('div');
+      barWrap.className = 'len-bar-wrap';
+      barWrap.innerHTML = `
+      <div class="len-bar-bg"><div class="len-bar-fill ${lc}-fill" id="bar-${i}" style="width:${pct}%"></div></div>
+      <div class="len-label" id="lenlabel-${i}">${len} chars</div>
+    `;
+
+      const body = document.createElement('div');
+      body.className = 'card-body';
+
+      const ta = document.createElement('textarea');
+      ta.value = row.summary || '';
+      ta.setAttribute('aria-label', 'Summary for ' + (row.title || 'entry'));
+      ta.dataset.idx = i;
+
+      const charRow = document.createElement('div');
+      charRow.className = 'char-row';
+
+      const cc = document.createElement('span');
+      cc.className = 'char-count';
+      cc.id = 'cc-' + i;
+      cc.textContent = len + ' chars';
+
+      const hint = document.createElement('span');
+      hint.className = 'char-hint';
+      hint.id = 'hint-' + i;
+      hint.textContent = hintText(len);
+
+      charRow.appendChild(cc);
+      charRow.appendChild(hint);
+      body.appendChild(ta);
+      body.appendChild(charRow);
+
+      ta.addEventListener('input', () => {
+        const idx = +ta.dataset.idx;
+        data[idx].summary = ta.value;
+        const newLen = ta.value.length;
+        const newLc = lenClass(newLen);
+        const newPct = Math.min(100, Math.round(newLen / maxLen * 100));
+
+        const barEl = document.getElementById('bar-' + idx);
+        if (barEl) { barEl.className = 'len-bar-fill ' + newLc + '-fill'; barEl.style.width = newPct + '%'; }
+        const llEl = document.getElementById('lenlabel-' + idx);
+        if (llEl) llEl.textContent = newLen + ' chars';
+        const ccEl = document.getElementById('cc-' + idx);
+        if (ccEl) ccEl.textContent = newLen + ' chars';
+        const hintEl = document.getElementById('hint-' + idx);
+        if (hintEl) hintEl.textContent = hintText(newLen);
+
+        const wasEdited = isEdited(idx);
+        card.classList.toggle('is-edited', wasEdited);
+
+        const existingBadges = card.querySelectorAll('.badge');
+        existingBadges.forEach(b => b.remove());
+        if (wasEdited) { const b = document.createElement('span'); b.className = 'badge badge-edited'; b.textContent = 'edited'; badgeWrap.appendChild(b); }
+        if (newLc === 'short') { const b = document.createElement('span'); b.className = 'badge badge-short'; b.textContent = 'short'; badgeWrap.appendChild(b); }
+        else if (newLc === 'long') { const b = document.createElement('span'); b.className = 'badge badge-long'; b.textContent = 'long'; badgeWrap.appendChild(b); }
+
+        updateStats();
+      });
+
+      card.appendChild(top);
+      card.appendChild(barWrap);
+      card.appendChild(body);
+      itemList.appendChild(card);
+    });
+  }
+
+  function hintText(len) {
+    if (len < SHORT) return 'Consider expanding · target 300–600';
+    if (len > LONG) return 'Consider trimming · target 300–600';
+    return 'Good length';
+  }
+
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  document.getElementById('export-btn').addEventListener('click', () => {
+    const out = data.map(row => {
+      const { _origIdx, ...rest } = row;
+      return rest;
+    });
+    const blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'edited_data.json';
+    a.click();
+  });
+</script>

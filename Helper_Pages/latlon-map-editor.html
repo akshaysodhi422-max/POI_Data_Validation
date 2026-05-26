@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lat·Lon Map Editor</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&display=swap');
+
+  :root {
+    --bg: #0f0e0c;
+    --surface: #1a1916;
+    --surface2: #252320;
+    --surface3: #2e2c28;
+    --border: #333129;
+    --text: #e8e4d9;
+    --muted: #7a7568;
+    --accent: #c8a96e;
+    --ok: #4caf82;
+    --warn: #e05c5c;
+    --mid: #e09a3c;
+    --sidebar-w: 360px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; font-family: 'DM Mono', monospace; background: var(--bg); color: var(--text); overflow: hidden; }
+
+  #drop-overlay {
+    position: fixed; inset: 0;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1000; transition: opacity 0.3s;
+  }
+  #drop-overlay.hidden { opacity: 0; pointer-events: none; }
+
+  .drop-box {
+    border: 2px dashed var(--border); border-radius: 16px;
+    padding: 64px 96px; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    max-width: 500px; width: 90%; text-align: center;
+  }
+  .drop-box:hover, .drop-box.drag-over { border-color: var(--accent); background: rgba(200,169,110,0.04); }
+  .drop-icon { font-size: 48px; margin-bottom: 16px; display: block; }
+  .drop-box h2 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--text); margin-bottom: 8px; }
+  .drop-box p { font-size: 11px; color: var(--muted); line-height: 1.8; }
+  #file-input { display: none; }
+
+  #app { display: flex; height: 100vh; opacity: 0; transition: opacity 0.4s; }
+  #app.visible { opacity: 1; }
+
+  #sidebar {
+    width: var(--sidebar-w); flex-shrink: 0;
+    background: var(--bg); border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; height: 100vh; overflow: hidden;
+  }
+
+  .sidebar-header { padding: 16px 18px 12px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+
+  .logo { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700; color: var(--accent); letter-spacing: -0.3px; margin-bottom: 12px; }
+  .logo span { color: var(--muted); font-weight: 300; font-style: italic; font-size: 14px; }
+
+  .progress-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .progress-track { flex: 1; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s ease; }
+  .progress-label { font-size: 10px; color: var(--muted); white-space: nowrap; }
+
+  .search-row { display: flex; gap: 6px; }
+  .search-input {
+    flex: 1; font-family: 'DM Mono', monospace; font-size: 11px;
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); padding: 7px 10px; outline: none; transition: border-color 0.15s;
+  }
+  .search-input:focus { border-color: var(--accent); }
+  .search-input::placeholder { color: var(--muted); }
+
+  .icon-btn {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--muted); font-size: 13px; padding: 0 10px; cursor: pointer;
+    transition: all 0.15s; display: flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .card-area { flex: 1; overflow-y: auto; padding: 14px 18px; display: flex; flex-direction: column; gap: 14px; }
+  .card-area::-webkit-scrollbar { width: 4px; }
+  .card-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .conf-banner {
+    border-radius: 7px; padding: 8px 12px;
+    display: flex; align-items: center; gap: 10px; font-size: 10px;
+  }
+  .conf-banner.ok  { background: rgba(76,175,130,0.1);  border: 1px solid rgba(76,175,130,0.25); }
+  .conf-banner.mid { background: rgba(224,154,60,0.1);  border: 1px solid rgba(224,154,60,0.25); }
+  .conf-banner.low { background: rgba(224,92,92,0.1);   border: 1px solid rgba(224,92,92,0.25); }
+  .conf-banner.none{ background: var(--surface2);        border: 1px solid var(--border); }
+
+  .conf-pct { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; line-height: 1; }
+  .conf-banner.ok  .conf-pct { color: var(--ok); }
+  .conf-banner.mid .conf-pct { color: var(--mid); }
+  .conf-banner.low .conf-pct { color: var(--warn); }
+  .conf-banner.none .conf-pct { color: var(--muted); }
+  .conf-details { flex: 1; line-height: 1.6; }
+  .conf-label { color: var(--muted); }
+  .conf-country { font-weight: 500; font-size: 11px; }
+
+  .score-grid { display: flex; flex-direction: column; gap: 5px; }
+  .score-row { display: flex; align-items: center; gap: 8px; font-size: 10px; }
+  .score-lbl { color: var(--muted); width: 38px; flex-shrink: 0; }
+  .score-bar { flex: 1; height: 3px; background: var(--border); border-radius: 2px; }
+  .score-fill { height: 100%; border-radius: 2px; transition: width 0.4s ease; }
+  .score-val { width: 30px; text-align: right; color: var(--muted); font-size: 10px; }
+
+  .place-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--text); }
+  .place-meta { font-size: 10px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px; }
+
+  .summary-text {
+    font-size: 10px; color: var(--muted); line-height: 1.7;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  .nom-result { background: var(--surface2); border: 1px solid var(--border); border-radius: 7px; padding: 9px 12px; font-size: 10px; line-height: 1.6; }
+  .nom-label { color: var(--muted); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px; }
+  .nom-name { color: var(--text); font-weight: 500; }
+  .nom-type { color: var(--muted); }
+  .nom-display { color: var(--muted); font-size: 9px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .section { display: flex; flex-direction: column; gap: 6px; }
+  .section-label { font-size: 9px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 2px; border-bottom: 1px solid var(--border); }
+
+  .coord-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .coord-field label { display: block; font-size: 9px; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 4px; }
+  .coord-input {
+    width: 100%; font-family: 'DM Mono', monospace; font-size: 12px;
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); padding: 8px 10px; outline: none; transition: border-color 0.15s, color 0.15s;
+  }
+  .coord-input:focus { border-color: var(--accent); }
+  .coord-input.changed { border-color: rgba(200,169,110,0.7); color: var(--accent); }
+
+  .coord-actions { display: flex; gap: 6px; margin-top: 8px; }
+  .action-btn {
+    flex: 1; font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500;
+    padding: 8px; border-radius: 6px; border: 1px solid var(--border);
+    background: transparent; cursor: pointer; transition: all 0.15s;
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+  }
+  .btn-apply { color: var(--ok); border-color: rgba(76,175,130,0.3); }
+  .btn-apply:hover { background: rgba(76,175,130,0.1); border-color: var(--ok); }
+  .btn-revert { color: var(--muted); }
+  .btn-revert:hover { background: var(--surface2); color: var(--text); }
+  .btn-revert:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  .place-search-row { display: flex; gap: 6px; }
+  .place-search-input {
+    flex: 1; font-family: 'DM Mono', monospace; font-size: 11px;
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); padding: 7px 10px; outline: none; transition: border-color 0.15s;
+  }
+  .place-search-input:focus { border-color: var(--accent); }
+  .place-search-input::placeholder { color: var(--muted); }
+
+  .place-search-btn {
+    font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500;
+    padding: 7px 12px; border-radius: 6px; border: 1px solid var(--border);
+    background: var(--surface2); color: var(--muted); cursor: pointer; transition: all 0.15s;
+  }
+  .place-search-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .search-results { background: var(--surface2); border: 1px solid var(--border); border-radius: 7px; overflow: hidden; max-height: 180px; overflow-y: auto; }
+  .search-result-item { padding: 8px 12px; cursor: pointer; border-bottom: 1px solid var(--border); transition: background 0.1s; font-size: 10px; line-height: 1.5; }
+  .search-result-item:last-child { border-bottom: none; }
+  .search-result-item:hover { background: var(--surface3); }
+  .sri-name { color: var(--text); font-weight: 500; }
+  .sri-detail { color: var(--muted); font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .search-results::-webkit-scrollbar { width: 3px; }
+  .search-results::-webkit-scrollbar-thumb { background: var(--border); }
+
+  .sidebar-footer { padding: 12px 18px; border-top: 1px solid var(--border); flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+
+  .nav-row { display: flex; align-items: center; gap: 8px; }
+  .nav-btn {
+    font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
+    padding: 9px 14px; border-radius: 7px; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s;
+  }
+  .nav-btn:hover:not(:disabled) { background: var(--surface2); color: var(--text); }
+  .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .nav-counter { flex: 1; text-align: center; font-size: 11px; color: var(--muted); }
+  .nav-counter strong { color: var(--text); }
+
+  .jump-row { display: flex; gap: 6px; align-items: center; }
+  .jump-input {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); padding: 6px 10px; width: 70px; outline: none; transition: border-color 0.15s; text-align: center;
+  }
+  .jump-input:focus { border-color: var(--accent); }
+  .jump-label { font-size: 10px; color: var(--muted); }
+
+  .export-btn {
+    width: 100%; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
+    padding: 9px; border-radius: 7px; border: 1px solid var(--accent);
+    background: rgba(200,169,110,0.1); color: var(--accent); cursor: pointer; transition: all 0.15s; letter-spacing: 0.05em;
+  }
+  .export-btn:hover { background: rgba(200,169,110,0.2); }
+
+  .edited-badge {
+    display: inline-block; font-size: 9px; padding: 2px 6px; border-radius: 3px;
+    background: rgba(200,169,110,0.15); color: var(--accent); border: 1px solid rgba(200,169,110,0.3);
+    letter-spacing: 0.06em; vertical-align: middle; margin-left: 6px;
+  }
+
+  #map { flex: 1; height: 100vh; }
+
+  .leaflet-control-zoom a { background: var(--surface) !important; color: var(--text) !important; border-color: var(--border) !important; }
+  .leaflet-control-zoom a:hover { background: var(--surface2) !important; }
+  .leaflet-popup-content-wrapper {
+    background: var(--surface) !important; border: 1px solid var(--border) !important;
+    border-radius: 8px !important; box-shadow: 0 4px 24px rgba(0,0,0,0.5) !important;
+    color: var(--text) !important; font-family: 'DM Mono', monospace !important; font-size: 11px !important;
+  }
+  .leaflet-popup-tip { background: var(--surface) !important; }
+  .leaflet-popup-close-button { color: var(--muted) !important; }
+
+  .map-hint {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: rgba(15,14,12,0.85); border: 1px solid var(--border); border-radius: 6px;
+    padding: 6px 14px; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted);
+    z-index: 500; pointer-events: none; backdrop-filter: blur(4px); white-space: nowrap;
+  }
+
+  .spinner {
+    display: inline-block; width: 10px; height: 10px;
+    border: 2px solid var(--border); border-top-color: var(--accent);
+    border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 5px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<div id="drop-overlay">
+  <div class="drop-box" id="drop-box">
+    <span class="drop-icon">🗺</span>
+    <h2>Drop your JSON file</h2>
+    <p>Load a JSON array with <em>lat</em>, <em>lon</em>, <em>title</em>, and optionally<br>
+      <em>latlon_confidence</em> and <em>latlon_debug</em> fields.<br><br>
+      Browse and verify coordinates one by one on the map.</p>
+  </div>
+  <input type="file" id="file-input" accept=".json">
+</div>
+
+<div id="app">
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">Verify <span>/ map editor</span></div>
+      <div class="progress-row">
+        <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        <div class="progress-label" id="progress-label">0 / 0</div>
+      </div>
+      <div class="search-row">
+        <input class="search-input" id="record-search" type="text" placeholder="Jump to place name…">
+        <button class="icon-btn" id="prev-match-btn" title="Previous match">↑</button>
+        <button class="icon-btn" id="next-match-btn" title="Next match">↓</button>
+      </div>
+    </div>
+    <div class="card-area" id="card-area"></div>
+    <div class="sidebar-footer">
+      <div class="nav-row">
+        <button class="nav-btn" id="prev-btn">← Prev</button>
+        <div class="nav-counter" id="nav-counter"><strong>—</strong></div>
+        <button class="nav-btn" id="next-btn">Next →</button>
+      </div>
+      <div class="jump-row">
+        <span class="jump-label">Go to #</span>
+        <input class="jump-input" id="jump-input" type="number" min="1" placeholder="…">
+        <button class="place-search-btn" id="jump-btn">Go</button>
+      </div>
+      <button class="export-btn" id="export-btn">Export JSON</button>
+    </div>
+  </div>
+  <div id="map">
+    <div class="map-hint">Click map to reposition · drag marker to fine-tune</div>
+  </div>
+</div>
+
+<script>
+let allRows = [], editMap = {}, currentIdx = 0;
+let map, marker, searchMarker;
+let matchIndices = [], matchCursor = -1;
+
+// ── Drop / load ──
+const dropBox = document.getElementById('drop-box');
+const fileInput = document.getElementById('file-input');
+
+dropBox.addEventListener('click', () => fileInput.click());
+dropBox.addEventListener('dragover', e => { e.preventDefault(); dropBox.classList.add('drag-over'); });
+dropBox.addEventListener('dragleave', () => dropBox.classList.remove('drag-over'));
+dropBox.addEventListener('drop', e => { e.preventDefault(); dropBox.classList.remove('drag-over'); if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', () => { if (fileInput.files[0]) loadFile(fileInput.files[0]); });
+
+function loadFile(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    let data;
+    try { data = JSON.parse(e.target.result); } catch(err) { alert('Invalid JSON: ' + err.message); return; }
+    if (!Array.isArray(data)) { alert('JSON must be an array.'); return; }
+    allRows = data; editMap = {}; currentIdx = 0;
+    document.getElementById('drop-overlay').classList.add('hidden');
+    document.getElementById('app').classList.add('visible');
+    initMap();
+    goTo(0);
+  };
+  reader.readAsText(file);
+}
+
+// ── Map ──
+function initMap() {
+  if (map) return;
+  map = L.map('map', { zoomControl: true });
+  // CartoDB Voyager — English labels worldwide
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap contributors © CARTO',
+    subdomains: 'abcd', maxZoom: 19
+  }).addTo(map);
+  map.on('click', e => {
+    const lat = parseFloat(e.latlng.lat.toFixed(6));
+    const lon = parseFloat(e.latlng.lng.toFixed(6));
+    applyCoords(lat, lon);
+  });
+}
+
+function makeIcon(isEdited, conf) {
+  let bg = 'var(--accent)';
+  if (isEdited) bg = 'var(--ok)';
+  else if (conf !== null && conf !== undefined && conf < 0.3) bg = 'var(--warn)';
+  return L.divIcon({
+    className: '',
+    html: `<div style="width:24px;height:24px;background:${bg};border:3px solid #0f0e0c;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 2px 10px rgba(0,0,0,0.4)"></div>`,
+    iconSize: [24,24], iconAnchor: [12,24], popupAnchor: [0,-24]
+  });
+}
+
+function placeMarker(lat, lon, title, isEdited, conf) {
+  if (marker) map.removeLayer(marker);
+  marker = L.marker([lat, lon], { draggable: true, icon: makeIcon(isEdited, conf) }).addTo(map);
+  if (title) marker.bindPopup(`<strong>${esc(title)}</strong><br><span style="color:#7a7568">${lat}, ${lon}</span>`);
+  marker.on('dragend', e => {
+    const p = e.target.getLatLng();
+    applyCoords(parseFloat(p.lat.toFixed(6)), parseFloat(p.lng.toFixed(6)));
+  });
+}
+
+function applyCoords(lat, lon) {
+  const orig = allRows[currentIdx];
+  const unchanged = lat === parseFloat(orig.lat) && lon === parseFloat(orig.lon);
+  if (unchanged) delete editMap[currentIdx];
+  else editMap[currentIdx] = { lat, lon };
+
+  placeMarker(lat, lon, orig.title, !!editMap[currentIdx], orig.latlon_confidence);
+
+  const latEl = document.getElementById('edit-lat');
+  const lonEl = document.getElementById('edit-lon');
+  if (latEl) { latEl.value = lat; latEl.classList.toggle('changed', !!editMap[currentIdx]); }
+  if (lonEl) { lonEl.value = lon; lonEl.classList.toggle('changed', !!editMap[currentIdx]); }
+
+  const revert = document.getElementById('revert-btn');
+  if (revert) revert.disabled = !editMap[currentIdx];
+
+  const badge = document.querySelector('.edited-badge');
+  if (editMap[currentIdx] && !badge) {
+    document.querySelector('.place-title')?.insertAdjacentHTML('beforeend', '<span class="edited-badge">EDITED</span>');
+  } else if (!editMap[currentIdx] && badge) {
+    badge.remove();
+  }
+}
+
+// ── Navigation ──
+function goTo(idx) {
+  if (idx < 0 || idx >= allRows.length) return;
+  currentIdx = idx;
+  const row = allRows[idx];
+  const edit = editMap[idx];
+  const lat = edit ? edit.lat : parseFloat(row.lat);
+  const lon = edit ? edit.lon : parseFloat(row.lon);
+  renderCard();
+  updateProgress();
+  document.getElementById('prev-btn').disabled = idx === 0;
+  document.getElementById('next-btn').disabled = idx >= allRows.length - 1;
+  if (!isNaN(lat) && !isNaN(lon)) {
+    placeMarker(lat, lon, row.title, !!edit, row.latlon_confidence);
+    map.setView([lat, lon], 14, { animate: true });
+  }
+  if (searchMarker) { map.removeLayer(searchMarker); searchMarker = null; }
+}
+
+function updateProgress() {
+  const pct = allRows.length ? ((currentIdx+1)/allRows.length*100) : 0;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = `${currentIdx+1} / ${allRows.length}`;
+  document.getElementById('nav-counter').innerHTML = `<strong>${currentIdx+1}</strong> of ${allRows.length}`;
+}
+
+document.getElementById('prev-btn').addEventListener('click', () => goTo(currentIdx - 1));
+document.getElementById('next-btn').addEventListener('click', () => goTo(currentIdx + 1));
+document.getElementById('jump-btn').addEventListener('click', () => {
+  const v = parseInt(document.getElementById('jump-input').value);
+  if (!isNaN(v) && v >= 1 && v <= allRows.length) goTo(v-1);
+});
+document.getElementById('jump-input').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('jump-btn').click(); });
+
+document.addEventListener('keydown', e => {
+  if (!allRows.length || ['INPUT','TEXTAREA'].includes(e.target.tagName)) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(currentIdx+1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   goTo(currentIdx-1);
+});
+
+// ── Record search ──
+document.getElementById('record-search').addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  if (!q) { matchIndices = []; matchCursor = -1; return; }
+  matchIndices = allRows.reduce((a,r,i) => { if ((r.title||'').toLowerCase().includes(q)||(r.country||'').toLowerCase().includes(q)) a.push(i); return a; }, []);
+  matchCursor = matchIndices.length ? 0 : -1;
+  if (matchCursor >= 0) goTo(matchIndices[matchCursor]);
+});
+document.getElementById('record-search').addEventListener('keydown', e => { if (e.key==='Enter') { e.preventDefault(); document.getElementById('next-match-btn').click(); } });
+document.getElementById('prev-match-btn').addEventListener('click', () => {
+  if (!matchIndices.length) return;
+  matchCursor = (matchCursor-1+matchIndices.length)%matchIndices.length;
+  goTo(matchIndices[matchCursor]);
+});
+document.getElementById('next-match-btn').addEventListener('click', () => {
+  if (!matchIndices.length) return;
+  matchCursor = (matchCursor+1)%matchIndices.length;
+  goTo(matchIndices[matchCursor]);
+});
+
+// ── Render card ──
+function renderCard() {
+  const row = allRows[currentIdx];
+  const edit = editMap[currentIdx];
+  const conf = row.latlon_confidence;
+  const debug = row.latlon_debug || {};
+  const lat = edit ? edit.lat : (row.lat ?? '');
+  const lon = edit ? edit.lon : (row.lon ?? '');
+
+  let confCls = 'none', confLabel = 'No confidence data';
+  if (conf !== null && conf !== undefined) {
+    if (conf >= 0.5)      { confCls = 'ok';  confLabel = 'Good confidence'; }
+    else if (conf >= 0.3) { confCls = 'mid'; confLabel = 'Medium confidence'; }
+    else                  { confCls = 'low'; confLabel = 'Low confidence — needs review'; }
+  }
+  const pct = conf !== null && conf !== undefined ? Math.round(conf*100) : '—';
+
+  const area = document.getElementById('card-area');
+  area.innerHTML = `
+    <div class="section">
+      <div class="place-title">${esc(row.title||'—')}${edit?'<span class="edited-badge">EDITED</span>':''}</div>
+      <div class="place-meta">${esc(row.country||'')}${row.wikidata_id?' · '+esc(row.wikidata_id):''}</div>
+    </div>
+
+    ${row.summary?`<div class="section"><div class="section-label">Summary</div><div class="summary-text">${esc((row.summary||'').replace(/\r\n/g,'\n').trim())}</div></div>`:''}
+
+    ${conf!==null&&conf!==undefined?`
+    <div class="conf-banner ${confCls}">
+      <div class="conf-pct">${pct}%</div>
+      <div class="conf-details">
+        <div class="conf-label">${confLabel}</div>
+        ${debug.nominatim_country?`<div class="conf-country">Nominatim: ${esc(debug.nominatim_country)}</div>`:''}
+      </div>
+    </div>`:''}
+
+    ${debug.country_score!==undefined?`
+    <div class="section">
+      <div class="section-label">Score breakdown</div>
+      <div class="score-grid">
+        ${sbar('Country', debug.country_score)}
+        ${sbar('Name',    debug.name_score)}
+        ${sbar('Type',    debug.type_score)}
+      </div>
+    </div>`:''}
+
+    ${debug.nominatim_name||debug.nominatim_display?`
+    <div class="section">
+      <div class="section-label">Nominatim result</div>
+      <div class="nom-result">
+        <div class="nom-label">Returned name</div>
+        <div class="nom-name">${esc(debug.nominatim_name||'—')}</div>
+        <div class="nom-type">${esc(debug.osm_type||'')}</div>
+        <div class="nom-display" title="${esc(debug.nominatim_display||'')}">${esc(debug.nominatim_display||'')}</div>
+      </div>
+    </div>`:''}
+
+    <div class="section">
+      <div class="section-label">Coordinates</div>
+      <div class="coord-grid">
+        <div class="coord-field"><label>LATITUDE</label><input class="coord-input${edit?' changed':''}" id="edit-lat" type="text" value="${lat}" placeholder="lat"></div>
+        <div class="coord-field"><label>LONGITUDE</label><input class="coord-input${edit?' changed':''}" id="edit-lon" type="text" value="${lon}" placeholder="lon"></div>
+      </div>
+      <div class="coord-actions">
+        <button class="action-btn btn-apply" id="apply-btn">✓ Apply</button>
+        <button class="action-btn btn-revert" id="revert-btn" ${!edit?'disabled':''}>↺ Revert</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Search place on map</div>
+      <div class="place-search-row">
+        <input class="place-search-input" id="place-search" type="text" placeholder="Search Nominatim…" value="${esc(row.title||'')}">
+        <button class="place-search-btn" id="place-search-btn">Search</button>
+      </div>
+      <div id="search-results-container"></div>
+    </div>
+  `;
+
+  // Wire events
+  const latEl = document.getElementById('edit-lat');
+  const lonEl = document.getElementById('edit-lon');
+  const applyBtn = document.getElementById('apply-btn');
+  const revertBtn = document.getElementById('revert-btn');
+
+  [latEl, lonEl].forEach(el => {
+    el.addEventListener('input', () => {
+      const orig = allRows[currentIdx];
+      latEl.classList.toggle('changed', parseFloat(latEl.value) !== parseFloat(orig.lat));
+      lonEl.classList.toggle('changed', parseFloat(lonEl.value) !== parseFloat(orig.lon));
+    });
+    el.addEventListener('keydown', e => { if (e.key==='Enter') applyBtn.click(); });
+  });
+
+  applyBtn.addEventListener('click', () => {
+    const newLat = parseFloat(latEl.value);
+    const newLon = parseFloat(lonEl.value);
+    if (isNaN(newLat)||isNaN(newLon)) { alert('Invalid coordinates.'); return; }
+    applyCoords(newLat, newLon);
+    map.setView([newLat, newLon], 14, { animate: true });
+  });
+
+  revertBtn.addEventListener('click', () => { delete editMap[currentIdx]; goTo(currentIdx); });
+
+  document.getElementById('place-search-btn').addEventListener('click', doPlaceSearch);
+  document.getElementById('place-search').addEventListener('keydown', e => { if (e.key==='Enter') doPlaceSearch(); });
+}
+
+function sbar(label, val) {
+  const v = val ?? 0;
+  const pct = Math.round(v*100);
+  const color = v>=0.7?'var(--ok)':v>=0.4?'var(--mid)':'var(--warn)';
+  return `<div class="score-row"><span class="score-lbl">${label}</span><span class="score-bar"><span class="score-fill" style="width:${pct}%;background:${color}"></span></span><span class="score-val">${v.toFixed(2)}</span></div>`;
+}
+
+// ── Place search ──
+let searchAbort = null;
+async function doPlaceSearch() {
+  const q = document.getElementById('place-search')?.value?.trim();
+  const container = document.getElementById('search-results-container');
+  if (!q || !container) return;
+  container.innerHTML = `<div style="padding:8px 12px;font-size:10px;color:var(--muted)"><span class="spinner"></span>Searching…</div>`;
+  if (searchAbort) searchAbort.abort();
+  searchAbort = new AbortController();
+  try {
+    const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=6&addressdetails=1`;
+    const resp = await fetch(url, { headers: { 'Accept-Language': 'en' }, signal: searchAbort.signal });
+    const results = await resp.json();
+    if (!results.length) { container.innerHTML = `<div style="padding:8px 12px;font-size:10px;color:var(--muted)">No results found.</div>`; return; }
+    const ul = document.createElement('div');
+    ul.className = 'search-results';
+    results.forEach(r => {
+      const lat = parseFloat(r.lat).toFixed(6);
+      const lon = parseFloat(r.lon).toFixed(6);
+      const div = document.createElement('div');
+      div.className = 'search-result-item';
+      div.innerHTML = `<div class="sri-name">${esc(r.display_name.split(',')[0])}</div><div class="sri-detail">${esc(r.display_name)} · ${lat}, ${lon}</div>`;
+      div.addEventListener('click', () => {
+        const fLat = parseFloat(lat), fLon = parseFloat(lon);
+        if (searchMarker) map.removeLayer(searchMarker);
+        searchMarker = L.marker([fLat, fLon], { icon: L.divIcon({
+          className: '',
+          html: `<div style="width:16px;height:16px;background:var(--accent);border:3px solid #0f0e0c;border-radius:50%;box-shadow:0 0 10px rgba(200,169,110,0.6)"></div>`,
+          iconSize:[16,16], iconAnchor:[8,8]
+        })}).addTo(map)
+          .bindPopup(`<strong>${esc(r.display_name.split(',')[0])}</strong><br>${lat}, ${lon}`)
+          .openPopup();
+        map.setView([fLat, fLon], 15, { animate: true });
+        const latEl = document.getElementById('edit-lat');
+        const lonEl = document.getElementById('edit-lon');
+        if (latEl) { latEl.value = fLat; latEl.classList.add('changed'); }
+        if (lonEl) { lonEl.value = fLon; lonEl.classList.add('changed'); }
+        container.innerHTML = '';
+      });
+      ul.appendChild(div);
+    });
+    container.innerHTML = ''; container.appendChild(ul);
+  } catch(err) {
+    if (err.name==='AbortError') return;
+    container.innerHTML = `<div style="padding:8px 12px;font-size:10px;color:var(--warn)">Search failed.</div>`;
+  }
+}
+
+// ── Export ──
+document.getElementById('export-btn').addEventListener('click', () => {
+  const output = allRows.map((row,idx) => {
+    const edit = editMap[idx];
+    if (!edit) return { ...row };
+    return { ...row, lat: edit.lat, lon: edit.lon, latlon_edited: true };
+  });
+  const blob = new Blob([JSON.stringify(output, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'latlon_corrected.json'; a.click();
+});
+
+function esc(str) {
+  return String(str??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>

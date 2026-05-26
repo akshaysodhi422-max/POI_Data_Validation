@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POI Viewer</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f2ed;
+      --panel: #faf8f4;
+      --dark: #1a1712;
+      --ink: #2d2a24;
+      --muted: #8a8478;
+      --rule: #e0dbd0;
+      --accent: #b5540e;
+      --accent2: #2e6b5e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      height: 50px;
+      flex-shrink: 0;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+      border-bottom: 2px solid var(--accent);
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .logo-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    #header-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .load-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: transparent;
+      border: 1px solid #3a3630;
+      color: var(--muted);
+      padding: 5px 13px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+      display: none;
+    }
+
+    .load-btn:hover {
+      border-color: var(--accent);
+      color: var(--bg);
+    }
+
+    /* ── Drop screen ── */
+    #drop-screen {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .drop-card {
+      border: 2px dashed var(--rule);
+      border-radius: 16px;
+      padding: 70px 90px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .drop-card:hover,
+    .drop-card.drag-over {
+      border-color: var(--accent);
+      background: rgba(181, 84, 14, 0.04);
+    }
+
+    .drop-icon {
+      font-size: 42px;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .drop-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .drop-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    #file-input {
+      display: none;
+    }
+
+    /* ── Main viewer ── */
+    #viewer {
+      display: none;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    #viewer.active {
+      display: flex;
+    }
+
+    /* ── Map (left) ── */
+    #map-col {
+      flex: 1;
+      position: relative;
+      min-width: 0;
+      background: #e8e4dc;
+    }
+
+    #map-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── Detail panel (right) ── */
+    #detail-col {
+      width: 500px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      border-left: 1px solid var(--rule);
+      overflow: hidden;
+    }
+
+    /* Image */
+    .poi-img-wrap {
+      width: 100%;
+      height: 375px;
+      flex-shrink: 0;
+      background: #ddd8ce;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #poi-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    #poi-img.loaded {
+      opacity: 1;
+    }
+
+    .img-ph {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .img-ph span:first-child {
+      font-size: 30px;
+    }
+
+    .index-ribbon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      background: rgba(26, 23, 18, 0.68);
+      backdrop-filter: blur(4px);
+      color: rgba(245, 242, 237, 0.9);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+
+    /* Text content */
+    .poi-content {
+      flex: 1;
+      padding: 20px 22px 0;
+      overflow-y: auto;
+      min-height: 0;
+    }
+
+    .poi-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 13px;
+    }
+
+    .poi-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .poi-title a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .poi-desc {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #4a4640;
+      padding-bottom: 20px;
+    }
+
+    /* Extra fields */
+    .poi-fields {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      padding: 14px 0 16px;
+      border-top: 1px solid var(--rule);
+      margin-top: 4px;
+    }
+
+    .poi-field {
+      display: flex;
+      gap: 10px;
+      font-size: 11px;
+      align-items: flex-start;
+    }
+
+    .field-key {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      width: 80px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .field-val {
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* Credits bar */
+    .credit-bar {
+      flex-shrink: 0;
+      border-top: 1px solid var(--rule);
+      background: var(--bg);
+      padding: 9px 22px;
+    }
+
+    .credit-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .credit-text a {
+      color: var(--accent2);
+      text-decoration: none;
+    }
+
+    .credit-text a:hover {
+      text-decoration: underline;
+    }
+
+    .credit-sep {
+      color: var(--rule);
+      margin: 0 7px;
+    }
+
+    /* Nav */
+    .nav-strip {
+      flex-shrink: 0;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      background: var(--panel);
+    }
+
+    .nav-btn {
+      flex: 1;
+      padding: 13px 10px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: var(--rule);
+    }
+
+    .nav-btn:disabled {
+      color: var(--muted);
+      cursor: not-allowed;
+    }
+
+    .nav-divider {
+      width: 1px;
+      background: var(--rule);
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .nav-counter {
+      padding: 0 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      white-space: nowrap;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .jump-input {
+      width: 42px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      text-align: center;
+      color: var(--ink);
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 3px 4px;
+      outline: none;
+      transition: border-color 0.15s;
+      -moz-appearance: textfield;
+    }
+
+    .jump-input::-webkit-inner-spin-button,
+    .jump-input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .jump-input:focus {
+      border-color: var(--accent);
+    }
+
+    .jump-total {
+      opacity: 0.5;
+    }
+
+    /* Scrollbar */
+    .poi-content::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .poi-content::-webkit-scrollbar-thumb {
+      background: var(--rule);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <div class="logo-dot"></div>
+      POI Viewer
+    </div>
+    <div class="header-right">
+      <div id="header-meta">Place of Interest Explorer</div>
+      <button class="load-btn" id="load-btn" onclick="resetAll()">↩ Load new file</button>
+    </div>
+  </header>
+
+  <!-- Drop screen -->
+  <div id="drop-screen">
+    <div class="drop-card" id="drop-box">
+      <span class="drop-icon">🌍</span>
+      <h2>Open your POI data</h2>
+      <p>Drop a <strong>.json</strong> file here or click to browse.<br>Expects an array of objects with fields
+        like<br><em>title, summary, image_url, lat, lon…</em></p>
+    </div>
+    <input type="file" id="file-input" accept=".json">
+  </div>
+
+  <!-- Main viewer -->
+  <div id="viewer">
+    <div id="map-col">
+      <iframe id="map-frame" title="Map" allowfullscreen></iframe>
+    </div>
+
+    <div id="detail-col">
+      <div class="poi-img-wrap">
+        <div class="img-ph" id="img-ph"><span>🖼</span><span>Loading…</span></div>
+        <img id="poi-img" alt="">
+        <div class="index-ribbon" id="index-ribbon">1 / 1</div>
+      </div>
+
+      <div class="poi-content" id="poi-content">
+        <div class="poi-title" id="poi-title">—</div>
+        <div class="poi-desc" id="poi-desc"></div>
+        <div class="poi-fields" id="poi-fields"></div>
+      </div>
+
+      <div class="credit-bar">
+        <div class="credit-text" id="credit-text"></div>
+      </div>
+
+      <div class="nav-strip">
+        <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">← Prev</button>
+        <div class="nav-divider"></div>
+        <div class="nav-counter"><input class="jump-input" id="jump-input" type="number" min="1" value="1"><span
+            class="jump-total" id="jump-total">/ 1</span></div>
+        <div class="nav-divider"></div>
+        <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let pois = [];
+    let current = 0;
+    let imgGeneration = 0;
+
+    // ── File loading ──
+    const dropBox = document.getElementById('drop-box');
+    const fileInput = document.getElementById('file-input');
+
+    dropBox.addEventListener('click', () => fileInput.click());
+    dropBox.addEventListener('dragover', e => { e.preventDefault(); dropBox.classList.add('drag-over'); });
+    dropBox.addEventListener('dragleave', () => dropBox.classList.remove('drag-over'));
+    dropBox.addEventListener('drop', e => {
+      e.preventDefault(); dropBox.classList.remove('drag-over');
+      if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', () => { if (fileInput.files[0]) loadFile(fileInput.files[0]); });
+
+    function loadFile(file) {
+      const reader = new FileReader();
+      reader.onload = ev => {
+        let data;
+        try { data = JSON.parse(ev.target.result); } catch (err) { alert('Invalid JSON: ' + err.message); return; }
+        if (!Array.isArray(data)) data = [data];
+        if (!data.length) { alert('No records found.'); return; }
+        pois = data;
+        current = 0;
+        document.getElementById('drop-screen').style.display = 'none';
+        document.getElementById('viewer').classList.add('active');
+        document.getElementById('header-meta').textContent = `${pois.length} locations`;
+        document.getElementById('load-btn').style.display = 'inline-block';
+        showPOI(0);
+      };
+      reader.readAsText(file);
+    }
+
+    function resetAll() {
+      pois = []; current = 0;
+      document.getElementById('drop-screen').style.display = '';
+      document.getElementById('viewer').classList.remove('active');
+      document.getElementById('header-meta').textContent = 'Place of Interest Explorer';
+      document.getElementById('load-btn').style.display = 'none';
+      fileInput.value = '';
+    }
+
+    // ── Map via iframe ──
+    function updateMap(lat, lon) {
+      const frame = document.getElementById('map-frame');
+      if (lat == null || lon == null || isNaN(lat) || isNaN(lon)) {
+        frame.src = 'about:blank';
+        return;
+      }
+      // OpenStreetMap embed URL with marker
+      const zoom = 13;
+      const bbox = 0.05;
+      const url = `https://www.openstreetmap.org/export/embed.html?bbox=${lon - bbox},${lat - bbox},${lon + bbox},${lat + bbox}&layer=mapnik&marker=${lat},${lon}`;
+      frame.src = url;
+    }
+
+    // ── Image resolution ──
+    const _wikiCache = {};
+
+    async function resolveImageUrl(url) {
+      if (!url) return '';
+      const wikiMatch = url.match(/Special:FilePath\/([^?&#]+)/i) || url.match(/Special%3AFilePath%2F([^?&#]+)/i);
+      if (wikiMatch) {
+        const filename = decodeURIComponent(wikiMatch[1]);
+        if (_wikiCache[filename]) return _wikiCache[filename];
+        try {
+          const api = `https://commons.wikimedia.org/w/api.php?action=query&titles=File:${encodeURIComponent(filename)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
+          const resp = await fetch(api);
+          const data = await resp.json();
+          const pages = data.query.pages;
+          const page = pages[Object.keys(pages)[0]];
+          const direct = page?.imageinfo?.[0]?.url;
+          if (direct) { _wikiCache[filename] = direct; return direct; }
+        } catch (e) { }
+        return `https://corsproxy.io/?${encodeURIComponent(url)}`;
+      }
+      if (/whc\.unesco\.org/i.test(url)) return `https://corsproxy.io/?${encodeURIComponent(url)}`;
+      return url;
+    }
+
+    // ── Skipped display keys ──
+    const SKIP_KEYS = new Set([
+      'title', 'name', 'description', 'desc', 'summary', 'image_url', 'image', 'img',
+      'lat', 'lon', 'lng', 'latitude', 'longitude', 'country', 'article_link', 'link',
+      'image_review', 'enabled', 'image_file', 'wikidata_id', 'image_credits',
+      'author', 'attribution_source', 'author_url', 'license', 'license_url', 'source_page', 'attribution_note'
+    ]);
+
+    // ── Show POI ──
+    function showPOI(idx) {
+      const poi = pois[idx];
+      if (!poi) return;
+
+      // Image
+      const imgEl = document.getElementById('poi-img');
+      const ph = document.getElementById('img-ph');
+      const gen = ++imgGeneration;
+
+      imgEl.onload = null;
+      imgEl.onerror = null;
+      imgEl.classList.remove('loaded');
+      imgEl.style.objectFit = 'cover';
+      imgEl.style.background = '';
+      imgEl.removeAttribute('src');
+      imgEl.style.display = 'block';
+      ph.style.display = 'flex';
+      ph.innerHTML = '<span>🖼</span><span>Loading\u2026</span>';
+
+      const rawUrl = poi.image_url || poi.image || poi.img || '';
+      if (rawUrl) {
+        resolveImageUrl(rawUrl).then(resolved => {
+          if (gen !== imgGeneration) return;
+          imgEl.onerror = () => { imgEl.style.display = 'none'; ph.innerHTML = '<span>\u26a0\ufe0f</span><span>No image</span>'; };
+          imgEl.src = resolved;
+          // decode() waits until the full image is pixel-ready before revealing,
+          // preventing the progressive-JPEG "blurry then sharp" flash
+          imgEl.decode()
+            .then(() => {
+              if (gen !== imgGeneration) return;
+              // Portrait images look bad cropped — switch to contain so the full image shows
+              const isPortrait = imgEl.naturalHeight > imgEl.naturalWidth * 1.1;
+              imgEl.style.objectFit = isPortrait ? 'contain' : 'cover';
+              imgEl.style.background = isPortrait ? '#1a1712' : '';
+              imgEl.classList.add('loaded');
+              ph.style.display = 'none';
+            })
+            .catch(() => { if (gen !== imgGeneration) return; imgEl.classList.add('loaded'); ph.style.display = 'none'; });
+        });
+      } else {
+        ph.innerHTML = '<span>\u{1f3db}</span><span>No image</span>';
+      }
+
+      // Index
+      document.getElementById('index-ribbon').textContent = `${idx + 1} / ${pois.length}`;
+
+      // Title
+      const titleEl = document.getElementById('poi-title');
+      const link = poi.article_link || poi.link || '';
+      const titleText = poi.title || poi.name || '—';
+      titleEl.innerHTML = link
+        ? `<a href="${esc(link)}" target="_blank" rel="noopener">${esc(titleText)}</a>`
+        : esc(titleText);
+
+      // Description
+      document.getElementById('poi-desc').textContent = poi.summary || poi.description || poi.desc || '';
+
+      // Extra fields
+      const fieldsEl = document.getElementById('poi-fields');
+      const extras = Object.entries(poi).filter(([k, v]) => !SKIP_KEYS.has(k) && v != null && v !== '' && typeof v !== 'object');
+      if (extras.length) {
+        fieldsEl.style.display = 'flex';
+        fieldsEl.innerHTML = extras.map(([k, v]) =>
+          `<div class="poi-field"><span class="field-key">${esc(k)}</span><span class="field-val">${esc(String(v))}</span></div>`
+        ).join('');
+      } else {
+        fieldsEl.style.display = 'none';
+        fieldsEl.innerHTML = '';
+      }
+
+      // Credits
+      const ic = poi.image_credits || {};
+      const creditParts = [];
+      const author = ic.credit || ic.author || poi.author || '';
+      const sourceLabel = ic.source || poi.attribution_source || '';
+      const sourcePage = ic.source_page || poi.source_page || '';
+      const license = ic.license || poi.license || '';
+      const licenseUrl = ic.license_url || poi.license_url || '';
+      if (author) creditParts.push(`© ${esc(author)}`);
+      if (sourceLabel) creditParts.push(sourcePage ? `<a href="${esc(sourcePage)}" target="_blank" rel="noopener">${esc(sourceLabel)}</a>` : esc(sourceLabel));
+      if (license) creditParts.push(licenseUrl ? `<a href="${esc(licenseUrl)}" target="_blank" rel="noopener">${esc(license)}</a>` : esc(license));
+      document.getElementById('credit-text').innerHTML = creditParts.length
+        ? creditParts.join('<span class="credit-sep">•</span>')
+        : '<span style="opacity:0.4">No attribution data</span>';
+
+      // Nav buttons
+      const jumpInput = document.getElementById('jump-input');
+      jumpInput.max = pois.length;
+      jumpInput.value = idx + 1;
+      document.getElementById('jump-total').textContent = `/ ${pois.length}`;
+      document.getElementById('prev-btn').disabled = idx === 0;
+      document.getElementById('next-btn').disabled = idx >= pois.length - 1;
+
+      // Map
+      const lat = parseFloat(poi.lat || poi.latitude || '');
+      const lon = parseFloat(poi.lon || poi.lng || poi.longitude || '');
+      updateMap(lat, lon);
+
+      // Scroll content to top
+      document.getElementById('poi-content').scrollTop = 0;
+    }
+
+    function navigate(dir) {
+      const next = current + dir;
+      if (next < 0 || next >= pois.length) return;
+      current = next;
+      showPOI(current);
+    }
+
+    function esc(str) {
+      return String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    // Jump input
+    document.addEventListener('change', e => {
+      if (e.target.id !== 'jump-input') return;
+      const val = parseInt(e.target.value);
+      if (!pois.length || isNaN(val)) return;
+      const clamped = Math.max(1, Math.min(pois.length, val)) - 1;
+      current = clamped;
+      showPOI(current);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.target.id === 'jump-input') {
+        if (e.key === 'Enter') { e.target.blur(); e.target.dispatchEvent(new Event('change')); }
+        return; // don't hijack arrow keys while typing
+      }
+      if (!pois.length) return;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+    });
+  </script>
+</body>
+
+</html>

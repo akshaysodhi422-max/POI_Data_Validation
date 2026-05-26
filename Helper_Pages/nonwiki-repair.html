@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Non-Wiki Image Fix</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&display=swap');
+
+  :root {
+    --bg: #0f0e0c;
+    --surface: #1a1916;
+    --surface2: #252320;
+    --border: #333129;
+    --text: #e8e4d9;
+    --muted: #7a7568;
+    --accent: #7eb8d4;
+    --accent2: #5a9ab8;
+    --fixed: #4caf82;
+    --warn: #c8a96e;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Mono', monospace;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--muted); font-weight: 300; font-style: italic; font-size: 16px; }
+
+  .header-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+  .progress-info { font-size: 11px; color: var(--muted); text-align: right; line-height: 1.6; }
+  .progress-bar-wrap { width: 140px; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin-top: 4px; }
+  .progress-bar-fill { height: 100%; background: var(--fixed); border-radius: 2px; transition: width 0.4s ease; }
+
+  .btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.05em;
+  }
+  .btn-primary { background: var(--accent); color: #0f0e0c; border-color: var(--accent); font-weight: 500; }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-ghost { background: transparent; color: var(--muted); }
+  .btn-ghost:hover { background: var(--surface2); color: var(--text); }
+  .btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* Drop zone */
+  .drop-zone {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 32px;
+  }
+
+  .drop-box {
+    border: 2px dashed var(--border);
+    border-radius: 14px;
+    padding: 60px 80px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+  .drop-box:hover, .drop-box.drag-over { border-color: var(--accent); background: rgba(126,184,212,0.04); }
+  .drop-icon { font-size: 40px; margin-bottom: 12px; display: block; }
+  .drop-box h2 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 300; color: var(--text); margin-bottom: 6px; }
+  .drop-box p { font-size: 11px; color: var(--muted); line-height: 1.8; }
+  .drop-box p em { color: var(--accent); font-style: normal; }
+  #file-input { display: none; }
+
+  /* Review layout */
+  .review-layout { display: none; flex-direction: column; flex: 1; }
+  .review-layout.active { display: flex; }
+
+  .cards-area {
+    flex: 1;
+    padding: 20px 20px 10px;
+    display: flex;
+    gap: 14px;
+    align-items: stretch;
+  }
+
+  /* Card */
+  .card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+    transition: border-color 0.2s;
+  }
+
+  .card.is-replaced { border-color: var(--fixed); box-shadow: 0 0 0 1px var(--fixed), inset 0 0 30px rgba(76,175,130,0.04); }
+  .card.is-kept    { border-color: var(--warn);  box-shadow: 0 0 0 1px var(--warn),  inset 0 0 30px rgba(200,169,110,0.04); }
+
+  .card-img-wrap {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--surface2);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .card-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .img-placeholder {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 6px; color: var(--muted); font-size: 10px;
+  }
+  .img-placeholder span:first-child { font-size: 28px; }
+
+  .badge {
+    position: absolute;
+    top: 8px; left: 8px;
+    font-size: 9px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    padding: 3px 7px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .badge-nonwiki  { background: rgba(126,184,212,0.85); color: #0f0e0c; }
+  .badge-replaced { background: rgba(76,175,130,0.85);  color: #fff; }
+  .badge-kept     { background: rgba(200,169,110,0.85); color: #0f0e0c; }
+
+  /* Source pill */
+  .source-pill {
+    position: absolute;
+    bottom: 8px; right: 8px;
+    font-size: 9px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: rgba(15,14,12,0.72);
+    color: var(--muted);
+    backdrop-filter: blur(4px);
+    max-width: calc(100% - 16px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .card-body {
+    padding: 10px 12px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .card-index { font-size: 9px; color: var(--muted); letter-spacing: 0.08em; }
+
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-country { font-size: 9px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .card-url-display {
+    margin: 0 12px;
+    padding: 5px 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 9px;
+    color: var(--muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  .card-input-area {
+    padding: 8px 12px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .input-label { font-size: 9px; color: var(--muted); letter-spacing: 0.08em; }
+
+  .url-row { display: flex; gap: 6px; }
+
+  .url-input {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 7px 10px;
+    outline: none;
+    transition: border-color 0.15s;
+    min-width: 0;
+  }
+  .url-input:focus { border-color: var(--accent); }
+  .url-input.has-value { border-color: rgba(76,175,130,0.5); }
+  .url-input::placeholder { color: var(--muted); }
+
+  .preview-btn {
+    flex-shrink: 0;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: 14px;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .preview-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .card-actions { display: flex; gap: 6px; padding: 6px 12px 12px; }
+
+  .action-btn {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    background: transparent;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .btn-replace { color: var(--fixed); border-color: rgba(76,175,130,0.3); }
+  .btn-replace:hover { background: rgba(76,175,130,0.1); border-color: var(--fixed); }
+  .btn-keep { color: var(--warn); border-color: rgba(200,169,110,0.3); }
+  .btn-keep:hover { background: rgba(200,169,110,0.1); border-color: var(--warn); }
+
+  /* Nav */
+  .nav-bar {
+    padding: 10px 20px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    gap: 12px;
+  }
+
+  .nav-stats { display: flex; gap: 18px; font-size: 11px; flex-wrap: wrap; }
+  .stat { display: flex; align-items: center; gap: 6px; }
+  .stat-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .stat-dot.replaced { background: var(--fixed); }
+  .stat-dot.kept     { background: var(--warn); }
+  .stat-dot.pending  { background: var(--accent); }
+  .stat-label { color: var(--muted); }
+  .stat-value { color: var(--text); }
+
+  .nav-btns { display: flex; gap: 8px; align-items: center; }
+  .page-info { font-size: 11px; color: var(--muted); white-space: nowrap; }
+
+  .kbd-hint { font-size: 10px; color: var(--muted); text-align: center; padding-bottom: 4px; }
+  kbd { background: var(--surface2); border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; font-family: inherit; font-size: 9px; }
+
+  /* Empty state */
+  .empty-state {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px; color: var(--muted); text-align: center; padding: 40px;
+  }
+  .empty-state span:first-child { font-size: 48px; }
+  .empty-state h3 { font-family: 'Fraunces', serif; font-weight: 300; color: var(--text); font-size: 18px; }
+  .empty-state p { font-size: 11px; line-height: 1.7; max-width: 320px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Migrate <span>/ non-wiki images</span></div>
+  <div class="header-right">
+    <div class="progress-info" id="progress-info" style="display:none">
+      <div id="progress-text">0 / 0 done</div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <button class="btn btn-primary" id="export-btn" style="display:none" onclick="exportJSON()">Export JSON</button>
+    <button class="btn btn-ghost" id="load-new-btn" style="display:none" onclick="resetAll()">Load new file</button>
+  </div>
+</header>
+
+<div class="drop-zone" id="drop-zone">
+  <div class="drop-box" id="drop-box">
+    <span class="drop-icon">🔍</span>
+    <h2>Drop your JSON file</h2>
+    <p>
+      Only entries whose <em>image_url</em> is <em>not</em> from Wikimedia<br>
+      will be shown for review.<br><br>
+      Replace them with a Wikimedia URL — or keep the original.<br>
+      All other entries pass through unchanged.
+    </p>
+  </div>
+  <input type="file" id="file-input" accept=".json">
+</div>
+
+<div class="review-layout" id="review-layout">
+  <div class="cards-area" id="cards-area"></div>
+  <div class="kbd-hint"><kbd>Enter</kbd> replace · <kbd>K</kbd> keep original · <kbd>←</kbd><kbd>→</kbd> navigate</div>
+  <div class="nav-bar">
+    <div class="nav-stats">
+      <div class="stat"><div class="stat-dot replaced"></div><span class="stat-label">Replaced:</span><span class="stat-value" id="count-replaced">0</span></div>
+      <div class="stat"><div class="stat-dot kept"></div><span class="stat-label">Kept:</span><span class="stat-value" id="count-kept">0</span></div>
+      <div class="stat"><div class="stat-dot pending"></div><span class="stat-label">Pending:</span><span class="stat-value" id="count-pending">0</span></div>
+    </div>
+    <div class="nav-btns">
+      <button class="btn btn-ghost" id="prev-btn" onclick="navigate(-1)">← Prev</button>
+      <span class="page-info" id="page-info">Page 1</span>
+      <button class="btn btn-ghost" id="next-btn" onclick="navigate(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const PAGE_SIZE = 5;
+let allRows = [];
+let nonWikiRows = []; // { ...row, _origIdx }
+let decisions = {};   // nonWikiIdx -> { newUrl, status: 'replaced'|'kept' }
+let currentPage = 0;
+
+// ---------- Wikimedia detection ----------
+function isWikimedia(url) {
+  if (!url) return false;
+  return /wikimedia\.org|wikipedia\.org|wikidata\.org/i.test(url);
+}
+
+function getHostLabel(url) {
+  if (!url) return 'no url';
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch(e) {
+    return url.slice(0, 30);
+  }
+}
+
+// ---------- File loading ----------
+const dropBox  = document.getElementById('drop-box');
+const fileInput = document.getElementById('file-input');
+
+dropBox.addEventListener('click', () => fileInput.click());
+dropBox.addEventListener('dragover', e => { e.preventDefault(); dropBox.classList.add('drag-over'); });
+dropBox.addEventListener('dragleave', () => dropBox.classList.remove('drag-over'));
+dropBox.addEventListener('drop', e => {
+  e.preventDefault(); dropBox.classList.remove('drag-over');
+  if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener('change', () => { if (fileInput.files[0]) loadFile(fileInput.files[0]); });
+
+function loadFile(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    let data;
+    try { data = JSON.parse(e.target.result); }
+    catch(err) { alert('Could not parse JSON: ' + err.message); return; }
+    if (!Array.isArray(data)) { alert('JSON must be an array of objects.'); return; }
+
+    allRows = data;
+    nonWikiRows = allRows
+      .map((r, i) => ({ ...r, _origIdx: i }))
+      .filter(r => !isWikimedia(r.image_url));
+
+    decisions = {};
+    currentPage = 0;
+
+    if (nonWikiRows.length === 0) {
+      alert('All image URLs are already from Wikimedia — nothing to review!');
+      return;
+    }
+
+    showReview();
+  };
+  reader.readAsText(file);
+}
+
+function showReview() {
+  document.getElementById('drop-zone').style.display = 'none';
+  document.getElementById('review-layout').classList.add('active');
+  document.getElementById('progress-info').style.display = 'block';
+  document.getElementById('export-btn').style.display = 'inline-block';
+  document.getElementById('load-new-btn').style.display = 'inline-block';
+  renderPage();
+}
+
+function resetAll() {
+  allRows = []; nonWikiRows = []; decisions = {}; currentPage = 0;
+  document.getElementById('drop-zone').style.display = '';
+  document.getElementById('review-layout').classList.remove('active');
+  document.getElementById('progress-info').style.display = 'none';
+  document.getElementById('export-btn').style.display = 'none';
+  document.getElementById('load-new-btn').style.display = 'none';
+  fileInput.value = '';
+}
+
+// ---------- Image resolution (Wikimedia API for Special:FilePath) ----------
+const _wikiCache = {};
+const PROXIES = [
+  u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
+  u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+];
+
+async function resolveImageUrl(url) {
+  if (!url) return '';
+  const wikiMatch = url.match(/Special:FilePath\/([^?&#]+)/i) || url.match(/Special%3AFilePath%2F([^?&#]+)/i);
+  if (wikiMatch) {
+    const filename = decodeURIComponent(wikiMatch[1]);
+    if (_wikiCache[filename]) return _wikiCache[filename];
+    try {
+      const api = `https://commons.wikimedia.org/w/api.php?action=query&titles=File:${encodeURIComponent(filename)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
+      const resp = await fetch(api);
+      const data = await resp.json();
+      const pages = data.query.pages;
+      const page = pages[Object.keys(pages)[0]];
+      const direct = page?.imageinfo?.[0]?.url;
+      if (direct) { _wikiCache[filename] = direct; return direct; }
+    } catch(e) {}
+  }
+  // For non-wiki URLs, try with a CORS proxy as fallback
+  for (const makeProxy of PROXIES) {
+    try {
+      const res = await fetch(makeProxy(url), { signal: AbortSignal.timeout(5000) });
+      if (res.ok) return makeProxy(url);
+    } catch(e) {}
+  }
+  return url;
+}
+
+// ---------- Rendering ----------
+function renderPage() {
+  const area = document.getElementById('cards-area');
+  area.innerHTML = '';
+
+  const start = currentPage * PAGE_SIZE;
+  const pageRows = nonWikiRows.slice(start, start + PAGE_SIZE);
+
+  if (pageRows.length === 0) {
+    area.innerHTML = '<div class="empty-state"><span>✨</span><h3>All done</h3><p>No entries on this page.</p></div>';
+    updateStats(); updateNav(); return;
+  }
+
+  pageRows.forEach((row, i) => {
+    const nIdx = start + i;
+    const dec = decisions[nIdx];
+    const status = dec?.status;
+
+    const card = document.createElement('div');
+    card.className = 'card' + (status === 'replaced' ? ' is-replaced' : status === 'kept' ? ' is-kept' : '');
+    card.dataset.nidx = nIdx;
+
+    // Image
+    const imgWrap = document.createElement('div');
+    imgWrap.className = 'card-img-wrap';
+
+    const badge = document.createElement('div');
+    badge.className = 'badge ' + (status === 'replaced' ? 'badge-replaced' : status === 'kept' ? 'badge-kept' : 'badge-nonwiki');
+    badge.textContent = status === 'replaced' ? 'REPLACED' : status === 'kept' ? 'KEPT' : 'NON-WIKI';
+
+    const sourcePill = document.createElement('div');
+    sourcePill.className = 'source-pill';
+    sourcePill.textContent = getHostLabel(row.image_url);
+
+    const ph = document.createElement('div');
+    ph.className = 'img-placeholder';
+    ph.innerHTML = '<span>🖼</span><span>Loading…</span>';
+
+    const img = document.createElement('img');
+    img.alt = '';
+    img.addEventListener('load', () => { img.style.opacity = '1'; ph.style.display = 'none'; });
+    img.addEventListener('error', () => { img.style.display = 'none'; ph.innerHTML = '<span>⚠️</span><span>Cannot load</span>'; });
+
+    imgWrap.appendChild(badge);
+    imgWrap.appendChild(sourcePill);
+    imgWrap.appendChild(ph);
+    imgWrap.appendChild(img);
+
+    // Body
+    const body = document.createElement('div');
+    body.className = 'card-body';
+    body.innerHTML = `
+      <div class="card-index">#${row._origIdx + 1} of ${allRows.length}</div>
+      <div class="card-title">${esc(row.title || '—')}</div>
+      <div class="card-country">${esc(row.country || '')}</div>`;
+
+    // Current URL display
+    const urlDisplay = document.createElement('div');
+    urlDisplay.className = 'card-url-display';
+    urlDisplay.title = row.image_url || '';
+    urlDisplay.textContent = row.image_url || '(no url)';
+
+    // Input area
+    const inputArea = document.createElement('div');
+    inputArea.className = 'card-input-area';
+
+    const label = document.createElement('div');
+    label.className = 'input-label';
+    label.textContent = 'REPLACEMENT WIKIMEDIA URL';
+
+    const urlRow = document.createElement('div');
+    urlRow.className = 'url-row';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'url-input' + (dec?.newUrl ? ' has-value' : '');
+    input.placeholder = 'https://commons.wikimedia.org/wiki/Special:FilePath/...';
+    input.value = dec?.newUrl || '';
+    input.dataset.nidx = nIdx;
+
+    input.addEventListener('input', () => {
+      input.classList.toggle('has-value', input.value.trim().length > 0);
+    });
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { e.preventDefault(); applyReplace(nIdx, input.value.trim()); }
+    });
+
+    const previewBtn = document.createElement('button');
+    previewBtn.className = 'preview-btn';
+    previewBtn.title = 'Open URL in new tab';
+    previewBtn.textContent = '↗';
+    previewBtn.addEventListener('click', () => {
+      const u = input.value.trim();
+      if (u) window.open(u, '_blank');
+    });
+
+    urlRow.appendChild(input);
+    urlRow.appendChild(previewBtn);
+    inputArea.appendChild(label);
+    inputArea.appendChild(urlRow);
+
+    // Actions
+    const actions = document.createElement('div');
+    actions.className = 'card-actions';
+
+    const replaceBtn = document.createElement('button');
+    replaceBtn.className = 'action-btn btn-replace';
+    replaceBtn.innerHTML = '✓ Replace';
+    replaceBtn.addEventListener('click', () => applyReplace(nIdx, input.value.trim()));
+
+    const keepBtn = document.createElement('button');
+    keepBtn.className = 'action-btn btn-keep';
+    keepBtn.innerHTML = '— Keep original';
+    keepBtn.addEventListener('click', () => keepOriginal(nIdx));
+
+    actions.appendChild(replaceBtn);
+    actions.appendChild(keepBtn);
+
+    card.appendChild(imgWrap);
+    card.appendChild(body);
+    card.appendChild(urlDisplay);
+    card.appendChild(inputArea);
+    card.appendChild(actions);
+    area.appendChild(card);
+
+    // Load image — show new URL if replaced, else original
+    const urlToShow = (status === 'replaced' && dec?.newUrl) ? dec.newUrl : (row.image_url || '');
+    if (urlToShow) {
+      resolveImageUrl(urlToShow).then(resolved => { img.src = resolved; });
+    } else {
+      ph.innerHTML = '<span>🖼</span><span>No URL</span>';
+    }
+  });
+
+  updateStats();
+  updateNav();
+}
+
+function esc(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function applyReplace(nIdx, url) {
+  if (!url) { alert('Please enter a replacement URL first.'); return; }
+  decisions[nIdx] = { newUrl: url, status: 'replaced' };
+  refreshCard(nIdx);
+  updateStats();
+}
+
+function keepOriginal(nIdx) {
+  decisions[nIdx] = { newUrl: '', status: 'kept' };
+  refreshCard(nIdx);
+  updateStats();
+}
+
+function refreshCard(nIdx) {
+  const card = document.querySelector(`.card[data-nidx="${nIdx}"]`);
+  if (!card) return;
+  const dec = decisions[nIdx];
+  const status = dec?.status;
+
+  card.className = 'card' + (status === 'replaced' ? ' is-replaced' : status === 'kept' ? ' is-kept' : '');
+
+  const badge = card.querySelector('.badge');
+  if (badge) {
+    badge.className = 'badge ' + (status === 'replaced' ? 'badge-replaced' : status === 'kept' ? 'badge-kept' : 'badge-nonwiki');
+    badge.textContent = status === 'replaced' ? 'REPLACED' : status === 'kept' ? 'KEPT' : 'NON-WIKI';
+  }
+
+  if (status === 'replaced' && dec.newUrl) {
+    const img = card.querySelector('img');
+    const ph  = card.querySelector('.img-placeholder');
+    if (img) {
+      img.style.opacity = '0';
+      img.style.display = '';
+      if (ph) ph.style.display = '';
+      resolveImageUrl(dec.newUrl).then(resolved => { img.src = resolved; });
+    }
+  }
+}
+
+function updateStats() {
+  const replaced = Object.values(decisions).filter(d => d.status === 'replaced').length;
+  const kept     = Object.values(decisions).filter(d => d.status === 'kept').length;
+  const pending  = nonWikiRows.length - replaced - kept;
+  document.getElementById('count-replaced').textContent = replaced;
+  document.getElementById('count-kept').textContent = kept;
+  document.getElementById('count-pending').textContent = pending;
+  const done = replaced + kept;
+  document.getElementById('progress-text').textContent = `${done} / ${nonWikiRows.length} done`;
+  document.getElementById('progress-fill').style.width = (nonWikiRows.length ? done / nonWikiRows.length * 100 : 0) + '%';
+}
+
+function updateNav() {
+  const totalPages = Math.ceil(nonWikiRows.length / PAGE_SIZE);
+  document.getElementById('page-info').textContent = `Page ${currentPage + 1} of ${totalPages}`;
+  document.getElementById('prev-btn').disabled = currentPage === 0;
+  document.getElementById('next-btn').disabled = currentPage >= totalPages - 1;
+}
+
+function navigate(dir) {
+  const totalPages = Math.ceil(nonWikiRows.length / PAGE_SIZE);
+  const next = currentPage + dir;
+  if (next < 0 || next >= totalPages) return;
+  currentPage = next;
+  renderPage();
+}
+
+// ---------- Export ----------
+function exportJSON() {
+  // Clone all rows, apply replacements where made
+  const output = allRows.map((row, i) => {
+    // Find if this original index has a decision
+    const nIdx = nonWikiRows.findIndex(r => r._origIdx === i);
+    if (nIdx === -1) {
+      // Was a wiki row — pass through untouched, strip _origIdx if present
+      const { _origIdx, ...clean } = row;
+      return { ...row };
+    }
+    const dec = decisions[nIdx];
+    if (dec?.status === 'replaced' && dec.newUrl) {
+      return { ...row, image_url: dec.newUrl };
+    }
+    // kept or pending — pass through as-is
+    return { ...row };
+  });
+
+  const blob = new Blob([JSON.stringify(output, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'migrated_data.json';
+  a.click();
+}
+
+// ---------- Keyboard ----------
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('review-layout').classList.contains('active')) return;
+  if (e.target.tagName === 'INPUT') return;
+
+  if (e.key === 'ArrowRight') navigate(1);
+  else if (e.key === 'ArrowLeft') navigate(-1);
+  else if (e.key.toLowerCase() === 'k') {
+    // Keep first pending card on page
+    const start = currentPage * PAGE_SIZE;
+    for (let i = 0; i < PAGE_SIZE; i++) {
+      const nIdx = start + i;
+      if (nIdx < nonWikiRows.length && !decisions[nIdx]) { keepOriginal(nIdx); break; }
+    }
+  }
+});
+</script>
+</body>
+</html>
