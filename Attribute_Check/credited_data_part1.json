@@ -121,24 +121,6 @@
     },
     {
         "enabled": true,
-        "title": "Kabul University",
-        "country": "Afghanistan",
-        "summary": "Kabul University (KU; د کابل پوهنتون/ دانشگاه کابل) is one of the major and oldest institutions of higher education in Afghanistan. It is in the 3rd District of the capital Kabul near the Ministry of Higher Education. It was founded in 1931 by King Mohammed Nadir Shah, whose prime minister at the time was his younger brother, Sardar Mohammad Hashim Khan. Approximately 22,000 students attend Kabul University. In August 2021, before the Taliban takeover, nearly half were female.",
-        "image_url": "https://ku.edu.af/sites/default/files/2024-07/slider02.gif",
-        "image_file": "1950s_Afghanistan_-_Biology_class%2C_Kabul_University.jpg",
-        "wikidata_id": "Q1354097",
-        "lat": 34.517778,
-        "lon": 69.128056,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://ku.edu.af/sites/default/files/2024-07/slider02.gif",
-            "note": "No attribution found — check source manually"
-        }
-    },
-    {
-        "enabled": true,
         "title": "Mazar-i-Sharif Airport",
         "country": "Afghanistan",
         "summary": "Mazar-i-Sharif International Airport (IATA: MZR, ICAO: OAMS), officially called Mawlana Jalaluddin Mohammad Balkhi International Airport, is located about 9 km (5.6 mi) east of Mazar-i-Sharif in northern Afghanistan, which is around 15 minutes of driving distance from the center of the city.\r\nSituated at an elevation of 1,259 ft (384 m) above sea level, the airport has one asphalt runway measuring around 9,836 ft × 170 ft (2,998 m × 52 m) and several taxiways, and facilities for up to 1,000 passengers. It serves much of the population of northern Afghanistan. In 2013, a sixty million euro terminal was added to the airport while the older terminal is now used for domestic flights.\r\nThough originally constructed with 2 parallel runways, the airport's northernmost runway has since been converted into a taxiway, making it one of the largest airports in Afghanistan.",
@@ -237,42 +219,6 @@
             "credit": "Mouliric",
             "license": "CC BY-SA 3.0",
             "source_page": "https://commons.wikimedia.org/wiki/File:Caravane_dans_le_d%C3%A9sert_du_Registan_%28Afghanistan%29_en_1969.jpg"
-        }
-    },
-    {
-        "enabled": true,
-        "title": "Taloqan Airport",
-        "country": "Afghanistan",
-        "summary": "Taloqan Airport (IATA: TQN, ICAO: OATQ) is an airport serving the city of Taloqan (also known as Taluqan) in Takhar Province, Afghanistan.",
-        "image_url": "https://cdn.jetphotos.com/640/6/764575_1689875941.jpg",
-        "image_file": "Taloqan_Airport_Afghanistan.jpg",
-        "wikidata_id": "Q2875669",
-        "lat": 36.770694,
-        "lon": 69.532417,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://cdn.jetphotos.com/640/6/764575_1689875941.jpg",
-            "note": "No attribution found — check source manually"
-        }
-    },
-    {
-        "enabled": true,
-        "title": "Tarin Kowt Airport",
-        "country": "Afghanistan",
-        "summary": "Tarinkot Airport (Pashto: ترينکوټ هوايي ډګر; Dari: میدان هوایی ترین‌کوت; IATA: TII, ICAO: OATN) is located about 4 miles (6.4 km) of driving distance south from the center of Tarinkot in Afghanistan, next to the Tarinkot-Kandahar Highway. It is a domestic airport under the country's Ministry of Transport and Civil Aviation (MoTCA), and serves the population of Uruzgan Province. Security in and around the airport is provided by the Afghan National Security Forces (ANSF).\r\nSituated at an elevation of 4,429 feet (1,350 m) above sea level, Tarinkot Airport's main runway is designated 12/30 with a concrete surface measuring approximately 7,300 by 138 feet (2,225 m × 42 m). The airport has a single-story passenger terminal and a separate 4-story control tower. The adjacent Ministry of Defence's air base has several heliports, aircraft parking areas, and various buildings used by the Afghan Armed Forces for regular military and periodic emergency relief purposes.",
-        "image_url": "https://www.cellubor.com/images/referanslar/u-s-air-force-img-1.jpg",
-        "image_file": "181209TK_Ramp_Ceremony_04.JPG",
-        "wikidata_id": "Q2736618",
-        "lat": 32.605278,
-        "lon": 65.864167,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://www.cellubor.com/images/referanslar/u-s-air-force-img-1.jpg",
-            "note": "No attribution found — check source manually"
         }
     },
     {
@@ -874,24 +820,6 @@
     },
     {
         "enabled": true,
-        "title": "Vivari Fortress",
-        "country": "Albania",
-        "summary": "Ali Pasha Castle (Albanian: Kalaja e Ali Pashës) is a castle in Albania. It is named after Ali Pasha of Tepelenë who resided there until 1820. The current fortress was rebuilt in 1819 from its surface with 3 towers. Until 1820 it was the second residence of Ali Pashe Tepelena.",
-        "image_url": "https://site.unibo.it/butrint/en/atlas-and-history/triangular-fortress/@@eod.tiles.richtext/1699d22f86104195814478e01da8a071/@@images/74d974c2-df2f-4cb5-84ec-4a52c6b37cf0.png",
-        "image_file": "Kalaja_e_Ali_Pashes_ne_Butrint.jpg",
-        "wikidata_id": "Q3405245",
-        "lat": 39.741667,
-        "lon": 19.9925,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://site.unibo.it/butrint/en/atlas-and-history/triangular-fortress/@@eod.tiles.richtext/1699d22f86104195814478e01da8a071/@@images/74d974c2-df2f-4cb5-84ec-4a52c6b37cf0.png",
-            "note": "No attribution found — check source manually"
-        }
-    },
-    {
-        "enabled": true,
         "title": "Ancient and Primeval Beech Forests of the Carpathians and Other Regions of Europe",
         "country": "Albania,Austria,Belgium,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,Germany,Italy,North Macedonia,Poland,Romania,Slovakia,Slovenia,Spain,Switzerland,Ukraine",
         "summary": "This transnational property includes 93 component parts in 18 countries. Since the end of the last Ice Age, European Beech spread from a few isolated refuge areas in the Alps, Carpathians, Dinarides, Mediterranean and Pyrenees over a short period of a few thousand years in a process that is still ongoing. The successful expansion across a whole continent is related to the tree’s adaptability and tolerance of different climatic, geographical and physical conditions.",
@@ -1041,24 +969,6 @@
             "credit": "Farid",
             "license": "CC BY 2.0",
             "source_page": "https://commons.wikimedia.org/wiki/File:Biskra%20Airport.jpg"
-        }
-    },
-    {
-        "enabled": true,
-        "title": "Chott el Hodna",
-        "country": "Algeria",
-        "summary": "The Chott el Hodna (Arabic: شط الحضنة) is a very shallow saline lake in Algeria. It is located within an endorheic basin in the Hodna region, towards the eastern end of the Hautes Plaines. The Chott el Hodna includes seasonal brackish and saline pools and marshes, but the central zone of the lake is characterized by a complete absence of vegetation.\r\nJ. Despois argues that the Chott el Hodna is not a proper Chott, but a Sebkha.",
-        "image_url": "https://cdn.britannica.com/98/197598-050-28DA45BC/Stansbury-Island-Utah-Great-Salt-Lake-foreground.jpg",
-        "image_file": "Chottaryel.jpg",
-        "wikidata_id": "Q745975",
-        "lat": 35.441667,
-        "lon": 4.766667,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://cdn.britannica.com/98/197598-050-28DA45BC/Stansbury-Island-Utah-Great-Salt-Lake-foreground.jpg",
-            "note": "No attribution found — check source manually"
         }
     },
     {
@@ -1539,24 +1449,6 @@
     },
     {
         "enabled": true,
-        "title": "Dilolo Lake",
-        "country": "Angola",
-        "summary": "Dilolo Lake is the largest lake in Angola. It is located in Moxico Leste Province. The lake is located right outside of Cameia National Park.\r\n\r\n== References ==",
-        "image_url": "https://govolunteerafrica.org/wp-content/uploads/2024/12/Angola-678x381.jpg",
-        "image_file": "Dilolo_Lake.jpg",
-        "wikidata_id": "Q1225633",
-        "lat": -11.516667,
-        "lon": 22.05,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://govolunteerafrica.org/wp-content/uploads/2024/12/Angola-678x381.jpg",
-            "note": "No attribution found — check source manually"
-        }
-    },
-    {
-        "enabled": true,
         "title": "Dr. Antonio Agostinho Neto International Airport",
         "country": "Angola",
         "summary": "Dr. António Agostinho Neto International Airport (Portuguese: Aeroporto Internacional Dr. António Agostinho Neto) (IATA: NBJ, ICAO: FNBJ), informally Novo Aeroporto Internacional de Luanda (NAIL), is the international airport serving Luanda, the capital of Angola. It is located in the municipality of Bom Jesus in Icolo e Bengo Province, 40 km (25 miles) south-east of Luanda city center. It is named after Agostinho Neto, the first president of Angola.\r\nIt is the largest airport ever constructed by any Chinese enterprise outside of China. It is intended to be Angola's main gateway to the world and an important air hub for Africa, having been designed for 15 million passengers annually and 130,000 metric tons of cargo. The five busiest airports in Africa handle 7.5–28 million passengers per year, of which three have direct flights from Luanda. The older Luanda airport, Quatro de Fevereiro served 5.6 million in 2018.",
@@ -1642,24 +1534,6 @@
     },
     {
         "enabled": true,
-        "title": "Luena Airport",
-        "country": "Angola",
-        "summary": "Luena Airport (Portuguese: Aeroporto de Luena) (IATA: LUO, ICAO: FNUE) is an airport serving Luena, the capital of the Moxico Province in Angola.\r\nThe Luena VOR-DME (Ident: VUE) and the Luena non-directional beacon (Ident: UE) are on the field.",
-        "image_url": "https://i.imgur.com/K61RpZy.jpeg",
-        "image_file": "Luso_Airport_Angola_Dec_1975.jpg",
-        "wikidata_id": "Q3316786",
-        "lat": -11.768222,
-        "lon": 19.897417,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://i.imgur.com/K61RpZy.jpeg",
-            "note": "No attribution found — check source manually"
-        }
-    },
-    {
-        "enabled": true,
         "title": "Luengue-Luiana National Park",
         "country": "Angola",
         "summary": "Luengue-Luiana National Park (Portuguese: Parque Nacional do Luengue-Luiana) is a national park in Angola.",
@@ -1673,24 +1547,6 @@
             "credit": "Charles J. Sharp",
             "license": "CC BY-SA 4.0",
             "source_page": "https://commons.wikimedia.org/wiki/File:African_bush_elephants_%28Loxodonta_africana%29_female_with_six-week-old_baby.jpg"
-        }
-    },
-    {
-        "enabled": true,
-        "title": "Mbanza Kongo, Vestiges of the Capital of the former Kingdom of Kongo",
-        "country": "Angola",
-        "summary": "The town of Mbanza Kongo, located on a plateau at an altitude of 570 m, was the political and spiritual capital of the Kingdom of Kongo, one of the largest constituted states in Southern Africa from the 14th to 19th centuries. The historical area grew around the royal residence, the customary court and the holy tree, as well as the royal funeral places. When the Portuguese arrived in the 15th century they added stone buildings constructed in accordance with European methods to the existing urban conurbation built in local materials. Mbanza Kongo illustrates, more than anywhere in sub-Saharan Africa, the profound changes caused by the introduction of Christianity and the arrival of the Portuguese into Central Africa.",
-        "image_url": "https://whc.unesco.org/uploads/thumbs/site_1511_0014-360-360-20170704181605.jpg",
-        "image_file": "site_1511.jpg",
-        "wikidata_id": "UNESCO_1511",
-        "lat": -6.268889,
-        "lon": 14.249722,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://whc.unesco.org/uploads/thumbs/site_1511_0014-360-360-20170704181605.jpg",
-            "note": "No attribution found — check source manually"
         }
     },
     {
@@ -1780,24 +1636,6 @@
     },
     {
         "enabled": true,
-        "title": "Barbuda",
-        "country": "Antigua and Barbuda",
-        "summary": "Barbuda (; Barbudan Creole: Baabyuuda) is an island and dependency located in the eastern Caribbean forming part of the twin-island state of Antigua and Barbuda as an autonomous entity. Barbuda is located approximately 30 miles (48 km) north of Antigua. The only settlements on the island are Codrington and its surrounding localities. Barbuda is a flat island with the western portion being dominated by Codrington Lagoon, and the eastern portion being dominated by the elevated plateau of the Barbuda Highlands, with salty ponds and scrubland spread throughout the island. The climate is classified as tropical marine.\r\nThe first inhabitants of Barbuda were canoe-driving hunter-gatherers around 3,000–4,000 years ago. The island was subsequently inhabited by the Arawak and Kalinago. Early settlements by the Spanish were followed by the French and English who formed a colony in 1666. In 1685, Barbuda was leased to brothers John and Christopher Codrington.",
-        "image_url": "https://blog.marenauta.com/wp-content/uploads/2022/12/02-ANCORAGGIO-BARBUDA.jpg",
-        "image_file": "Barbuda_ISS008-E-7945.jpg",
-        "wikidata_id": "Q238752",
-        "lat": 17.64,
-        "lon": -61.81,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://blog.marenauta.com/wp-content/uploads/2022/12/02-ANCORAGGIO-BARBUDA.jpg",
-            "note": "No attribution found — check source manually"
-        }
-    },
-    {
-        "enabled": true,
         "title": "Mount Obama",
         "country": "Antigua and Barbuda",
         "summary": "Boggy Peak () is a mountain located in the southwest of Antigua, a constituent island of the archipelagic country of Antigua and Barbuda. At a height of 1,319 feet (402 m), it is the highest point of the Shekerley Mountains and the island as a whole.\r\nIn 2009, Boggy Peak was renamed Mount Obama by then prime minister of Antigua and Barbuda Baldwin Spencer, in honour of then US president Barack Obama. The name change was criticised by the parliamentary opposition at the time and reverted in 2016 by the government that succeeded Spencer's.",
@@ -1849,24 +1687,6 @@
     },
     {
         "enabled": true,
-        "title": "Argentine Sea",
-        "country": "Argentina",
-        "summary": "The Argentine Sea (Spanish: Mar Argentino) is a marginal sea of the Atlantic Ocean adjacent to the southern tip of South America. It ranges from the mouth of the estuary of the Río de la Plata in the north (35th parallel south) to the Isla de los Estados in the south, and from the Argentine coast to the 200 meters isobath. Its width varies between 210 km in front of Mar del Plata and 850 km at the latitude of the Falkland Islands. The coastline extends for 4,725 km. To the east of the Argentine Sea extends much deeper and more extensive Argentine Basin.",
-        "image_url": "https://lacgeo.com/sites/default/files/argentine_sea_valdes_opt.jpg",
-        "image_file": "Patagonian_Bloom.jpg",
-        "wikidata_id": "Q970130",
-        "lat": -46,
-        "lon": -63,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://lacgeo.com/sites/default/files/argentine_sea_valdes_opt.jpg",
-            "note": "No attribution found — check source manually"
-        }
-    },
-    {
-        "enabled": true,
         "title": "Argentino Lake",
         "country": "Argentina",
         "summary": "Lago Argentino is a lake in the Patagonian province of Santa Cruz, Argentina. It is the largest freshwater lake in Argentina, with a surface area of 1,415 km2 (546 mi2) and a maximum width of 20 mi (32 km). The lake's waters have an average depth of 155 m (509 ft), with a maximum depth of 719 m (2,359 ft). The deepest point of the lake is situated in the end of its narrow north-northwestern arm, in front of the retreating Upsala Glacier. This depth was discovered during a survey in 2001. The south-southwestern  arm ends in front of the Perito Moreno Glacier. The glaciers debouche into the lake at these sites, making \"trenches\" in the bedrock. The lake reaches 541 m (1,775 ft) below mean sea level.\r\nLago Argentino lies within Los Glaciares National Park in a landscape accented by numerous glaciers, and the lakes of the area are fed by the glacial meltwater of several rivers. For example, the waters of Lake Viedma are fed by the La Leona River, and many other smaller mountain streams.",
@@ -1880,24 +1700,6 @@
             "credit": "Tibby Jones",
             "license": "CC BY 2.0",
             "source_page": "https://commons.wikimedia.org/wiki/File:Glaciar-Perito-Moreno-01.jpg"
-        }
-    },
-    {
-        "enabled": true,
-        "title": "Astor Piazzolla International Airport",
-        "country": "Argentina",
-        "summary": "Astor Piazzolla International Airport (Spanish: Aeropuerto Internacional de Mar del Plata Astor Piazzolla, IATA: MDQ, ICAO: SAZM), also known as Mar del Plata Airport, is an airport serving Mar del Plata, an Atlantic coastal city in the Buenos Aires Province of Argentina.\r\nThe airport was named after Brigadier General Bartolomé de la Colina, one of the founders of the Argentine Air Force. In August 2008 it was renamed in honour of composer and musician Astor Piazzolla, who was born in Mar del Plata.\r\nThe airport covers an area of 436 hectares (1,080 acres) and is operated by Aeropuertos Argentina 2000. The present terminal building was constructed in 1978 for the FIFA World Cup. In 1994 the terminal was expanded for the Pan American Games. Aeropuertos Argentina 2000 took over airport operation in October 1998.",
-        "image_url": "https://photos.wikimapia.org/p/00/04/51/17/58_full.jpg",
-        "image_file": "DipticoAeropuertoMarDelPlata.jpg",
-        "wikidata_id": "Q2902159",
-        "lat": -37.934167,
-        "lon": -57.573333,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://photos.wikimapia.org/p/00/04/51/17/58_full.jpg",
-            "note": "No attribution found — check source manually"
         }
     },
     {
@@ -2255,24 +2057,6 @@
             "credit": "Diego Delso",
             "license": "CC BY-SA 3.0",
             "source_page": "https://commons.wikimedia.org/wiki/File:Glaciar_Perito_Moreno22_-_Argentina.JPG"
-        }
-    },
-    {
-        "enabled": true,
-        "title": "Malvinas Argentinas Stadium",
-        "country": "Argentina",
-        "summary": "Malvinas Argentinas Stadium (Spanish: Estadio Malvinas Argentinas) is a stadium in the city of Mendoza in the homonymous province of Argentina. With a seating capacity of 42,000 spectators, the stadium is the largest in Mendoza. Built for the 1978 FIFA World Cup, It is owned and administered by the Provincial Government.\r\nThe venue is mostly used for association football matches, although it has hosted some rugby union games during The Rugby Championship, as well as music concerts. In Primera División matches, local club Godoy Cruz plays their home matches at Malvinas Argentinas in some occasions.",
-        "image_url": "https://stadiumdb.com/pictures/stadiums/arg/estadio_malvinas_argentinas/estadio_malvinas_argentinas04.jpg",
-        "image_file": "Argentina_vs._Uruguay_-_Mendoza_2016.jpg",
-        "wikidata_id": "Q1072265",
-        "lat": -32.889564,
-        "lon": -68.879994,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://stadiumdb.com/pictures/stadiums/arg/estadio_malvinas_argentinas/estadio_malvinas_argentinas04.jpg",
-            "note": "No attribution found — check source manually"
         }
     },
     {
@@ -4848,24 +4632,6 @@
     },
     {
         "enabled": true,
-        "title": "Azerbaijan University of Architecture and Construction",
-        "country": "Azerbaijan",
-        "summary": "Azerbaijan University of Architecture and Construction (AUAC; Azerbaijani: Azərbaycan Memarlıq və İnşaat Universiteti) is a state university located in Baku, Azerbaijan, specializing in civil engineering and architecture. The university was established in 1975 as a spin-off from the Azerbaijan Technical University, named Azerbaijan Civil Engineering Institute.",
-        "image_url": "https://www.findandstudy.com/wp-content/uploads/2024/05/Azerbaijan-University-of-Architecture-and-Construction-Find-and-Study-2.jpg",
-        "image_file": "Azerbaijan_University_of_Architecture_and_Construction_sign.jpg",
-        "wikidata_id": "Q635116",
-        "lat": 40.370113,
-        "lon": 49.813427,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://www.findandstudy.com/wp-content/uploads/2024/05/Azerbaijan-University-of-Architecture-and-Construction-Find-and-Study-2.jpg",
-            "note": "No attribution found — check source manually"
-        }
-    },
-    {
-        "enabled": true,
         "title": "Bakcell Arena",
         "country": "Azerbaijan",
         "summary": "Neftçi Arena, formerly known as Bakcell Arena, is a football-specific stadium located in the 8th Kilometer district of Nizami raion, Baku, Azerbaijan. The stadium has a capacity of 11,000 spectators and serves as the home ground of Azerbaijan Premier League club Neftçi PFK. It also serves as an occasional venue for the Azerbaijan national football team. The stadium was nominated for StadiumDB's Stadium of the Year award in 2012.",
@@ -4948,24 +4714,6 @@
             "credit": null,
             "license": null,
             "source_page": "https://whc.unesco.org/uploads/sites/site_1696.jpg",
-            "note": "No attribution found — check source manually"
-        }
-    },
-    {
-        "enabled": true,
-        "title": "Gabala City Stadium",
-        "country": "Azerbaijan",
-        "summary": "Gabala City Stadium is a multi-use stadium in Gabala, Azerbaijan.  It is currently used mostly for football matches and is the home stadium of Gabala FK. The stadium has an all-seated capacity of 2,000 spectators.\r\nIt is planned to start the reconstruction of the stadium in 2012 and expand the capacity of the stadium up to 15,000 seats.",
-        "image_url": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG2jbQ8R1gSN0h1lFRghUsJ0DU1YKYrS8aoRstTTDCWF6g4mK3vXi5iesAWc6kMT2VAbNorsFYO2tXrHnX1bZr7bEQm_gV_AAdqfZbbyGlWxqWn6EjWiWlKN3g59VwF8P2S5W7fFA=s680-w680-h510-rw",
-        "image_file": "Q%C9%99b%C9%99l%C9%99_City_Stadium_view_%282%29.jpg",
-        "wikidata_id": "Q2042479",
-        "lat": 40.985194,
-        "lon": 47.8425,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG2jbQ8R1gSN0h1lFRghUsJ0DU1YKYrS8aoRstTTDCWF6g4mK3vXi5iesAWc6kMT2VAbNorsFYO2tXrHnX1bZr7bEQm_gV_AAdqfZbbyGlWxqWn6EjWiWlKN3g59VwF8P2S5W7fFA=s680-w680-h510-rw",
             "note": "No attribution found — check source manually"
         }
     },
@@ -9893,24 +9641,6 @@
     },
     {
         "enabled": true,
-        "title": "Ancient Ferrous Metallurgy Sites of Burkina Faso",
-        "country": "Burkina Faso",
-        "summary": "This property is composed of five elements located in different provinces of the country. It includes about fifteen standing, natural-draught furnaces, several other furnace structures, mines and traces of dwellings. Douroula, which dates back to the 8th century BCE, is the oldest evidence of the development of iron production found in Burkina Faso. The other components of the property – Tiwêga, Yamané, Kindibo and Békuy – illustrate the intensification of iron production during the second millennium CE. Even though iron ore reduction –obtaining iron from ore – is no longer practiced today, village blacksmiths still play a major role in supplying tools, while taking part in various rituals.",
-        "image_url": "https://whc.unesco.org/uploads/sites/site_1602.jpg",
-        "image_file": "site_1602.jpg",
-        "wikidata_id": "UNESCO_1602",
-        "lat": 11.622392,
-        "lon": -3.891944,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://whc.unesco.org/uploads/sites/site_1602.jpg",
-            "note": "No attribution found — check source manually"
-        }
-    },
-    {
-        "enabled": true,
         "title": "Bobo Dioulasso Airport",
         "country": "Burkina Faso",
         "summary": "Bobo Dioulasso Airport (IATA: BOY, ICAO: DFOO) is an international airport in Bobo Dioulasso, Burkina Faso.\r\nThe airport has commercial flights to Ouagadougou and to the Ivory Coast.\r\nDFOO is served by a VOR/DME and NDBs and Runway 06 has a Category I ILS. There are also GNSS, VOR and ADF approaches to each runway.",
@@ -14079,24 +13809,6 @@
             "credit": "xiquinhosilva",
             "license": "CC BY 2.0",
             "source_page": "https://commons.wikimedia.org/wiki/File:Zuojiang_Huashan_Rock_Art_%2853565160143%29.jpg"
-        }
-    },
-    {
-        "enabled": true,
-        "title": "Silk Roads: the Routes Network of Chang'an-Tianshan Corridor",
-        "country": "China,Kazakhstan,Kyrgyzstan",
-        "summary": "This property is a 5,000 km section of the extensive Silk Roads network, stretching from Chang’an/Luoyang, the central capital of China in the Han and Tang dynasties, to the Zhetysu region of Central Asia. It took shape between the 2nd century BC and 1st century AD and remained in use until the 16th century, linking multiple civilizations and facilitating far-reaching exchanges of activities in trade, religious beliefs, scientific knowledge, technological innovation, cultural practices and the arts. The thirty-three components included in the routes network include capital cities and palace complexes of various empires and Khan kingdoms, trading settlements, Buddhist cave temples, ancient paths, posthouses, passes, beacon towers, sections of The Great Wall, fortifications, tombs and religious buildings.",
-        "image_url": "https://whc.unesco.org/uploads/sites/site_1442.jpg",
-        "image_file": "site_1442.jpg",
-        "wikidata_id": "UNESCO_1442",
-        "lat": 33.158889,
-        "lon": 107.291111,
-        "image_credits": {
-            "source": "Unknown",
-            "credit": null,
-            "license": null,
-            "source_page": "https://whc.unesco.org/uploads/sites/site_1442.jpg",
-            "note": "No attribution found — check source manually"
         }
     },
     {
