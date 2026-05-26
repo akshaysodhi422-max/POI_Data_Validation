@@ -43,7 +43,12 @@
         "wikidata_id": "Q484458",
         "lat": 34.832042,
         "lon": 67.826803,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "James Gordon",
+            "license": "CC BY 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Buddha_of_Bamiyan.jpg"
+        }
     },
     {
         "enabled": true,
@@ -55,7 +60,12 @@
         "wikidata_id": "UNESCO_208",
         "lat": 34.810972,
         "lon": 66.843528,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Roland Lin",
+            "license": "CC BY-SA 3.0 igo",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Cultural_Landscape_and_Archaeological_Remains_of_the_Bamiyan_Valley-130351.jpg"
+        }
     },
     {
         "enabled": true,
@@ -85,7 +95,12 @@
         "wikidata_id": "Q10859317",
         "lat": 34.345833,
         "lon": 62.188611,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Todd Huffman from Phoenix, AZ",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:View_of_Herat_Citadel_from_atop_the_premises.jpg"
+        }
     },
     {
         "enabled": true,
@@ -149,7 +164,12 @@
         "wikidata_id": "UNESCO_211",
         "lat": 34.396417,
         "lon": 64.515889,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "david adamec",
+            "license": "Public domain",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Jam_afghan_architecture_harirud_brick.jpg"
+        }
     },
     {
         "enabled": true,
@@ -161,7 +181,12 @@
         "wikidata_id": "Q192981",
         "lat": 34.396386,
         "lon": 64.515888,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Aivaras Ramanauskas of Lithuania, Flickr: Afghanistan Matters from Brunssum, Netherlands",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Minaret_of_Jam_in_2008.jpg"
+        }
     },
     {
         "enabled": true,
@@ -207,7 +232,12 @@
         "wikidata_id": "Q2088454",
         "lat": 30.453408,
         "lon": 65.407106,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Mouliric",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Caravane_dans_le_d%C3%A9sert_du_Registan_%28Afghanistan%29_en_1969.jpg"
+        }
     },
     {
         "enabled": true,
@@ -306,7 +336,12 @@
         "wikidata_id": "Q1415130",
         "lat": 55.634167,
         "lon": -131.2975,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Presidencia de la República Mexicana",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Declaratoria_Oficial_de_Patrimonio_Mundial_del_Archipi%C3%A9lago_de_Revillagigedo.jpg"
+        }
     },
     {
         "enabled": true,
@@ -318,7 +353,12 @@
         "wikidata_id": "Q24895377",
         "lat": 41.318314,
         "lon": 19.824075,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "MercedesBenz240",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Arena_Komb%C3%ABtare%2C_Tiran%C3%AB.jpg"
+        }
     },
     {
         "enabled": true,
@@ -330,7 +370,12 @@
         "wikidata_id": "UNESCO_570",
         "lat": 39.745732,
         "lon": 20.02095,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Marc Morell",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Butrint%2C_Albania.jpg"
+        }
     },
     {
         "enabled": true,
@@ -394,7 +439,12 @@
         "wikidata_id": "Q5316767",
         "lat": 41.311389,
         "lon": 19.440278,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Adert",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Durr%C3%ABs_Archaeological_Museum_b01.jpg"
+        }
     },
     {
         "enabled": true,
@@ -458,7 +508,12 @@
         "wikidata_id": "UNESCO_569",
         "lat": 40.074167,
         "lon": 20.140833,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Ivan Koev",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:The_old_city_of_Berat.jpg"
+        }
     },
     {
         "enabled": true,
@@ -470,7 +525,12 @@
         "wikidata_id": "Q37858697",
         "lat": 41.32667,
         "lon": 19.81647,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Bes-ART",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Muzeu_Komb%C3%ABtar_i_P%C3%ABrgjimeve%2C_%E2%80%9CSht%C3%ABpia_me_Gjethe%E2%80%9D.jpg"
+        }
     },
     {
         "enabled": true,
@@ -516,7 +576,12 @@
         "wikidata_id": "Q73723",
         "lat": 39.775,
         "lon": 19.995,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "en:User:IllyricumSacrum",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Ksamil_Islets.jpg"
+        }
     },
     {
         "enabled": true,
@@ -562,7 +627,12 @@
         "wikidata_id": "Q156258",
         "lat": 41.033333,
         "lon": 20.716667,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Pudelek (Marcin Szala)",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Lake_Ohrid_near_Ohrid.JPG"
+        }
     },
     {
         "enabled": true,
@@ -574,7 +644,12 @@
         "wikidata_id": "Q204392",
         "lat": 40.9,
         "lon": 21.05,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Fation Plaku",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Liqeni_Prespes._Ishulli_Mali_Gradit._Korce._Albania.jpg"
+        }
     },
     {
         "enabled": true,
@@ -586,7 +661,12 @@
         "wikidata_id": "Q686088",
         "lat": 40.216389,
         "lon": 19.570278,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Karelj",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Llogara_park_Albania_2018_3.jpg"
+        }
     },
     {
         "enabled": true,
@@ -649,7 +729,12 @@
         "wikidata_id": "Q821042",
         "lat": 41.316667,
         "lon": 19.821667,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "xiquinhosilva",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Universiteti_Politeknik_i_Tiran%C3%ABs.jpg"
+        }
     },
     {
         "enabled": true,
@@ -695,7 +780,12 @@
         "wikidata_id": "Q60491",
         "lat": 42.046332,
         "lon": 19.493,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "You may re-use this image under the terms of the license using the following reference: Image: Wikipedia / Tobias Klenze / CC-BY-SA 4.0. The license must be a link!",
+            "license": "CC BY 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:2013-10-03_Rozafa_Castle%2C_Shkod%C3%ABr_0328.jpg"
+        }
     },
     {
         "enabled": true,
@@ -724,7 +814,12 @@
         "wikidata_id": "Q733645",
         "lat": 40.5,
         "lon": 19.283333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Pasztilla aka Attila Terbócs",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Sazan_Island%2C_Albania_2016_02.jpg"
+        }
     },
     {
         "enabled": true,
@@ -770,7 +865,12 @@
         "wikidata_id": "Q1148613",
         "lat": 41.317794,
         "lon": 19.820181,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "ErtonKashta",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Academy_of_Arts_in_Tiran%C3%AB.jpg"
+        }
     },
     {
         "enabled": true,
@@ -800,7 +900,12 @@
         "wikidata_id": "UNESCO_1133",
         "lat": 38.132,
         "lon": 15.961,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Dino Michelini",
+            "license": "CC BY 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Monte_Cimino_Trachiti_2.jpg"
+        }
     },
     {
         "enabled": true,
@@ -812,7 +917,12 @@
         "wikidata_id": "UNESCO_99",
         "lat": 40.967293,
         "lon": 20.676105,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Vanjagenije",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Jovan_Kaneo.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1012,7 +1122,12 @@
         "wikidata_id": "UNESCO_191",
         "lat": 36.32056,
         "lon": 5.73667,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Alioueche Mokhtar",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Roman_Ruins_of_Djemila_in_S%C3%A9tif%2C_Algeria.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1092,7 +1207,12 @@
         "wikidata_id": "UNESCO_188",
         "lat": 32.471722,
         "lon": 3.751667,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Dan Sloan",
+            "license": "CC BY-SA 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:M%27zab_Valley_%2815887041915%29.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1223,7 +1343,12 @@
         "wikidata_id": "Q3324913",
         "lat": 34.8828,
         "lon": -1.3111,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Riad Salih",
+            "license": "CC BY 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Mosqu%C3%A9e_de_Sidi_Bellahsen%2C_Tlemcen.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1235,7 +1360,12 @@
         "wikidata_id": "UNESCO_179",
         "lat": 25.5,
         "lon": 9,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "BRAHIM DJELLOUL",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:DJANET_8.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1281,7 +1411,12 @@
         "wikidata_id": "UNESCO_194",
         "lat": 35.484167,
         "lon": 6.468861,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Dan Sloan",
+            "license": "CC BY-SA 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Timgad_%2815685889550%29.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1293,7 +1428,12 @@
         "wikidata_id": "UNESCO_193",
         "lat": 36.574833,
         "lon": 2.553167,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Bernard Gagnon",
+            "license": "CC BY 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:View_of_Tipasa_01.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1305,7 +1445,12 @@
         "wikidata_id": "Q2664197",
         "lat": 34.706346,
         "lon": -1.459733,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "FRITAS Saîd",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:A_Landscape_from_Tlemcen_Parc.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1334,7 +1479,12 @@
         "wikidata_id": "Q209349",
         "lat": 40.7625,
         "lon": 29.9175,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Carole Raddato from Frankfurt, Germany",
+            "license": "CC BY-SA 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Nicomedia_Aqueduct%2C_Izmit%2C_Turkey_%2839171950052%29.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1363,7 +1513,12 @@
         "wikidata_id": "UNESCO_1160",
         "lat": 42.494722,
         "lon": 1.595556,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Ferran Llorens",
+            "license": "CC BY-SA 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Vall_del_Madriu-Perafita-Claror_-_88.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1410,7 +1565,12 @@
         "wikidata_id": "Q541858",
         "lat": -9.050481,
         "lon": 13.499967,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Yezzispapi",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:NAIL_Drop-off_view_of_departures_level.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1508,7 +1668,12 @@
         "wikidata_id": "Q6699917",
         "lat": -16.583333,
         "lon": 21.833333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Charles J. Sharp",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:African_bush_elephants_%28Loxodonta_africana%29_female_with_six-week-old_baby.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1606,7 +1771,12 @@
         "wikidata_id": "UNESCO_1499",
         "lat": 17.006944,
         "lon": -61.761667,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "David Stanley",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Nelson%27s_Dockyard.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1859,7 +2029,12 @@
         "wikidata_id": "UNESCO_1681",
         "lat": -34.536642,
         "lon": -58.465333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Camilo Del Cerro",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Museo_Sitio_de_Memoria_ESMA%2C_ex_Centro_Clandestino_de_Detenci%C3%B3n%2C_Tortura_y_Exterminio.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1871,7 +2046,12 @@
         "wikidata_id": "UNESCO_303",
         "lat": -25.577357,
         "lon": -54.286073,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Enaldo Valadares",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Iguazu_Cataratas2.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1900,7 +2080,12 @@
         "wikidata_id": "UNESCO_966",
         "lat": -30,
         "lon": -68,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Gino Lucas T.",
+            "license": "CC BY 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:TALMLR.jpg"
+        }
     },
     {
         "enabled": true,
@@ -1946,7 +2131,12 @@
         "wikidata_id": "UNESCO_995",
         "lat": -30.869959,
         "lon": -64.233881,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Jofrigerio",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:EstanciaSantaCatalina5.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2026,7 +2216,12 @@
         "wikidata_id": "UNESCO_1526",
         "lat": -42.8528,
         "lon": -71.8728,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Leon petrosyan",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Los_Alerces_National_Park_9.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2055,7 +2250,12 @@
         "wikidata_id": "UNESCO_145",
         "lat": -50,
         "lon": -73.24944,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Diego Delso",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Glaciar_Perito_Moreno22_-_Argentina.JPG"
+        }
     },
     {
         "enabled": true,
@@ -2205,7 +2405,12 @@
         "wikidata_id": "UNESCO_937",
         "lat": -42.5,
         "lon": -64,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Diego Tirira from Quito, Ecuador",
+            "license": "CC BY-SA 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:AR_Peninsula_Valdes_0702_315_%2817214577172%29.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2234,7 +2439,12 @@
         "wikidata_id": "UNESCO_1116",
         "lat": -23.199861,
         "lon": -65.348861,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Bernard Gagnon",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:AR378-Quebrada_de_Humahuaca.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2314,7 +2524,12 @@
         "wikidata_id": "UNESCO_1321",
         "lat": -34.911342,
         "lon": -57.941825,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "duncid",
+            "license": "CC BY-SA 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Palace_of_Assembly_Chandigarh_2006.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2326,7 +2541,12 @@
         "wikidata_id": "UNESCO_1459",
         "lat": -0.05,
         "lon": -78.2,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Aga Khan (IT)",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Qapaq_Nan_at_Mosollaqta_lake_DSC_2822.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2338,7 +2558,12 @@
         "wikidata_id": "UNESCO_275",
         "lat": -27.255708,
         "lon": -55.531436,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Fernando",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Ruins_of_San_Ignacio_Min%C3%AD.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2401,7 +2626,12 @@
         "wikidata_id": "Q2664904",
         "lat": 39.214861,
         "lon": 46.277611,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Soghomon Matevosyan",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:-%D4%B2%D5%A1%D5%B2%D5%A1%D5%A2%D5%A5%D6%80%D5%A4.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2413,7 +2643,12 @@
         "wikidata_id": "UNESCO_1011",
         "lat": 40.158667,
         "lon": 44.324639,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Aleksey Chalabyan a.k.a Xelgen",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Zvartnots_Cathedral_view_from_air_October_2022.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2442,7 +2677,12 @@
         "wikidata_id": "Q733610",
         "lat": 40.140647,
         "lon": 44.537949,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Armen Manukov",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Erebuni_Fortress%2C_Yerevan%2C_Armenia_05.JPG"
+        }
     },
     {
         "enabled": true,
@@ -2556,7 +2796,12 @@
         "wikidata_id": "Q20582446",
         "lat": 39.202778,
         "lon": 46.455278,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Sarqis777",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:A141414.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2636,7 +2881,12 @@
         "wikidata_id": "Q181932",
         "lat": 40.310556,
         "lon": 45.349167,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "AKB7",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Sevan_Lake_06.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2648,7 +2898,12 @@
         "wikidata_id": "Q2499412",
         "lat": 40.149373,
         "lon": 44.476449,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Preacher lad",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Mika_Stadium_%281%29.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2660,7 +2915,12 @@
         "wikidata_id": "UNESCO_777",
         "lat": 41.087372,
         "lon": 44.666444,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Yerevantsi",
+            "license": "CC BY 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Haghpat_aerial_2023.3.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2672,7 +2932,12 @@
         "wikidata_id": "UNESCO_960",
         "lat": 40.140439,
         "lon": 44.818525,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Diego Delso",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Monasterio_de_Geghard%2C_Armenia%2C_2016-10-02%2C_DD_63.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2872,7 +3137,12 @@
         "wikidata_id": "Q172402",
         "lat": -37.813833,
         "lon": 144.9695,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Liamzebedee",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Collins_Street%2C_Melbourne_%28113189465%29.jpg"
+        }
     },
     {
         "enabled": true,
@@ -2969,7 +3239,12 @@
         "wikidata_id": "UNESCO_1577",
         "lat": -38.081108,
         "lon": 141.885275,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Dhx1",
+            "license": "CC0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Budj_Bim_%E2%80%90_Mt_Eccles_National_Park%2C_Victoria%2C_Australia_39.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3049,7 +3324,12 @@
         "wikidata_id": "UNESCO_368",
         "lat": -26.271724,
         "lon": 149.429955,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Alan Wigginton",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:6639_Cascades_Toolona_Creek.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3061,7 +3341,12 @@
         "wikidata_id": "UNESCO_154",
         "lat": -18.286111,
         "lon": 147.7,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Ank Kumar",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Aerial_View_of_Great_Barrier_Reef_%28Ank_Kumar%29_05.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3090,7 +3375,12 @@
         "wikidata_id": "UNESCO_917",
         "lat": -33.7,
         "lon": 150,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Diliff",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Jamison_Valley%2C_Blue_Mountains%2C_Australia_-_Nov_2008.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3102,7 +3392,12 @@
         "wikidata_id": "UNESCO_577",
         "lat": -53.1,
         "lon": 73.5,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Tristannew (original)\nDerivative: SHB2000 (cropped)",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Heard_Island_%28cropped%29.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3114,7 +3409,12 @@
         "wikidata_id": "Q15498",
         "lat": -42.836112,
         "lon": 147.510278,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Tim J Keegan",
+            "license": "CC BY-SA 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Hobart_International_Airport%2C_Tasmania.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3143,7 +3443,12 @@
         "wikidata_id": "UNESCO_147",
         "lat": -12.105278,
         "lon": 132.383889,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Stuart Edwards.",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Kakadu_YellowWaters_Croc.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3190,7 +3495,12 @@
         "wikidata_id": "Q1638191",
         "lat": -23.5,
         "lon": 122.833333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Summerdrought",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Lake_Disappointment_9514.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3219,7 +3529,12 @@
         "wikidata_id": "Q584201",
         "lat": -24.75,
         "lon": 130.916667,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Hopeontheriver",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Lake_Amadeus_from_fixed_wing_aircraft.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3248,7 +3563,12 @@
         "wikidata_id": "Q643328",
         "lat": -27.464722,
         "lon": 153.009444,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Original author Kgbo; retouched by Blackcat",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Brisbane_Lang_Park_main_entrance.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3277,7 +3597,12 @@
         "wikidata_id": "UNESCO_186",
         "lat": -31.565556,
         "lon": 159.088333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Inas66",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Lord_Howe_Island_view_to_Admiralty_Islands.JPG"
+        }
     },
     {
         "enabled": true,
@@ -3323,7 +3648,12 @@
         "wikidata_id": "Q1353869",
         "lat": -37.803337,
         "lon": 144.971445,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "User:Tirin",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Melbourne_Museum_panorama.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3335,7 +3665,12 @@
         "wikidata_id": "Q1381223",
         "lat": -37.825278,
         "lon": 144.983889,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Paladisious",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:2015_A-League_Grand_Final_AAMI_Park_panorama.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3364,7 +3699,12 @@
         "wikidata_id": "UNESCO_1709",
         "lat": -20.565028,
         "lon": 116.668528,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Marius Fenger",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Pilbara_Billabong.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3410,7 +3750,12 @@
         "wikidata_id": "UNESCO_1369",
         "lat": -22.451,
         "lon": 113.81,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Eugene Regis",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Ningaloo.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3439,7 +3784,12 @@
         "wikidata_id": "UNESCO_1094",
         "lat": -17.5,
         "lon": 128.5,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "W. Bulach",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:00_3169_Purnululu_National_Park_-_Western_Australia.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3468,7 +3818,12 @@
         "wikidata_id": "UNESCO_1131",
         "lat": -37.806111,
         "lon": 144.970278,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Photograph taken by Diliff and straightened by Ian Fieggen",
+            "license": "CC BY 2.5",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Royal_exhibition_building_tulips_straight.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3497,7 +3852,12 @@
         "wikidata_id": "UNESCO_578",
         "lat": -25.486111,
         "lon": 113.436111,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "W. Bulach",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:00_1817_Shark_Bay_Western_Australia_-_Denham.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3543,7 +3903,12 @@
         "wikidata_id": "Q33254",
         "lat": -37,
         "lon": 161,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Phillip Capper from Wellington, New Zealand",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Tasman_Sea_from_Hokianga.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3555,7 +3920,12 @@
         "wikidata_id": "UNESCO_181",
         "lat": -43.118472,
         "lon": 146.230556,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Jörn Brauns",
+            "license": "Public domain",
+            "source_page": "https://commons.wikimedia.org/wiki/File:CradleMountain.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3567,7 +3937,12 @@
         "wikidata_id": "UNESCO_447",
         "lat": -25.333333,
         "lon": 131,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Dietmar Rabich",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Petermann_Ranges_%28AU%29%2C_Uluru-Kata_Tjuta_National_Park%2C_Uluru_--_2019_--_3688.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3579,7 +3954,12 @@
         "wikidata_id": "Q1640648",
         "lat": -35.238889,
         "lon": 149.0875,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "-wuppertaler",
+            "license": "CC BY 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:AUS_Canberra%2C_Central%2C_Australian_National_University_042.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3625,7 +4005,12 @@
         "wikidata_id": "UNESCO_486",
         "lat": -17.191944,
         "lon": 145.946111,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Leonard James Webb",
+            "license": "Public domain",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Rainforest_Ecologist_John_Geoffrey_Tracey_on_the_Atherton_Tableland_by_Leonard_Webb._November_1954.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3637,7 +4022,12 @@
         "wikidata_id": "UNESCO_167",
         "lat": -33.673,
         "lon": 143.035,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "SumitaniMasaaki",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:WillandraLakesRegion.JPG"
+        }
     },
     {
         "enabled": true,
@@ -3700,7 +4090,12 @@
         "wikidata_id": "UNESCO_931",
         "lat": 47.073056,
         "lon": 15.438611,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Ralf Roletschek",
+            "license": "CC BY-SA 3.0 at",
+            "source_page": "https://commons.wikimedia.org/wiki/File:16-07-06-Rathaus_Graz_Turmblick-RR2_0275.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3814,7 +4209,12 @@
         "wikidata_id": "UNESCO_806",
         "lat": 47.559444,
         "lon": 13.646389,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "C.Stadler/Bwag",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Hallstatt_-_Zentrum_.JPG"
+        }
     },
     {
         "enabled": true,
@@ -3826,7 +4226,12 @@
         "wikidata_id": "UNESCO_784",
         "lat": 47.800556,
         "lon": 13.043333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Thomas Pintaric (= Pintaric)",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:SalzburgerAltstadt02b.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3838,7 +4243,12 @@
         "wikidata_id": "UNESCO_1033",
         "lat": 48.2094,
         "lon": 16.3699,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Gryffindor",
+            "license": "CC BY 2.5",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Rathaus_Vienna_June_2006_165.jpg"
+        }
     },
     {
         "enabled": true,
@@ -3935,7 +4345,12 @@
         "wikidata_id": "Q493126",
         "lat": 48.2075,
         "lon": 16.3939,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "C.Stadler/Bwag",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Wien_-_Hundertwasserhaus_%2801%29.JPG"
+        }
     },
     {
         "enabled": true,
@@ -4015,7 +4430,12 @@
         "wikidata_id": "Q80495",
         "lat": 48.24,
         "lon": 16.386944,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Wizzard",
+            "license": "Public domain",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Millennium_Tower_Vienna_seen_from_across_the_Danube_2006-11-02_099.jpg"
+        }
     },
     {
         "enabled": true,
@@ -4044,7 +4464,12 @@
         "wikidata_id": "UNESCO_786",
         "lat": 48.186667,
         "lon": 16.313333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "C.Stadler/Bwag",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Wien_-_Schloss_Sch%C3%B6nbrunn.JPG"
+        }
     },
     {
         "enabled": true,
@@ -4090,7 +4515,12 @@
         "wikidata_id": "UNESCO_785",
         "lat": 47.648778,
         "lon": 15.827972,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "C.Stadler/Bwag",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Breitenstein_-_Semmeringbahn%2C_Viadukt_Kalte_Rinne.JPG"
+        }
     },
     {
         "enabled": true,
@@ -4170,7 +4600,12 @@
         "wikidata_id": "UNESCO_970",
         "lat": 48.364444,
         "lon": 15.434167,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "C.Stadler/Bwag",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:D%C3%BCrnstein_-_Luftaufnahme.JPG"
+        }
     },
     {
         "enabled": true,
@@ -4216,7 +4651,12 @@
         "wikidata_id": "UNESCO_1363",
         "lat": 45.107651,
         "lon": 10.392976,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Gerhard Schauber",
+            "license": "Public domain",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Pfahlbauten_Unteruhldingen_2005_05.jpg"
+        }
     },
     {
         "enabled": true,
@@ -4246,7 +4686,12 @@
         "wikidata_id": "UNESCO_772",
         "lat": 47.719278,
         "lon": 16.722722,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Lutz Fischer-Lamprecht",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Neusiedler_See_im_Winter.jpg"
+        }
     },
     {
         "enabled": true,
@@ -4326,7 +4771,12 @@
         "wikidata_id": "Q4068343",
         "lat": 40.283611,
         "lon": 50.359444,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "AlexFirstov",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Flamingos_in_Absheron_National_Park.jpg"
+        }
     },
     {
         "enabled": true,
@@ -4563,7 +5013,12 @@
         "wikidata_id": "UNESCO_1076",
         "lat": 40.058475,
         "lon": 49.396218,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Diego Delso",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Reserva_del_Estado_de_Qobustan%2C_Azerbaiy%C3%A1n%2C_2016-09-27%2C_DD_05.jpg"
+        }
     },
     {
         "enabled": true,
@@ -4609,7 +5064,12 @@
         "wikidata_id": "UNESCO_1549",
         "lat": 41.203333,
         "lon": 47.1875,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Ludvig14",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Shaki_KhanPalace_004_3718.jpg"
+        }
     },
     {
         "enabled": true,
@@ -4774,7 +5234,12 @@
         "wikidata_id": "Q4242006",
         "lat": 40.495727,
         "lon": 50.147157,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Эмин Мамедов.\n\nOriginal uploader was Xlodvig at ru.wikipedia",
+            "license": "Public domain",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Mardakankrugbashnya2.JPG"
+        }
     },
     {
         "enabled": true,
@@ -4837,7 +5302,12 @@
         "wikidata_id": "UNESCO_958",
         "lat": 40.366667,
         "lon": 49.833333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Khortan",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:View_of_Bakucity%2C_2012.jpg"
+        }
     },
     {
         "enabled": true,
@@ -4866,7 +5336,12 @@
         "wikidata_id": "UNESCO_1584",
         "lat": 36.098831,
         "lon": 53.39375,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Mahsa Safari",
+            "license": "CC BY 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:3615554_%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1_%D9%87%D9%88%D8%A7%DB%8C%DB%8C_%D8%AC%D8%A7%D8%AF%D9%87_%D9%87%D8%A7%DB%8C_%D9%BE%D8%A7%DB%8C%DB%8C%D8%B2%DB%8C_%D8%AC%D9%86%DA%AF%D9%84_%D9%87%D8%A7%DB%8C_%D9%87%DB%8C%D8%B1%DA%A9%D8%A7%D9%86%DB%8C.jpg"
+        }
     },
     {
         "enabled": true,
@@ -4946,7 +5421,12 @@
         "wikidata_id": "UNESCO_1542",
         "lat": 26.075,
         "lon": 50.505556,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Step",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:A%27ali_Burial_Mounds.jpg"
+        }
     },
     {
         "enabled": true,
@@ -5112,7 +5592,12 @@
         "wikidata_id": "Q3350641",
         "lat": 24.319722,
         "lon": 91.783611,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Kritzolina",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Lawachara_National_Park_in_2020_04.jpg"
+        }
     },
     {
         "enabled": true,
@@ -5243,7 +5728,12 @@
         "wikidata_id": "UNESCO_798",
         "lat": 21.775841,
         "lon": 89.231956,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "bri vos",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Boat%2C_trees_and_water_in_Sundarbans.jpg"
+        }
     },
     {
         "enabled": true,
@@ -5340,7 +5830,12 @@
         "wikidata_id": "Q815268",
         "lat": 53.920833,
         "lon": 27.592778,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Andrey Protasevich",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Main_building_of_BNTU.jpg"
+        }
     },
     {
         "enabled": true,
@@ -5607,7 +6102,12 @@
         "wikidata_id": "UNESCO_855",
         "lat": 50.778972,
         "lon": 5.469139,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "User:LimoWreck",
+            "license": "CC BY 2.5",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Kortrijk_-_Beguinage_and_Sint-Maartenskerk.jpg"
+        }
     },
     {
         "enabled": true,
@@ -5636,7 +6136,12 @@
         "wikidata_id": "UNESCO_996",
         "lat": 51.20891,
         "lon": 3.22527,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Zairon",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Br%C3%BCgge_Blick_vom_Belfried_4.jpg"
+        }
     },
     {
         "enabled": true,
@@ -6005,7 +6510,12 @@
         "wikidata_id": "UNESCO_943",
         "lat": 49.895833,
         "lon": 2.296389,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Willemdd at Dutch Wikipedia",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Aalst_belfry.jpg"
+        }
     },
     {
         "enabled": true,
@@ -6034,7 +6544,12 @@
         "wikidata_id": "UNESCO_764",
         "lat": 16.109139,
         "lon": -88.269557,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Bernt Rostad",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Belize_Barrier_Reef%2C_Ambergris_Caye%2C_Belize.jpg"
+        }
     },
     {
         "enabled": true,
@@ -6267,7 +6782,12 @@
         "wikidata_id": "UNESCO_749",
         "lat": 11.884167,
         "lon": 2.654444,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Gregor Rom",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Pendjari_fluss.JPG"
+        }
     },
     {
         "enabled": true,
@@ -7593,7 +8113,12 @@
         "wikidata_id": "UNESCO_1504",
         "lat": 42.541783,
         "lon": 18.422381,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Ma▀▄Ga",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Nekropola_Toplica_%2808%29.jpg"
+        }
     },
     {
         "enabled": true,
@@ -7741,7 +8266,12 @@
         "wikidata_id": "UNESCO_1021",
         "lat": -18.75,
         "lon": 21.733333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Joachim Huber",
+            "license": "CC BY-SA 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Tsodilo_Hills%2C_Botswana1.jpg"
+        }
     },
     {
         "enabled": true,
@@ -7787,7 +8317,12 @@
         "wikidata_id": "UNESCO_445",
         "lat": -15.78333,
         "lon": -47.9,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Arturdiasr",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Planalto_Central_%28cropped%29.jpg"
+        }
     },
     {
         "enabled": true,
@@ -7833,7 +8368,12 @@
         "wikidata_id": "UNESCO_1000",
         "lat": -3.857944,
         "lon": -32.425111,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Carlos Scorzato",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Forte_dos_rem%C3%A9dios_Fernando_de_Noronha.JPG"
+        }
     },
     {
         "enabled": true,
@@ -8049,7 +8589,12 @@
         "wikidata_id": "UNESCO_821",
         "lat": -2.530054,
         "lon": -44.303369,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Alan Rodrigues",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Centro_hist%C3%B3rico_S%C3%A3o_Lu%C3%ADs.jpg"
+        }
     },
     {
         "enabled": true,
@@ -8078,7 +8623,12 @@
         "wikidata_id": "UNESCO_993",
         "lat": -15.934231,
         "lon": -50.140164,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Eliane de Castro",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Conjunto_arquitet%C3%B4nico_e_urban%C3%ADstico.-_Goi%C3%A1s_06.jpg"
+        }
     },
     {
         "enabled": true,
@@ -8107,7 +8657,12 @@
         "wikidata_id": "UNESCO_124",
         "lat": -20.388889,
         "lon": -43.505556,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Raquel Mendes Silva",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Conjunto_arquitet%C3%B4nico_e_urban%C3%ADstico_de_Ouro_Preto.JPG"
+        }
     },
     {
         "enabled": true,
@@ -8119,7 +8674,12 @@
         "wikidata_id": "UNESCO_355",
         "lat": -25.448147,
         "lon": -53.800144,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "ThiagoPLemos",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Parque_Nacional_do_Igua%C3%A7u_06.jpg"
+        }
     },
     {
         "enabled": true,
@@ -8199,7 +8759,12 @@
         "wikidata_id": "UNESCO_1611",
         "lat": -2.536667,
         "lon": -43.063611,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Paulo Cattelan",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Parque_Nacional_dos_Len%C3%A7%C3%B3is_Maranhenses_Paulo_Cattelan_%2803%29.jpg"
+        }
     },
     {
         "enabled": true,
@@ -8330,7 +8895,12 @@
         "wikidata_id": "UNESCO_1308",
         "lat": -23.018606,
         "lon": -44.685367,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Ferik80",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Paraty_e_Ilha_Grande_%E2%80%93_Cultura_e_Biodiversidade_-_Rio_de_Janeiro_-_20090223124332.JPG"
+        }
     },
     {
         "enabled": true,
@@ -8359,7 +8929,12 @@
         "wikidata_id": "UNESCO_1747",
         "lat": -15.075,
         "lon": -44.208333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "ThurlerAlfena",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Perua%C3%A7u.png"
+        }
     },
     {
         "enabled": true,
@@ -9070,7 +9645,12 @@
         "wikidata_id": "UNESCO_225",
         "lat": 41.742722,
         "lon": 23.430472,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Dido3",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Pirin_-_Gergiyski_ezera_-_IMG_4439.jpg"
+        }
     },
     {
         "enabled": true,
@@ -11024,7 +11604,12 @@
         "wikidata_id": "UNESCO_1497",
         "lat": 46.635,
         "lon": -53.211111,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Alicejmichel",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Ediacaran_fossils_Mistaken_Point_Newfoundland.jpg"
+        }
     },
     {
         "enabled": true,
@@ -11512,7 +12097,12 @@
         "wikidata_id": "UNESCO_354",
         "lat": 48.756056,
         "lon": -113.779778,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Martin Kraft",
+            "license": "CC BY-SA 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:MK02244_Waterton_Glacier_International_Peace_Park.jpg"
+        }
     },
     {
         "enabled": true,
@@ -12989,7 +13579,12 @@
         "wikidata_id": "UNESCO_440",
         "lat": 40.13333,
         "lon": 94.81667,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Zhangzhugang",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Dunhuang_Mogao_Ku_2013.12.31_12-30-18.jpg"
+        }
     },
     {
         "enabled": true,
@@ -20916,7 +21511,12 @@
         "wikidata_id": "UNESCO_18",
         "lat": 12.033333,
         "lon": 38.816667,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Sailko",
+            "license": "CC BY 3.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Lalibela%2C_san_giorgio%2C_esterno_24.jpg"
+        }
     },
     {
         "enabled": true,
@@ -27197,7 +27797,12 @@
         "wikidata_id": "UNESCO_455",
         "lat": 39.71667,
         "lon": 21.63333,
-        "image_review": true
+        "image_credits": {
+            "source": "Wikimedia Commons",
+            "credit": "Stathis floros",
+            "license": "CC BY-SA 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Meteora%27s_monastery_2.jpg"
+        }
     },
     {
         "enabled": true,

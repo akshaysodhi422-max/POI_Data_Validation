@@ -338,7 +338,7 @@ def main():
         title = item.get("title", f"item {i+1}")
         url   = item.get("image_url", "").strip()
 
-        # --- Retry mode: skip entries that don't need retrying ---
+
         if retry_mode and not needs_retry(item):
             results.append(item)
             continue
