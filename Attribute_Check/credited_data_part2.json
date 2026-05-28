@@ -17374,7 +17374,7 @@
     "lon": 23.31037,
     "image_credits": {
       "source": "Wikimedia Commons",
-      "credit": "Oroles (talk",
+      "credit": "Oroles",
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Sanctuarele_de_andezit.JPG"
     }
@@ -34485,6 +34485,40 @@
       "credit": "BS2024",
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Mage%202024-05-14%20at%2019.29.21.jpg"
+    }
+  },
+  {
+    "enabled": true,
+    "title": "Palm Jumeirah",
+    "country": "United Arab Emirates",
+    "summary": "The Palm Jumeirah, also known as the Palm Islands, (Arabic: نخلة جميرا) is an archipelago of artificial islands on the Persian Gulf in Jumeirah, Dubai, United Arab Emirates. It is part of a larger series of developments called the Palm Islands, including Palm Jebel Ali and the Dubai Islands, which, when completed, will together increase Dubai's shoreline by a total of 520 kilometres (320 mi). It has a population of over 25,000 as of 2022. The islands were created using land reclamation. They were created to resemble a palm tree when seen from the air, and are roughly divided into three areas: trunk, fronds, and outer crescent. The trunk is a mixed commercial and residential area, the fronds are reserved for residential homes and villas, while the outer crescent is used for luxury and upscale resorts. The Palm Jumeirah was constructed by a Dutch specialist dredging company, Van Oord. The same company also created The World Islands.",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Artificial_Archipelagos%2C_Dubai%2C_United_Arab_Emirates_ISS022-E-024940_lrg_%28cropped%29.jpg/960px-Artificial_Archipelagos%2C_Dubai%2C_United_Arab_Emirates_ISS022-E-024940_lrg_%28cropped%29.jpg",
+    "image_file": "Palm_Jumeirah_Dubai.jpg",
+    "wikidata_id": "Q277294",
+    "lat": 25.118056,
+    "lon": 55.133333,
+    "image_credits": {
+      "source": "Wikimedia Commons",
+      "credit": "Member of the Expedition 22 crew",
+      "license": "Public Domain",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Artificial_Archipelagos,_Dubai,_United_Arab_Emirates_ISS022-E-024940_lrg_(cropped).jpg"
+    }
+  },
+  {
+    "enabled": true,
+    "title": "The World Islands",
+    "country": "United Arab Emirates",
+    "summary": "The World Islands (Arabic: جزر العالم, romanized: Juzur al-Ālam) are an archipelago of small artificial islands constructed in the shape of a world map, located in the Persian Gulf, off the coast of Dubai, United Arab Emirates. The World Islands are composed mainly of sand dredged from Dubai's shallow coastal waters and are one of several artificial island developments in the emirate. The World's developer is Nakheel Properties. Construction was done by two Dutch joint-venture specialist companies, Van Oord and Boskalis, who also created the Palm Jumeirah.",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Artificial_Archipelagos%2C_Dubai%2C_United_Arab_Emirates_ISS022-E-024940_lrg_%28cropped_to_The_World%29.jpg/960px-Artificial_Archipelagos%2C_Dubai%2C_United_Arab_Emirates_ISS022-E-024940_lrg_%28cropped_to_The_World%29.jpg",
+    "image_file": "The_World_Islands_Dubai.jpg",
+    "wikidata_id": "Q270844",
+    "lat": 25.216667,
+    "lon": 55.166667,
+    "image_credits": {
+      "source": "Wikimedia Commons",
+      "credit": "Member of the Expedition 22 crew",
+      "license": "Public Domain",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Artificial_Archipelagos,_Dubai,_United_Arab_Emirates_ISS022-E-024940_lrg_(cropped_to_The_World).jpg"
     }
   },
   {
