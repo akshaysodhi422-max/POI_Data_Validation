@@ -5751,23 +5751,6 @@
   },
   {
     "enabled": true,
-    "title": "Skadar Lake National Park",
-    "country": "Montenegro",
-    "summary": "Lake Skadar or Lake Scutari (Albanian: Liqeni i Shkodrës, pronounced [liˈcɛni i ˈʃkɔdrəs]; Montenegrin: Скадарско језеро, Skadarsko jezero, pronounced [skâdarskɔː jɛ̂zɛrɔ]) – also called Lake Shkodra and Lake Shkodër – lies on the border of Albania and Montenegro, and is the largest lake in Southern Europe. It is named after the Albanian city of Shkodër which lies at its southeastern coast. It is a karst lake. The Montenegrin section of the lake and surrounding land have been designated as a national park, while the Albanian part constitutes a nature reserve and a Ramsar site.",
-    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Lago%20Skadar%2C%20Montenegro%2C%202014-04-14%2C%20DD%2002.JPG",
-    "image_file": "Lago_Skadar%2C_Montenegro%2C_2014-04-14%2C_DD_02.JPG",
-    "wikidata_id": "Q3364523",
-    "lat": 42.24,
-    "lon": 19.209722,
-    "image_credits": {
-      "source": "Wikimedia Commons",
-      "credit": "Diego Delso",
-      "license": "CC BY-SA 3.0",
-      "source_page": "https://commons.wikimedia.org/wiki/File:Lago%20Skadar%2C%20Montenegro%2C%202014-04-14%2C%20DD%2002.JPG"
-    }
-  },
-  {
-    "enabled": true,
     "title": "Sveti Stefan",
     "country": "Montenegro",
     "summary": "Sveti Stefan (Montenegrin and Serbian: Свети Стефан, pronounced [sv̞ê̞ːtiː stê̞faːn]; lit. 'Saint Stephen') is a town in Budva Municipality, on the Adriatic coast of Montenegro, approximately 6 kilometres (3.7 mi) southeast of Budva. The town is known for the Aman Sveti Stefan resort, a 5-star franchise of the international group of Aman Resorts. Sveti Stefan consists of a small island now connected to the mainland by a narrow tombolo and the mainland part, where most of the residents live.",
